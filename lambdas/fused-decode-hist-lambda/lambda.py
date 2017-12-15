@@ -12,6 +12,7 @@ from timeit import default_timer as now
 import json
 from collections import OrderedDict
 import math
+import time
 
 import os.path
 
@@ -30,6 +31,27 @@ MAX_PARALLEL_UPLOADS = 20
 DEFAULT_OUT_FOLDER = 'fused-decode-hist-output'
 
 OUTPUT_FILE_EXT = 'out'
+
+LOGS_BUCKET= 'video-lambda-logs'
+
+class TimeLog:
+  def __init__(self, enabled=True):
+    self.enabled = enabled
+    self.start = time.time()
+    self.prev = self.start
+    self.points = []
+    self.sizes = []
+
+  def add_point(self, title):
+    if not self.enabled:
+      return
+
+    now = time.time()
+    self.points += [(title, now - self.prev)]
+    self.prev = now
+    
+
+
 
 def list_output_files():
   fileExt = '.{0}'.format(OUTPUT_FILE_EXT)
@@ -80,6 +102,21 @@ def download_input_from_s3(bucketName, inputPrefix, startFrame):
   download_s3(s3BinName, binPath)
 
   return protoPath, binPath
+
+def upload_timelog(timelogger, reqid):
+  s3 = boto3.client('s3')
+  s3.put_object(
+    ACL='public-read',
+    Bucket=LOGS_BUCKET,
+    Key=reqid,
+    Body=str({'lambda': reqid,
+             'started': timelogger.start,
+             'timelog': timelogger.points}).encode('utf-8'),
+    StorageClass='REDUCED_REDUNDANCY')
+  print "wrote timelog"
+  return
+
+  
 
 def upload_output_to_s3(bucketName, filePrefix):
   print('Uploading files to s3: {:s}/{:s}'.format(bucketName, filePrefix))
@@ -135,9 +172,11 @@ def convert_to_output(protoPath, binPath):
 
 def handler(event, context):
   timelist = OrderedDict()
+  timelogger = TimeLog(enabled=True)
   start = now()
   ensure_clean_state()
   end = now()
+  timelogger.add_point("prepare decoder")
   print('Time to prepare decoder: {:.4f} s'.format(end - start))
   timelist["prepare-decoder"] = (end - start)
 
@@ -154,10 +193,6 @@ def handler(event, context):
     outputBucket = inputBucket + '-results'
   else:
     print('Warning: using default input bucket: {:s}'.format(inputBucket))
-  if 'outputBucket' in event:
-    outputBucket = event['outputBucket']
-  else:
-    print('Warning: using default output bucket: {:s}'.format(outputBucket))
   if 'inputPrefix' in event:
     inputPrefix = event['inputPrefix']
   else:
@@ -180,6 +215,7 @@ def handler(event, context):
   protoPath, binPath = download_input_from_s3(inputBucket, inputPrefix, 
                                               startFrame)
   end = now()
+  timelogger.add_point("download_inputs")
   print('Time to download input files: {:.4f} s'.format(end - start))
   timelist["download-input"] = (end - start)
 
@@ -190,6 +226,7 @@ def handler(event, context):
       if not convert_to_output(protoPath, binPath):
         raise Exception('Failed to process video chunk {:d}'.format(startFrame))
       end = now()
+      timelogger.add_point("decode and compute hist")
       print('Time to decode and compute hist: {:.4f} '.format(end - start))
       timelist["decode-hist"] = (end - start)
     finally:
@@ -206,6 +243,7 @@ def handler(event, context):
     fileCount, totalSize = upload_output_to_s3(outputBucket, outputPrefix)
     end = now()
     outputBatchSize = fileCount
+    timelogger.add_point("upload output")
     print('Time to upload output files: {:.4f} '.format(end - start))
     timelist["upload-output"] = (end - start)
 
@@ -214,10 +252,13 @@ def handler(event, context):
     if not DEFAULT_KEEP_OUTPUT:
       shutil.rmtree(TEMP_OUTPUT_DIR)
     end = now()
+    timelogger.add_point("clean output")
     print('Time to clean output files: {:.4f} '.format(end - start))
     timelist["clean-output"] = (end - start)
   
   timelist["output-batch"] = outputBatchSize
+
+  upload_timelog(timelogger, context.aws_request_id) 
 
   print 'Timelist:' + json.dumps(timelist)
   out = {
