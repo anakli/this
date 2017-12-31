@@ -5,4 +5,4 @@
 
 rm *.zip
 
-zip -9r fused_decode_hist.zip lambda.py redis __init__.py
+zip -9r fused_decode_hist.zip lambda.py redis ifcfg __init__.py
