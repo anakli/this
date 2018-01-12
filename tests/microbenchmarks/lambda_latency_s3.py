@@ -11,21 +11,21 @@ NUM_TRIALS = 100
 
 BUCKET="microbench-tests"
 
-def upload_s3(bucketName, localFilePath, uploadFileName):
+def upload_s3(bucketName, localFilePath, uploadFileName, req_size):
   s3 = boto3.client('s3')
+  data = open("/dev/urandom","rb").read(req_size)
   try:
-    with open(localFilePath, 'rb') as ifs:
-      s3.put_object(Body=ifs, Bucket=bucketName, Key=uploadFileName)
+    s3.put_object(Body=data, Bucket=bucketName, Key=uploadFileName)
   except botocore.exceptions.ClientError as e:
     print e
     raise
 
 def put_key(key):
-  data = open("/dev/urandom","rb").read(REQ_SIZE)
-  open("/tmp/" + key, "wb").write(data) 
+  #data = open("/dev/urandom","rb").read(REQ_SIZE)
+  #open("/tmp/" + key, "wb").write(data) 
 
   start_time = time.time()
-  upload_s3(BUCKET, "/tmp/" + key, key) 
+  upload_s3(BUCKET, "/tmp/" + key, key, REQ_SIZE) 
   end_time = time.time()
     
   elapsed_time = (end_time - start_time) * 1000

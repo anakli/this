@@ -20,8 +20,8 @@ from collections import OrderedDict
 import math
 import os.path
 
-REQ_SIZE = 1048576 # use 1MB for throughput tests
-NUM_TRIALS = 25
+REQ_SIZE = (1048576 * 100) # use 1MB for throughput tests
+NUM_TRIALS = 5
 REDIS_HOSTADDR_PRIV = "elasti8xl.e4lofi.0001.usw2.cache.amazonaws.com" #TODO: set to correct url
 LOGS_PATH="microbench-logs"
 BUCKET="microbench-tests"
@@ -85,11 +85,11 @@ def upload_avg_bytes(rxbytes_per_s, txbytes_per_s, timelogger, reqid):
       raise
   return
   
-def upload_s3(bucketName, localFilePath, uploadFileName):
+def upload_s3(bucketName, localFilePath, uploadFileName, req_size):
   s3 = boto3.client('s3')
+  data = open("/dev/urandom","rb").read(req_size)
   try:
-    with open(localFilePath, 'rb') as ifs:
-      s3.put_object(Body=ifs, Bucket=bucketName, Key=uploadFileName)
+    s3.put_object(Body=data, Bucket=bucketName, Key=uploadFileName)
   except botocore.exceptions.ClientError as e:
     print e
     raise
@@ -105,9 +105,8 @@ def download_s3(bucketName, s3Path, localPath):
       raise
 
 def put_key(key, req_size):
-  data = open("/dev/urandom","rb").read(req_size)
     
-  upload_s3(BUCKET, "/tmp/" + key, key) 
+  upload_s3(BUCKET, "/tmp/" + key, key, req_size) 
     
   return 
 
