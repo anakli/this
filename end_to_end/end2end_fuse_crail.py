@@ -34,6 +34,7 @@ logging.getLogger('boto3').setLevel(logging.WARNING)
 logging.getLogger('botocore').setLevel(logging.WARNING)
 
 LAMBDA_NAME = "fused-decode-hist-crail"
+CRAIL_HOME_PATH="/home/ec2-user/crail/crail-deployment/crail-1.0/"
 
 DEFAULT_KEEP_OUTPUT = False
 MAX_PARALLEL_UPLOADS = 20
@@ -122,8 +123,8 @@ def ensure_clean_state(socket, ticket, videoPath, batch, bucketName, prefix, arg
   #                                 batch, batch)):
   #  rclient.delete(obj)	
   #  fileCount += 1
-
-  print('Deleted {} files'.format(fileCount))
+  crail.delete(socket, videoPrefix, ticket)
+  print('Deleted {} files'.format(videoPrefix))
 
 
 # Upload all files with certain extension to a bucket
@@ -389,7 +390,7 @@ def start_fuse_pipeline(socket, ticket, videoPath, args):
 
 def main(args):
   print('Argument list: {}'.format(args))
-  crail.launch_dispatcher()
+  crail.launch_dispatcher(CRAIL_HOME_PATH)
   ticket = randint(1,10000)
 
   videoNum = args.video # video num

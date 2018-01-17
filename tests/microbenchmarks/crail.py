@@ -12,24 +12,39 @@ from subprocess import call, Popen
 
 PORT = 2345
 HOSTNAME = "localhost"
-CMD_GET = 1
 CMD_PUT = 0
+CMD_GET = 1
+CMD_DEL = 2
 
-def setup_env():
-  os.environ["CLASSPATH"] = """/var/task/jars/crail-client-1.0.jar:/var/task/crail-reflex-1.0.jar:
-			     /var/task/reflex-client-1.0-jar-with-dependencies.jar:
-                             /var/task/log4j.properties:/var/task/jars/crail-dispatcher-1.0.jar"""
-  os.environ["CRAIL_HOME"] = "/var/task/"
-  os.environ["JAVA_HOME"] = "/usr/lib/jvm/jre-1.8.0-openjdk.x86_64"
+def setup_dirs():
   call(["mkdir", "/tmp/hugepages"]) 
   call(["mkdir", "/tmp/hugepages/cache"]) 
   call(["mkdir", "/tmp/hugepages/data"]) 
+
+
+
+def setup_env(crail_home_path):
+  os.environ["JAVA_HOME"] = "/usr/lib/jvm/jre-1.8.0-openjdk.x86_64"
+  os.environ["CRAIL_HOME"] = crail_home_path
+  os.environ["CLASSPATH"] = crail_home_path + "jars/crail-client-1.0.jar:" + crail_home_path + \
+                             "jars/reflex-client-1.0-jar-with-dependencies.jar:" + crail_home_path + \
+                             "jars/log4j.properties:" + crail_home_path + "jars/crail-dispatcher-1.0.jar"
   return
 
+# call this from lambda environment (working directory is /var/task)
 def launch_dispatcher():
-  setup_env()
+  setup_env("/var/task/")
+  setup_dirs()
   Popen(["java", "-cp", "/var/task/jars/*", 
 	         "-Dlog4j.configuration=file:///var/task/conf/log4j.properties", 
+		 "com.ibm.crail.dispatcher.CrailDispatcher"])
+  return 
+
+# use this for customized CRAIL_HOME directory
+def launch_dispatcher(crail_home_path):
+  setup_env_(crail_home_path)
+  Popen(["java", "-cp", crail_home_path + "/jars/*", 
+	         "-Dlog4j.configuration=file://" + crail_home_path + "/conf/log4j.properties", 
 		 "com.ibm.crail.dispatcher.CrailDispatcher"])
   return 
 
@@ -62,8 +77,9 @@ def pack_msg(src_filename, dst_filename, ticket, cmd):
 
 def put(socket, src_filename, dst_filename, ticket):  
   '''
-  Send a PUT request to Crail 
+  Send a PUT request to Crail to write key
 
+  :param socket:           socket with established connection to crail dispatcher
   :param str src_filename: name of local file containing data to PUT
   :param str dst_filename: name of file/key in Crail which writing to
   :param int ticket:       value greater than 0, unique to each connection
@@ -79,8 +95,9 @@ def put(socket, src_filename, dst_filename, ticket):
  
 def get(socket, src_filename, dst_filename, ticket):  
   '''
-  Send a GET request to Crail 
+  Send a GET request to Crail to read key
 
+  :param socket:           socket with established connection to crail dispatcher
   :param str src_filename: name of file/key in Crail from which reading
   :param str dst_filename: name of local file where want to store data from GET
   :param int ticket:       value greater than 0, unique to each connection
@@ -93,3 +110,23 @@ def get(socket, src_filename, dst_filename, ticket):
 
   return data
 
+def delete(socket, src_filename, ticket):  
+  '''
+  Send a DEL request to Crail to delete key
+
+  :param socket:           socket with established connection to crail dispatcher
+  :param str src_filename: name of file/key in Crail which deleting
+  :param int ticket:       value greater than 0, unique to each connection
+  :return: the Crail dispatcher response 
+  '''
+  src_filename_len = len(src_filename)
+  msg_packer = struct.Struct("!iqhi" + str(src_filename_len) + "si")
+  msg_len = 2 + 4 + src_filename_len + 4 
+
+  msg = (msg_len, ticket, CMD_DEL, src_filename_len, src_filename, 0)
+  pkt = msg_packer.pack(*msg)
+
+  socket.sendall(pkt) 
+  data = socket.recv(4)
+
+  return data

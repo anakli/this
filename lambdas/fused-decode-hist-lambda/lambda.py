@@ -13,6 +13,9 @@ import json
 from collections import OrderedDict
 import math
 import time
+import redis
+import ifcfg
+import threading
 
 import os.path
 
@@ -32,7 +35,18 @@ DEFAULT_OUT_FOLDER = 'fused-decode-hist-output'
 
 OUTPUT_FILE_EXT = 'out'
 
-LOGS_BUCKET= 'video-lambda-logs'
+LOGS_PATH = 'video-lambda-logs'
+
+#REDIS_HOSTADDR_PRIV = '10.0.138.148'
+#REDIS_HOSTADDR_PRIV = '10.0.156.121'
+#REDIS_HOSTADDR_PRIV = 'elasti4xl.e4lofi.0001.usw2.cache.amazonaws.com'
+#REDIS_HOSTADDR_PRIV = 'elasti4xl.e4lofi.ng.0001.usw2.cache.amazonaws.com'
+#REDIS_HOSTADDR_PRIV = 'elasti-4xl.e4lofi.ng.0001.usw2.cache.amazonaws.com'
+REDIS_HOSTADDR_PRIV = 'elasti16xl.e4lofi.0001.usw2.cache.amazonaws.com'
+#REDIS_HOSTADDR_PRIV = 'elasti8xl.e4lofi.0001.usw2.cache.amazonaws.com'
+#REDIS_HOSTADDR_PRIV = 'elasticache2-4xl.e4lofi.clustercfg.usw2.cache.amazonaws.com'
+
+
 
 class TimeLog:
   def __init__(self, enabled=True):
@@ -51,7 +65,13 @@ class TimeLog:
     self.prev = now
     
 
-
+def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s):
+  SAMPLE_INTERVAL = 1.0
+  threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
+  rxbytes.append(int(ifcfg.default_interface()['rxbytes']))
+  txbytes.append(int(ifcfg.default_interface()['txbytes']))
+  rxbytes_per_s.append((rxbytes[-1] - rxbytes[-2])/SAMPLE_INTERVAL)
+  txbytes_per_s.append((txbytes[-1] - txbytes[-2])/SAMPLE_INTERVAL)
 
 def list_output_files():
   fileExt = '.{0}'.format(OUTPUT_FILE_EXT)
@@ -60,67 +80,59 @@ def list_output_files():
   ]
   return outputFiles
 
-# def get_mxnet_input(startFrame):
-#   data = []
-
-#   outputFiles = list_output_files()
-#   totalNum = len(outputFiles)
-#   currEnd = totalNum + startFrame
-#   for idx in xrange(startFrame, currEnd):
-#     fileName = 'frame{:d}.jpg'.format(idx)
-#     if fileName not in outputFiles:
-#       print('ERROR: Cannot find file: {:s}'.format(fileName))
-#       exit()
-#     filePath = os.path.join(TEMP_OUTPUT_DIR, fileName)
-#     with open(filePath, 'rb') as ifs:
-#       data.append(ifs.read())
-#   return data
-
-
-def download_input_from_s3(bucketName, inputPrefix, startFrame):
-  def download_s3(s3Path, localPath):
-    try:
-      s3.Bucket(bucketName).download_file(s3Path, localPath)
-    except botocore.exceptions.ClientError as e:
-      if e.response['Error']['Code'] == "404":
-        print("The object does not exist.")
-      else:
-        raise
-
+def download_input_from_redis(rclient, bucketName, inputPrefix, startFrame):
   protoFileName = 'decode_args{:d}.proto'.format(startFrame)
   binFileName = 'start_frame{:d}.bin'.format(startFrame)
   print('Downloading files {:s} and {:s} for batch {:d} \
-        from s3: {:s}/{:s}'.format(protoFileName, binFileName, startFrame, 
+        from Redis: {:s}/{:s}'.format(protoFileName, binFileName, startFrame, 
           bucketName, inputPrefix))
-  s3 = boto3.resource('s3')
-  s3ProtoName = inputPrefix + '/' + protoFileName
-  s3BinName = inputPrefix + '/' + binFileName
+  #rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
+  ProtoName = inputPrefix + '/' + protoFileName
+  BinName = inputPrefix + '/' + binFileName
   protoPath = LOCAL_INPUT_DIR + '/' + protoFileName
   binPath = LOCAL_INPUT_DIR + '/' + binFileName
+
+  obj = rclient.get(ProtoName)
+  if obj is None:
+    raise Exception("error: no such key!")
+  filename = protoPath
+  f = open(filename, 'wb')
+  f.write(obj)
+  f.close()
   
-  download_s3(s3ProtoName, protoPath)
-  download_s3(s3BinName, binPath)
+  obj = rclient.get(BinName)
+  if obj is None:
+    raise Exception("error: no such key!")
+  filename = binPath
+  f = open(filename, 'wb')
+  f.write(obj)
+  f.close()
 
   return protoPath, binPath
 
-def upload_timelog(timelogger, reqid):
-  s3 = boto3.client('s3')
-  s3.put_object(
-    ACL='public-read',
-    Bucket=LOGS_BUCKET,
-    Key=reqid,
-    Body=str({'lambda': reqid,
+def upload_timelog(rclient, timelogger, reqid):
+  #rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
+  logfile = LOGS_PATH + '/' + reqid
+  rclient.set(logfile, str({'lambda': reqid,
              'started': timelogger.start,
-             'timelog': timelogger.points}).encode('utf-8'),
-    StorageClass='REDUCED_REDUNDANCY')
+             'timelog': timelogger.points}).encode('utf-8'))
   print "wrote timelog"
   return
 
+def upload_net_bytes(rclient, rxbytes_per_s, txbytes_per_s, timelogger, reqid):
+  #rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
+  netstats = LOGS_PATH + '/netstats-' + reqid 
+  rclient.set(netstats, str({'lambda': reqid,
+             'started': timelogger.start,
+             'rx': rxbytes_per_s,
+             'tx': txbytes_per_s}).encode('utf-8'))
+  print "wrote netstats"
+  return
   
 
-def upload_output_to_s3(bucketName, filePrefix):
-  print('Uploading files to s3: {:s}/{:s}'.format(bucketName, filePrefix))
-  s3 = boto3.client('s3')
+def upload_output_to_redis(rclient, bucketName, filePrefix):
+  print('Uploading files to Redis: {:s}/{:s}'.format(bucketName, filePrefix))
+  #rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
 
   outputFiles = list_output_files()
   assert(len(outputFiles) == 1) # only one output file!
@@ -130,8 +142,9 @@ def upload_output_to_s3(bucketName, filePrefix):
   fileSize = os.path.getsize(localFilePath)
   try:
     with open(localFilePath, 'rb') as ifs:
-      s3.put_object(Body=ifs, Bucket=bucketName, Key=uploadFileName, 
-                  StorageClass='REDUCED_REDUNDANCY')
+      data = ifs.read()
+      ifs.close()
+      rclient.set(uploadFileName, data)
   except botocore.exceptions.ClientError as e:
     print e
     raise
@@ -140,7 +153,7 @@ def upload_output_to_s3(bucketName, filePrefix):
   return (fileCount, fileSize)
 
 
-def ensure_clean_state():
+def ensure_clean_state(rclient):
   if os.path.exists(TEMP_OUTPUT_DIR):
     shutil.rmtree(TEMP_OUTPUT_DIR)
   if not os.path.exists(TEMP_OUTPUT_DIR):
@@ -152,9 +165,18 @@ def ensure_clean_state():
 
   if os.path.exists(DECODER_PATH):
     os.remove(DECODER_PATH)
-  # shutil.copy('DecoderAutomataCmd-static', DECODER_PATH)
-  urlretrieve("https://s3-us-west-2.amazonaws.com/mxnet-params/FusedDecodeHist-static", DECODER_PATH)
+  # store decoder binary in redis too
+  #urlretrieve("https://s3-us-west-2.amazonaws.com/mxnet-params/FusedDecodeHist-static", DECODER_PATH)
+  #rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
+  obj = rclient.get("FusedDecodeHist-static")
+  if obj is None:
+    raise Exception("error: no such key!")
+  filename = DECODER_PATH
+  f = open(filename, 'wb')
+  f.write(obj)
+  f.close()
   os.chmod(DECODER_PATH, 0o755)
+  
 
 def convert_to_output(protoPath, binPath):
   assert(os.path.exists(TEMP_OUTPUT_DIR))
@@ -173,8 +195,19 @@ def convert_to_output(protoPath, binPath):
 def handler(event, context):
   timelist = OrderedDict()
   timelogger = TimeLog(enabled=True)
+
+  iface = ifcfg.default_interface()
+  rxbytes = [int(iface['rxbytes'])]
+  txbytes = [int(iface['txbytes'])]
+  rxbytes_per_s = []
+  txbytes_per_s = []
+  get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s)  
+  
+  #TODO: add new timelog entry for connection setup
+  rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
+  
   start = now()
-  ensure_clean_state()
+  ensure_clean_state(rclient)
   end = now()
   timelogger.add_point("prepare decoder")
   print('Time to prepare decoder: {:.4f} s'.format(end - start))
@@ -212,7 +245,7 @@ def handler(event, context):
                                                 outputBatchSize)
 
   start = now()
-  protoPath, binPath = download_input_from_s3(inputBucket, inputPrefix, 
+  protoPath, binPath = download_input_from_redis(rclient, inputBucket, inputPrefix, 
                                               startFrame)
   end = now()
   timelogger.add_point("download_inputs")
@@ -240,7 +273,7 @@ def handler(event, context):
     # timelist["combine-output"] = (end - start)
 
     start = now()
-    fileCount, totalSize = upload_output_to_s3(outputBucket, outputPrefix)
+    fileCount, totalSize = upload_output_to_redis(rclient, outputBucket, outputPrefix)
     end = now()
     outputBatchSize = fileCount
     timelogger.add_point("upload output")
@@ -258,7 +291,8 @@ def handler(event, context):
   
   timelist["output-batch"] = outputBatchSize
 
-  upload_timelog(timelogger, context.aws_request_id) 
+  upload_timelog(rclient, timelogger, context.aws_request_id) 
+  upload_net_bytes(rclient, rxbytes_per_s, txbytes_per_s, timelogger, context.aws_request_id)
 
   print 'Timelist:' + json.dumps(timelist)
   out = {
