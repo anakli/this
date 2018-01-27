@@ -160,7 +160,7 @@ x = 0.0
 ## Last datafile plotted: "timing_data"
 plot "timing_data" using 2 t "" lc rgb "white", \
                 "" using 3 t "" lc rgb "#377eb8", \
-                "" using 4 t "" lc rgb "#377eb8", \
+                "" using 4 t "Connect to dispatcher" lc rgb "#FFA500", \
                 "" using 5 t "Fetching dependencies" lc rgb "#377eb8", \
                 "" using 6 t "Executing the thunk" lc rgb "#4daf4a", \
                 "" using 7 t "" lc rgb "#e41a1c", \
