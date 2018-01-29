@@ -3,13 +3,13 @@ import matplotlib.pyplot as plt
 import matplotlib.style
 
 plt.style.use('default')
-plt.rcParams.update({'font.size': 22})
+plt.rcParams.update({'font.size': 24})
+plt.rcParams['errorbar.capsize'] = 2
 
-#N = 3
-N = 4
+N = 3
 
 
-redis_put_times = [190, 200, 240, 250, 260, 260] 
+redis_put_times = [190, 250, 240, 270, 260, 260] 
 redis_get_times = [190, 200, 240, 250, 260, 260] 
 
 # 3shard 0 replica c4.8xlarge
@@ -67,8 +67,8 @@ getkey_skipdir_crail = np.mean(crail_getkey_skipdir_times)
 #puts = (put_s3, put_redis, put_crail, putkey_skipdir_crail)
 #gets = (get_s3, get_redis, get_crail, getkey_skipdir_crail)
 
-puts = (s3_put_times, redis_put_times, crail_put_times, crail_putkey_skipdir_times)
-gets = (s3_get_times, redis_get_times, crail_get_times, crail_getkey_skipdir_times)
+puts = (s3_put_times, redis_put_times, crail_putkey_skipdir_times)
+gets = (s3_get_times, redis_get_times, crail_getkey_skipdir_times)
 #puts = (put_s3, put_redis, put_crail)
 #gets = (get_s3, get_redis, get_crail)
 #puts_std = [np.std(i) for i in puts]
@@ -78,9 +78,21 @@ gets_p10 = [np.mean(i) - np.percentile(i,10) for i in gets]
 puts_p90 = [np.percentile(i,90) - np.mean(i) for i in puts]
 gets_p90 = [np.percentile(i,90) - np.mean(i) for i in gets]
 
-puts = (put_s3, put_redis, put_crail, putkey_skipdir_crail)
-gets = (get_s3, get_redis, get_crail, getkey_skipdir_crail)
+puts = (put_s3, put_redis, putkey_skipdir_crail)
+gets = (get_s3, get_redis, getkey_skipdir_crail)
 
+ccrail_put_times = (s3_put_times, redis_put_times, crail_put_times)
+ccrail_get_times = (s3_get_times, redis_get_times, crail_get_times)
+
+cputs = (s3_put_times, redis_put_times, crail_putkey_skipdir_times)
+cgets = (s3_get_times, redis_get_times, crail_getkey_skipdir_times)
+cputs_p10 = [np.mean(i) - np.percentile(i,10) for i in ccrail_put_times]
+cgets_p10 = [np.mean(i) - np.percentile(i,10) for i in ccrail_get_times]
+cputs_p90 = [np.percentile(i,90) - np.mean(i) for i in ccrail_put_times]
+cgets_p90 = [np.percentile(i,90) - np.mean(i) for i in ccrail_get_times]
+
+cputs = (put_s3, put_redis, put_crail)
+cgets = (get_s3, get_redis, get_crail)
 #puts_std = (np.std(s3_put_times), np.std(redis_put_times), np.std(crail_put_times))
 #gets_std = (np.std(s3_get_times), np.std(redis_get_times), np.std(crail_get_times))
 
@@ -96,6 +108,9 @@ width = 0.35
 print puts_p10
 print puts_p90
 
+delta_puts = tuple(map(lambda x, y: x - y, cputs, puts))
+delta_gets = tuple(map(lambda x, y: x - y, cgets, gets))
+
 #fig, ax = plt.subplots()
 fig, (ax,ax2) = plt.subplots(2, 1,figsize=(15,8) ,sharex=True)
 #rects1 = ax.bar(ind, puts, width, color = 'b', yerr=puts_std)
@@ -107,8 +122,10 @@ rects2 = ax.bar(ind + width, gets, width, yerr=np.vstack([gets_p10, gets_p90]))
 #rects2 = ax2.bar(ind + width, gets, width, color = 'g', yerr=gets_std)
 rects1 = ax2.bar(ind, puts, width, yerr=np.vstack([puts_p10, puts_p90]))
 rects2 = ax2.bar(ind + width, gets, width, yerr=np.vstack([gets_p10, gets_p90]))
+rects3 = ax2.bar(ind, delta_puts, width, yerr=np.vstack([cputs_p10, cputs_p90]), bottom=puts, color='lightgray')
+rects4 = ax2.bar(ind + width, delta_gets, width, yerr=np.vstack([cgets_p10, cgets_p90]), bottom=gets, color='lightgray')
 # add some text for labels, title and axes ticks
-ax2.set_ylim(0,4000)
+ax2.set_ylim(0,2000)
 ax.set_ylim(10000,40000)
 #ax.set_ylim(40000,140000)
 
@@ -120,7 +137,7 @@ ax.set_ylabel('Latency (us)')
 ax.set_title('Unloaded latency for 1KB requests')
 ax.set_xticks(ind + width / 2)
 #ax.set_xticklabels(('S3', 'Redis', 'Crail-ReFlex'))
-ax.set_xticklabels(('S3', 'Redis', 'Crail-ReFlex python', 'Crail-ReFlex iobench'))
+ax.set_xticklabels(('S3', 'Redis', 'Crail-ReFlex'))
 
 ax.legend((rects1[0], rects2[0]), ('PUT', 'GET'))
 
@@ -131,15 +148,24 @@ def autolabel(rects):
     """
     for rect in rects:
         height = rect.get_height()
-        ax.text(rect.get_x() + rect.get_width()/2., 1.05*height,
+        ax.text(rect.get_x() + rect.get_width()/2., 1.02*height,
                 '%d' % int(height),
                 ha='center', va='bottom')
-        ax2.text(rect.get_x() + rect.get_width()/2., 1.05*height,
+        ax2.text(rect.get_x() + rect.get_width()/2., 1.02*height,
                 '%d' % int(height),
                 ha='center', va='bottom')
 
+plt.rcParams.update({'font.size': 18})
 autolabel(rects1)
 autolabel(rects2)
+height = put_crail
+ax2.text(rects3[2].get_x() + rects3[2].get_width()/2., 1.12*height,
+                '%d' % int(height),
+                ha='center', va='bottom')
+height = get_crail
+ax2.text(rects4[2].get_x() + rects4[2].get_width()/2., 1.12*height,
+                '%d' % int(height),
+                ha='center', va='bottom')
 
 fig.savefig("latency1KB.pdf")
 plt.show()
