@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 N = 3
 
 plt.rcParams.update({'font.size': 22})
+plt.rcParams['errorbar.capsize'] = 2
 
 
 # with 1MB requests
@@ -20,7 +21,6 @@ s3_getobject_100KB = [58.4, 39.5, 48.3, 48.8 ]
 s3_put_1MB = [74,78,74,76,79, 65, 67, 81, 76, 80, 81 , 87, 75] #Mb/s
 #s3_get_1MB = [145,86,119,117,129] # Mb/s
 s3_getobject_1MB = [227,340,432, 394, 348, 351, 279, 336] # Mb/s
-
 
 s3_put_10MB = [152, 140 , 165, 140, 120, 130, 147, 158, 172, 146, 163, 169] #Mb/s
 #s3_getdownload_10MB = [463, 450, 460, 490] # Mb/s
@@ -60,20 +60,21 @@ redis_get_100KB = [615,609, 719, 748,655 ] # Mb/s
 redis_put_1MB = [645, 646, 550, 618, 618 ] #Mb/s
 redis_get_1MB = [655, 655, 552, 623, 623] # Mb/s
 
-redis_put_10MB = [650, 494, 493, 648 ] #Mb/s #FIXME: placeholder
-redis_get_10MB = [650, 500, 493, 728] # Mb/s #FIXME: placeholder
+redis_put_10MB = [650, 594, 593, 648 ] #Mb/s #FIXME: placeholder
+redis_get_10MB = [650, 500, 593, 728] # Mb/s #FIXME: placeholder
 
-redis_put_100MB = [499, 599, 494, 680] #Mb/s
-redis_get_100MB = [501, 561, 501,690 ] # Mb/s
+redis_put_100MB = [549, 599, 494, 680] #Mb/s
+redis_get_100MB = [551, 561, 551, 690 ] # Mb/s
 
 #redis_put_1GB = [] #TTL exhausted error #Mb/s
 #redis_get_1GB = [] # Mb/s
 
-crail_put_1KB = [5, 5.05, 5.1 ] #5000 trials
-crail_get_1KB = [18.3, 17.8, 18.9]
+#crail_put_1KB = [5, 5.05, 5.1 ] #5000 trials
+crail_put_1KB = [11.9, 12, 11.5, 11.6, 11.5] #with nodelay #5000 trials
+crail_get_1KB = [18.3, 17.8, 18.9, 15.6, 14.9]
 
-crail_put_10KB = [108,96, 105 ]
-crail_get_10KB = [132,126, 134]
+crail_put_10KB = [108,96, 105, 83 ]
+crail_get_10KB = [132,126, 134, 96 ]
 
 crail_put_100KB = [637,632, 632, 635, 664]
 crail_get_100KB = [653, 653, 657, 643, 656]
@@ -122,15 +123,19 @@ crail_gets_p90 = [np.percentile(i,90) - np.mean(i) for i in crail_gets]
 
 
 #fig, ax = plt.figure()
-fig, ax = plt.subplots(1,1)
-s3_get = ax.errorbar(x, s3_gets_mean, yerr=[s3_gets_p10, s3_gets_p90])
-s3_put = ax.errorbar(x, s3_puts_mean, yerr=[s3_puts_p10, s3_puts_p90])
-redis_get = ax.errorbar(x, redis_gets_mean, yerr=np.vstack([redis_gets_p10, redis_gets_p90]))
-crail_get = ax.errorbar(x, crail_gets_mean, yerr=np.vstack([crail_gets_p10, crail_gets_p90]))
+fig, ax = plt.subplots(1,1, figsize=(15,8))
+s3_get = ax.errorbar(x, s3_gets_mean, yerr=[s3_gets_p10, s3_gets_p90], fmt='ro-')
+s3_put = ax.errorbar(x, s3_puts_mean, yerr=[s3_puts_p10, s3_puts_p90], fmt='ro--')
+redis_get = ax.errorbar(x, redis_gets_mean, yerr=np.vstack([redis_gets_p10, redis_gets_p90]), fmt='bx-')
+redis_put = ax.errorbar(x, redis_puts_mean, yerr=np.vstack([redis_puts_p10, redis_puts_p90]), fmt='bx--')
+crail_get = ax.errorbar(x, crail_gets_mean, yerr=np.vstack([crail_gets_p10, crail_gets_p90]), fmt='d-', color='orange')
+crail_put = ax.errorbar(x, crail_puts_mean, yerr=np.vstack([crail_puts_p10, crail_puts_p90]), fmt='d--', color='orange')
 ax.set_xscale("log", nonposx='clip')
-ax.legend((s3_get, s3_put, redis_get, crail_get), ('S3 GET', 'S3 PUT', 'Redis GET', 'Crail-ReFlex GET'), loc='upper left')
+ax.legend((s3_get, s3_put, redis_get, redis_put, crail_get, crail_put), 
+	('S3 GET', 'S3 PUT', 'Redis GET', 'RedisPUT', 'Crail-ReFlex GET', 'Crail-ReFlex PUT'), loc='upper left', fontsize='19')
 ax.set_ylabel('Mb/s')
 ax.set_xlabel('I/O size (bytes)')
+fig.savefig("throughput-iosize-1lambda.pdf")
 plt.show()
 exit(0)
 
