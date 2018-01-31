@@ -21,9 +21,9 @@ gg_openssh_total= gg_openssh_fetch + gg_openssh_compute + gg_openssh_upload
 
 #~2000 lambdas (but this is for 100 at at time)
 #FIXME: compare 100max to 1000max lambda exec!
-gg_cmake_fetch = 278
-gg_cmake_compute = 460
-gg_cmake_upload = 371
+gg_cmake_fetch = 278.
+gg_cmake_compute = 460.
+gg_cmake_upload = 371.
 gg_cmake_total = gg_cmake_fetch + gg_cmake_compute + gg_cmake_upload
 
 
@@ -34,16 +34,22 @@ totals = [gg_mosh_total, gg_openssh_total, gg_cmake_total]
 fetch = [gg_mosh_fetch, gg_openssh_fetch, gg_cmake_fetch]
 compute = [gg_mosh_compute, gg_openssh_compute, gg_cmake_compute]
 upload = [gg_mosh_upload, gg_openssh_upload, gg_cmake_upload]
-fetch_p = [i / j * 100 for i,j in zip(fetch, totals)]
-compute_p = [i / j * 100 for i,j in zip(compute, totals)]
-upload_p = [i / j * 100 for i,j in zip(upload, totals)]
+fetch_p = [ (i / j) * 100. for i,j in zip(fetch, totals)]
+compute_p = [ (i / j) * 100. for i,j in zip(compute, totals)]
+upload_p = [ (i / j) * 100. for i,j in zip(upload, totals)]
 
-plt.bar(r, fetch_p, edgecolor='white',width=barWidth) 
-plt.bar(r, compute_p, bottom=fetch_p, edgecolor='white',width=barWidth) 
-plt.bar(r, upload_p, bottom=[i+j for i,j in zip(fetch_p, compute_p)],edgecolor='white',width=barWidth) 
+fig, ax = plt.subplots(1,1, figsize=(15,8))
+f = ax.bar(r, fetch_p, edgecolor='white',width=barWidth) 
+u = ax.bar(r, upload_p, bottom=fetch_p, edgecolor='white',width=barWidth) 
+c = ax.bar(r, compute_p, bottom=[i+j for i,j in zip(fetch_p, upload_p)],edgecolor='white',width=barWidth) 
 
-plt.xticks(r,names)
-plt.ylabel("% of total Lambda worker time")
+ax.set_xticklabels(("", names[0], "", names[1], "", names[2] ))
+ax.set_ylim(0,120)
+ax.set_ylabel("% of total time")
+
+ax.legend((f, u, c), ("Fetch deps", "Upload results", "Compute") , loc='upper center', ncol=3, mode="expand", borderaxespad=0.)
+
+fig.savefig("app_breakdown_s3.pdf")
 plt.show()
 exit(0)
 
@@ -59,13 +65,6 @@ video3_4k_batch50_fetch = 47
 video3_4k_batch50_compute = 653
 video3_4k_batch50_upload = 13
 video3_4k_batch50_total = video3_4k_batch50_fetch_decoder + video3_4k_batch50_fetch + video3_4k_batch50_compute + video3_4k_batch50_upload
-
-
-Total fetch decoder time: 289.498018503
-Total fetch time: 47.3604879379
-Total exec time: 653.193216562
-Total upload time: 12.8458476067
-
 
 
 
