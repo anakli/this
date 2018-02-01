@@ -20,8 +20,8 @@ from collections import OrderedDict
 import math
 import os.path
 
-REQ_SIZE = (1048576 * 100) # use 1MB for throughput tests
-NUM_TRIALS = 5
+REQ_SIZE = 1048576 # use 1MB for throughput tests
+NUM_TRIALS = 1000
 REDIS_HOSTADDR_PRIV = "elasti8xl.e4lofi.0001.usw2.cache.amazonaws.com" #TODO: set to correct url
 LOGS_PATH="microbench-logs"
 BUCKET="microbench-tests"
@@ -51,7 +51,6 @@ def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s):
   txbytes_per_s.append((txbytes[-1] - txbytes[-2])/SAMPLE_INTERVAL)
 
 def upload_net_bytes(rxbytes_per_s, txbytes_per_s, timelogger, reqid):
-  #rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
   netstats = LOGS_PATH + '/netstats-' + reqid 
   s3 = boto3.client('s3')
   try:
@@ -85,17 +84,14 @@ def upload_avg_bytes(rxbytes_per_s, txbytes_per_s, timelogger, reqid):
       raise
   return
   
-def upload_s3(bucketName, localFilePath, uploadFileName, req_size):
-  s3 = boto3.client('s3')
-  data = open("/dev/urandom","rb").read(req_size)
+def upload_s3(s3, bucketName, localFilePath, uploadFileName, req_size, data):
   try:
     s3.put_object(Body=data, Bucket=bucketName, Key=uploadFileName)
   except botocore.exceptions.ClientError as e:
     print e
     raise
 
-def download_s3(bucketName, s3Path, localPath):
-  s3 = boto3.resource('s3')
+def download_s3(s3, bucketName, s3Path, localPath):
   try:
     s3.Bucket(bucketName).download_file(s3Path, localPath)
   except botocore.exceptions.ClientError as e:
@@ -104,16 +100,31 @@ def download_s3(bucketName, s3Path, localPath):
     else:
       raise
 
-def put_key(key, req_size):
+def get_s3(s3, bucketName, s3Path):
+  obj = s3.get_object(Bucket=bucketName, Key=s3Path)
+
+  fileobj = obj['Body']
+  blocksize = 1024*1024
+  bytes_read = 0
+  buf = fileobj.read(blocksize)
+  while len(buf) > 0:
+    bytes_read += len(buf)
+    #m.update(buf)
+    buf = fileobj.read(blocksize)
+
+
+def put_key(s3, key, req_size, data):
     
-  upload_s3(BUCKET, "/tmp/" + key, key, req_size) 
-    
+  upload_s3(s3, BUCKET, "/tmp/" + key, key, req_size, data) 
+  
   return 
 
-def get_key(key):
+def get_key(s3, key):
     
-  download_s3(BUCKET, key, "/tmp/" + key) 
-    
+  #download_s3(s3, BUCKET, key, "/tmp/" + key) 
+  #os.remove("/tmp/" + key)
+  get_s3(s3, BUCKET, key) 
+   
   return 
 
 def handler(event, context):
@@ -140,17 +151,20 @@ def handler(event, context):
 
   txbytes_init = int(ifcfg.default_interface()['txbytes'])
   start_time = time.time()
+  data = open("/dev/urandom","rb").read(req_size)
+  s3 = boto3.client('s3')
   for i in xrange(num_trials):
-    put_key("key" + str(context.aws_request_id) + str(i), req_size)
+    put_key(s3, "key" + str(context.aws_request_id) + str(i), req_size, data)
   end_time = time.time()
   txbytes_delta = int(ifcfg.default_interface()['txbytes']) - txbytes_init
   txbytes_throughput = (txbytes_delta * 8 / (end_time - start_time)) / 1e9
   put_throughput = ((num_trials * req_size * 8) / (end_time - start_time)) / 1e9
   
   rxbytes_init = int(ifcfg.default_interface()['rxbytes'])
+  #s3 = boto3.resource('s3')
   start_time = time.time()
   for i in xrange(num_trials):
-    get_key("key" + str(context.aws_request_id) + str(i))
+    get_key(s3, "key" + str(context.aws_request_id) + str(i))
    
   end_time = time.time()
   get_throughput = ((num_trials * req_size * 8) / (end_time - start_time)) / 1e9
