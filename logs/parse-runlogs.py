@@ -14,6 +14,9 @@ for logfile in os.listdir(datadir):
     if "netstats" in logfile:
         continue
 
+    if "sizelogs" in logfile:
+        continue
+
     #with open(logfile, "r") as log:
     with open(path, "r") as log:
         data = eval(log.read())
