@@ -1,4 +1,4 @@
-## Simple lambda microbenchmark for unloaded latency tests
+## Simple lambda microbenchmark for throughput tests
 
 import time
 import sys
@@ -21,8 +21,8 @@ from collections import OrderedDict
 import math
 import os.path
 
-REQ_SIZE = 1048576 # use 1MB for throughput tests
-NUM_TRIALS = 25
+REQ_SIZE = (1048576) # use 1MB for throughput tests
+NUM_TRIALS = 1000
 REDIS_HOSTADDR_PRIV = "elasti8xl.e4lofi.0001.usw2.cache.amazonaws.com" #TODO: set to correct url
 LOGS_PATH="microbench-logs"
 
@@ -62,7 +62,6 @@ def upload_net_bytes(rclient, rxbytes_per_s, txbytes_per_s, timelogger, reqid):
   return
 
 def upload_avg_bytes(rclient, rxbytes_per_s, txbytes_per_s, timelogger, reqid):
-  #rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
   netstats = LOGS_PATH + '/netstats-' + reqid 
   rclient.set(netstats, str({'lambda': reqid,
              'started': timelogger.start,
@@ -71,9 +70,7 @@ def upload_avg_bytes(rclient, rxbytes_per_s, txbytes_per_s, timelogger, reqid):
              'ended': time.time()}).encode('utf-8'))
   return
   
-def put_key(rclient, key, req_size):
-  data = open("/dev/urandom","rb").read(req_size)
-  #rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
+def put_key(rclient, key, data):
     
   rclient.set(key, data) 
     
@@ -102,16 +99,16 @@ def handler(event, context):
   txbytes = [int(iface['txbytes'])]
   rxbytes_per_s = []
   txbytes_per_s = []
-  #get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s)  
   
   put_times = []
   get_times = []
   rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
 
   txbytes_init = int(ifcfg.default_interface()['txbytes'])
+  data = open("/dev/urandom","rb").read(req_size)
   start_time = time.time()
   for i in xrange(num_trials):
-    put_key(rclient, "key" + str(context.aws_request_id) + str(i), req_size)
+    put_key(rclient, "key" + str(context.aws_request_id) + str(i), data)
   end_time = time.time()
   txbytes_delta = int(ifcfg.default_interface()['txbytes']) - txbytes_init
   txbytes_throughput = (txbytes_delta * 8 / (end_time - start_time)) / 1e9
@@ -121,7 +118,6 @@ def handler(event, context):
   start_time = time.time()
   for i in xrange(num_trials):
     get_key(rclient, "key" + str(context.aws_request_id) + str(i))
-   
   end_time = time.time()
   get_throughput = ((num_trials * req_size * 8) / (end_time - start_time)) / 1e9
   

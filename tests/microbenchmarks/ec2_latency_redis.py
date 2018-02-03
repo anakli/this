@@ -10,7 +10,6 @@ NUM_TRIALS = 1000
 REDIS_HOSTADDR_PRIV = "elasti8xl.e4lofi.0001.usw2.cache.amazonaws.com" #TODO: set to correct url
 
 
-
 def put_key(rclient, key, data):
     
   start_time = time.time()
@@ -31,17 +30,19 @@ def get_key(rclient, key):
   #print "Elapsed GET: %d us" % elapsed_time
   return elapsed_time
 
-def handler(event, context):
+def main():
   put_times = []
   get_times = []
   rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
   data = open("/dev/urandom","rb").read(REQ_SIZE)
   for i in xrange(NUM_TRIALS):
     elapsed_time = put_key(rclient, "key" + str(i), data)
-    put_times.append(elapsed_time)
+    if i > 2:
+      put_times.append(elapsed_time)
   for i in xrange(NUM_TRIALS):
     elapsed_time = get_key(rclient, "key" + str(i))
-    get_times.append(elapsed_time)
+    if i > 2:
+      get_times.append(elapsed_time)
    
   avg_put_time = sum(put_times) / float(len(put_times))
   #p10_put_time = np.percentile(put_times, 10)
@@ -54,10 +55,13 @@ def handler(event, context):
   print("PUT 1KB: avg=%dus \n GET 1KB: avg=%dus" % (
         avg_put_time, avg_get_time))
 
-  print "PUT:", put_times
-  print "GET:", get_times
+  #print "PUT:", put_times
+  #print "GET:", get_times
   return {
     "message": 
       "PUT 1KB: avg=%dus \n GET 1KB: avg=%dus" % (
         avg_put_time, avg_get_time)
     }
+
+if __name__ == "__main__":
+  main()
