@@ -13,6 +13,8 @@ import json
 from collections import OrderedDict
 import math
 import time
+import ifcfg
+import threading
 
 import os.path
 
@@ -51,8 +53,15 @@ class TimeLog:
     self.prev = now
     
 
+def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s):
+  SAMPLE_INTERVAL = 1.0
+  threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
+  rxbytes.append(int(ifcfg.default_interface()['rxbytes']))
+  txbytes.append(int(ifcfg.default_interface()['txbytes']))
+  rxbytes_per_s.append((rxbytes[-1] - rxbytes[-2])/SAMPLE_INTERVAL)
+  txbytes_per_s.append((txbytes[-1] - txbytes[-2])/SAMPLE_INTERVAL)
 
-
+  
 def list_output_files():
   fileExt = '.{0}'.format(OUTPUT_FILE_EXT)
   outputFiles = [
@@ -116,7 +125,19 @@ def upload_timelog(timelogger, reqid):
   print "wrote timelog"
   return
 
-  
+def upload_net_bytes(rxbytes_per_s, txbytes_per_s, timelogger, reqid):
+  s3 = boto3.client('s3')
+  s3.put_object(
+    ACL='public-read',
+    Bucket=LOGS_BUCKET+"-netstats",
+    Key=reqid,
+    Body=str({'lambda': reqid,
+             'started': timelogger.start,
+             'rx': rxbytes_per_s,
+             'tx': txbytes_per_s}).encode('utf-8'),
+    StorageClass='REDUCED_REDUNDANCY')
+  print "wrote netstats"
+  return
 
 def upload_output_to_s3(bucketName, filePrefix):
   print('Uploading files to s3: {:s}/{:s}'.format(bucketName, filePrefix))
@@ -173,6 +194,14 @@ def convert_to_output(protoPath, binPath):
 def handler(event, context):
   timelist = OrderedDict()
   timelogger = TimeLog(enabled=True)
+
+  iface = ifcfg.default_interface()
+  rxbytes = [int(iface['rxbytes'])]
+  txbytes = [int(iface['txbytes'])]
+  rxbytes_per_s = []
+  txbytes_per_s = []
+  get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s)  
+
   start = now()
   ensure_clean_state()
   end = now()
@@ -259,6 +288,7 @@ def handler(event, context):
   timelist["output-batch"] = outputBatchSize
 
   upload_timelog(timelogger, context.aws_request_id) 
+  upload_net_bytes(rxbytes_per_s, txbytes_per_s, timelogger, context.aws_request_id)
 
   print 'Timelist:' + json.dumps(timelist)
   out = {

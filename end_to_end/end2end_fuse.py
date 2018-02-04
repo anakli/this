@@ -200,8 +200,11 @@ def invoke_lambdas(numFrames, args):
   bar.start()
   global lambdaCount
   lambdaCount = 0
-  pool = ThreadPool(MAX_PARALLEL_UPLOADS)
-  sema = Semaphore(MAX_PARALLEL_UPLOADS)
+  num_parallelism = numFrames/batch + 1
+  pool = ThreadPool(num_parallelism)
+  sema = Semaphore(num_parallelism)
+  #pool = ThreadPool(MAX_PARALLEL_UPLOADS)
+  #sema = Semaphore(MAX_PARALLEL_UPLOADS)
   countLock = Lock()
   results = []
 
@@ -240,7 +243,8 @@ def invoke_lambdas(numFrames, args):
   for result in results:
     result.get()
 
-  for _ in xrange(MAX_PARALLEL_UPLOADS):
+  #for _ in xrange(MAX_PARALLEL_UPLOADS):
+  for _ in xrange(num_parallelism):
     sema.acquire()
   bar.finish()
 

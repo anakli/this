@@ -42,11 +42,9 @@ LOGS_PATH = 'video-lambda-logs'
 #REDIS_HOSTADDR_PRIV = 'elasti4xl.e4lofi.0001.usw2.cache.amazonaws.com'
 #REDIS_HOSTADDR_PRIV = 'elasti4xl.e4lofi.ng.0001.usw2.cache.amazonaws.com'
 #REDIS_HOSTADDR_PRIV = 'elasti-4xl.e4lofi.ng.0001.usw2.cache.amazonaws.com'
-REDIS_HOSTADDR_PRIV = 'elasti16xl.e4lofi.0001.usw2.cache.amazonaws.com'
-#REDIS_HOSTADDR_PRIV = 'elasti8xl.e4lofi.0001.usw2.cache.amazonaws.com'
+#REDIS_HOSTADDR_PRIV = 'elasti16xl.e4lofi.0001.usw2.cache.amazonaws.com'
+REDIS_HOSTADDR_PRIV = 'elasti8xl.e4lofi.0001.usw2.cache.amazonaws.com'
 #REDIS_HOSTADDR_PRIV = 'elasticache2-4xl.e4lofi.clustercfg.usw2.cache.amazonaws.com'
-
-
 
 class TimeLog:
   def __init__(self, enabled=True):
