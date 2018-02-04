@@ -42,9 +42,11 @@ LOGS_PATH = 'video-lambda-logs'
 #REDIS_HOSTADDR_PRIV = 'elasti4xl.e4lofi.0001.usw2.cache.amazonaws.com'
 #REDIS_HOSTADDR_PRIV = 'elasti4xl.e4lofi.ng.0001.usw2.cache.amazonaws.com'
 #REDIS_HOSTADDR_PRIV = 'elasti-4xl.e4lofi.ng.0001.usw2.cache.amazonaws.com'
-#REDIS_HOSTADDR_PRIV = 'elasti16xl.e4lofi.0001.usw2.cache.amazonaws.com'
-REDIS_HOSTADDR_PRIV = 'elasti8xl.e4lofi.0001.usw2.cache.amazonaws.com'
+REDIS_HOSTADDR_PRIV = 'elasti16xl.e4lofi.0001.usw2.cache.amazonaws.com'
+#REDIS_HOSTADDR_PRIV = 'elasti8xl.e4lofi.0001.usw2.cache.amazonaws.com'
 #REDIS_HOSTADDR_PRIV = 'elasticache2-4xl.e4lofi.clustercfg.usw2.cache.amazonaws.com'
+
+
 
 class TimeLog:
   def __init__(self, enabled=True):
@@ -164,15 +166,15 @@ def ensure_clean_state(rclient):
   if os.path.exists(DECODER_PATH):
     os.remove(DECODER_PATH)
   # store decoder binary in redis too
-  urlretrieve("https://s3-us-west-2.amazonaws.com/mxnet-params/FusedDecodeHist-static", DECODER_PATH)
-  ##rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
-  #obj = rclient.get("FusedDecodeHist-static")
-  #if obj is None:
-  #  raise Exception("error: no such key!")
-  #filename = DECODER_PATH
-  #f = open(filename, 'wb')
-  #f.write(obj)
-  #f.close()
+  #urlretrieve("https://s3-us-west-2.amazonaws.com/mxnet-params/FusedDecodeHist-static", DECODER_PATH)
+  #rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
+  obj = rclient.get("FusedDecodeHist-static")
+  if obj is None:
+    raise Exception("error: no such key!")
+  filename = DECODER_PATH
+  f = open(filename, 'wb')
+  f.write(obj)
+  f.close()
   os.chmod(DECODER_PATH, 0o755)
   
 
