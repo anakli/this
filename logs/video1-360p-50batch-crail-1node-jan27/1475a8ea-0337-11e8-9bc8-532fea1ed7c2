@@ -1,0 +1,1 @@
+{'started': 1517039581.040752, 'timelog': [('prepare decoder', 16.88892912864685), ('download_inputs', 0.011375904083251953), ('decode and compute hist', 0.3900270462036133), ('upload output', 0.007526874542236328), ('clean output', 2.8133392333984375e-05)], 'lambda': '1475a8ea-0337-11e8-9bc8-532fea1ed7c2'}
