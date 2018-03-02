@@ -44,7 +44,7 @@ DEFAULT_OUT_FOLDER = 'mxnet-results/'
 INPUT_BUCKET = 'video-lambda-input'
 OUTPUT_BUCKET = 'video-lambda-input'
     
-#LOGS_BUCKET= 'video-lambda-logs'
+LOGS_NET_BUCKET= 'video-lambda-logs'
 LOGS_BUCKET= 'video-lambda-logs-mxnet'
 
 class TimeLog:
@@ -89,7 +89,7 @@ def upload_net_bytes(rxbytes_per_s, txbytes_per_s, timelogger, reqid):
   s3 = boto3.client('s3')
   s3.put_object(
     ACL='public-read',
-    Bucket=LOGS_BUCKET+"-netstats",
+    Bucket=LOGS_NET_BUCKET+"-netstats",
     Key=reqid,
     Body=str({'lambda': reqid,
              'started': timelogger.start,
@@ -237,8 +237,7 @@ def lambda_batch_handler(event, context):
   timelist = OrderedDict()
   start = now()
   urlretrieve("https://s3-us-west-2.amazonaws.com/mxnet-params/resnet-18-0000.params", f_params_file)
-
-  urlretrieve("https://s3-us-west-2.amazonaws.com/mxnet-params/resnet-18-symbol.json", f_symbol_file)
+  #urlretrieve("https://s3-us-west-2.amazonaws.com/mxnet-params/resnet-18-symbol.json", f_symbol_file)
   end = now()
   print('Time to download MXNet model: {:.4f} s'.format(end - start))
   # timelist += '"download-model" : %f,' % (end - start)

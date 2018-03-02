@@ -29,15 +29,19 @@ import logging
 logging.getLogger('boto3').setLevel(logging.WARNING)
 logging.getLogger('botocore').setLevel(logging.WARNING)
 
-WORK_PACKET_SIZE = 50  # how many frames to decode together
+WORK_PACKET_SIZE = 25  # how many frames to decode together
 BATCH_SIZE = 50 # how many frames to be evaluated together
 DEFAULT_KEEP_OUTPUT = False
 MAX_PARALLEL_UPLOADS = 20
 
-UPLOAD_BUCKET = 'vass-video-samples2'
+#UPLOAD_BUCKET = 'vass-video-samples2'
+INPUT_BUCKET = 'video-lambda-input'
+UPLOAD_BUCKET = 'video-lambda-input'
 UPLOAD_PREFIX = 'protobin'
 
-DOWNLOAD_BUCKET = 'vass-video-samples2-results'
+#DOWNLOAD_BUCKET = 'vass-video-samples2-results'
+OUTPUT_BUCKET = 'video-lambda-input-results'
+DOWNLOAD_BUCKET = 'video-lambda-input-results'
 DOWNLOAD_PREFIX = 'mxnet-results'
 
 DEFAULT_OUTPUT_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -169,7 +173,7 @@ def wait_until_all_finished(startFrame, numRows, batch, videoPrefix):
   bar.start()
 
   fileCount = 0
-  time.sleep(10.0) # sleep for 10 seconds to wait for decoder finished!
+  time.sleep(20.0) # sleep for 10 seconds to wait for decoder finished!
   startTime = now()
   timeOut = startTime + TIMEOUT_SECONDS
   while fileCount < totalCount:
@@ -206,7 +210,7 @@ def wait_until_all_finished(startFrame, numRows, batch, videoPrefix):
     myBucket = s3.Bucket(DOWNLOAD_BUCKET)
     currCount = sum(1 for _ in myBucket.objects.filter(
       Prefix='{}/{}_{}_{}/'.format(DOWNLOAD_PREFIX, videoPrefix, 
-                                   WORK_PACKET_SIZE, batch)))
+                                   decode_batch, batch)))
     fileCount = currCount
     # print('fileCount is: {:d}'.format(fileCount))
     bar.update(fileCount)
@@ -228,7 +232,7 @@ def wait_until_all_finished(startFrame, numRows, batch, videoPrefix):
 # By default, we download the third video with the lowest quality
 # batch - number of frames to do in a MXNet Lambda
 def start_mxnet_pipeline(test_video_path='videos/example.mp4', 
-                         out_dir = './', batch = BATCH_SIZE,
+                         out_dir = './', decode_batch = WORK_PACKET_SIZE, batch = BATCH_SIZE, 
                          load_to_disk = False):
   global timelist
 
@@ -286,7 +290,7 @@ def start_mxnet_pipeline(test_video_path='videos/example.mp4',
     )
     bulk_job = BulkJob(output=output_op, jobs=[job])
     [output_table] = db.run(bulk_job, force=True, profiling=False, pipeline_instances_per_node=1, load_to_disk=load_to_disk, 
-      work_packet_size=WORK_PACKET_SIZE)
+      work_packet_size=decode_batch)
 
     stop = now()
     delta = stop - start
@@ -319,7 +323,7 @@ def start_mxnet_pipeline(test_video_path='videos/example.mp4',
   videoPrefix = test_video_path.split(".")[-2].split("/")[-1]
   print('video name is: {:s}'.format(videoPrefix))
   # uploadPrefix = UPLOAD_PREFIX + '/' + videoPrefix
-  uploadPrefix = UPLOAD_PREFIX + '/{}_{}'.format(videoPrefix, WORK_PACKET_SIZE)
+  uploadPrefix = UPLOAD_PREFIX + '/{}_{}'.format(videoPrefix, decode_batch)
 
   if load_to_disk == True:
     # Upload all .proto files
@@ -339,13 +343,13 @@ def start_mxnet_pipeline(test_video_path='videos/example.mp4',
     # Call Lambdas to decode, provide Bucket Name, File Prefix, Start Frame
     # Then decoder Lambdas will write to S3, which will trigger MXNet Lambdas
     start = now()
-    lambdaTotalCount = len(xrange(0, num_rows, WORK_PACKET_SIZE))
+    lambdaTotalCount = len(xrange(0, num_rows, decode_batch))
     bar = progressbar.ProgressBar(maxval=lambdaTotalCount, \
           widgets=[progressbar.Bar('=', 'Lambdas   [', ']'), ' ',
                    progressbar.Percentage()])
     bar.start()
     lambdaCount = 0
-    for startFrame in xrange(0, num_rows, WORK_PACKET_SIZE):
+    for startFrame in xrange(0, num_rows, decode_batch):
       # print("Invoke lambda for start frame {:d}".format(startFrame))
       result = invoke_decoder_lambda(UPLOAD_BUCKET, uploadPrefix, 
                                      startFrame, batch)
@@ -388,13 +392,13 @@ def ensure_clean_state(test_video_path, batch):
   
   videoPrefix = test_video_path.split(".")[-2].split("/")[-1]
   print('Cleaning S3 bucket: {}/{}/{}_{}_{}/'.format(DOWNLOAD_BUCKET, 
-    DOWNLOAD_PREFIX, videoPrefix, WORK_PACKET_SIZE, batch))
+    DOWNLOAD_PREFIX, videoPrefix, decode_batch, batch))
   s3 = boto3.resource('s3')
   myBucket = s3.Bucket(DOWNLOAD_BUCKET)
   fileCount = 0
   for obj in myBucket.objects.filter(
       Prefix='{}/{}_{}_{}/'.format(DOWNLOAD_PREFIX, videoPrefix, 
-                                   WORK_PACKET_SIZE, batch)):
+                                   decode_batch, batch)):
     s3.Object(myBucket.name, obj.key).delete()
     fileCount += 1
 
@@ -407,7 +411,7 @@ if __name__ == '__main__':
   batch = BATCH_SIZE
   load_to_disk = False;
 
-  if (len(sys.argv) < 1) or (len(sys.argv) > 6):
+  if (len(sys.argv) < 1) or (len(sys.argv) > 7):
     print('Usage: end2end_mxnet.py <video_num> <video_resolution> <out_dir> <batch_size> <load to disk: 0/1>');
     exit()
 
@@ -418,9 +422,15 @@ if __name__ == '__main__':
   if (len(sys.argv) > 3):
     out_dir = sys.argv[3]
   if (len(sys.argv) > 4):
-    batch = int(sys.argv[4])
+    decode_batch = int(sys.argv[4])
   if (len(sys.argv) > 5):
-    tmp = int(sys.argv[5])
+    batch = int(sys.argv[5]) #batch2 should be less than batch
+    if batch > decode_batch:
+	print "Second stage batch should be less than or equal to first stage batch!"
+        print "Setting batch2 = batch"
+        batch = decode_batch
+  if (len(sys.argv) > 6):
+    tmp = int(sys.argv[6])
     if tmp == 1:
       load_to_disk = True
     elif tmp == 0:
@@ -439,7 +449,7 @@ if __name__ == '__main__':
 
   ensure_clean_state(test_video_path, batch)
   start = now()
-  start_mxnet_pipeline(test_video_path, out_dir, batch, load_to_disk)
+  start_mxnet_pipeline(test_video_path, out_dir, decode_batch, batch, load_to_disk)
   stop = now()
   delta = stop - start
   print('Total pipeline time is: {:.4f} s'.format(delta))
@@ -451,7 +461,7 @@ if __name__ == '__main__':
   print outString
 
   outFile = '{}/end2end_{}_{}_{}_{}.out'.format(out_dir, num, fm_num, 
-    WORK_PACKET_SIZE, batch)
+    decode_batch, batch)
   with open(outFile, 'w') as ofs:
     ofs.write(outString)
 
