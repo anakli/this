@@ -8,7 +8,15 @@ plt.rcParams['errorbar.capsize'] = 2
 
 N = 3
 
+#single node, i3.8xlarge, replication factor 1
+aerospike_DRAM_put_times = [151,169,171,169, 184, 166]
+aerospike_DRAM_get_times = [141,162,155,157, 166, 162]
 
+#single node, i3.8xlarge, replication factor 1
+aerospike_NVMe_put_times = [179,188,181,169, 181]
+aerospike_NVMe_get_times = [172,175,173,161, 168]
+
+#elasticache
 redis_put_times = [190, 250, 240, 270, 260, 260] 
 redis_get_times = [190, 200, 240, 250, 260, 260] 
 
