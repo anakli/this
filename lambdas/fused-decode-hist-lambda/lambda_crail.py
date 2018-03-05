@@ -15,6 +15,7 @@ import crail
 import ifcfg
 import threading
 from random import randint
+from subprocess import call
 
 import os.path
 
@@ -34,7 +35,7 @@ DEFAULT_OUT_FOLDER = 'fused-decode-hist-output'
 
 OUTPUT_FILE_EXT = 'out'
 
-LOGS_PATH = 'video-lambda-logs'
+LOGS_PATH = '/video-lambda-logs'
 
 
 
@@ -54,6 +55,12 @@ class TimeLog:
     self.points += [(title, now - self.prev)]
     self.prev = now
     
+  def add_size(self, title, size):
+    if not self.enabled:
+      return
+    self.sizes += [(title, size)]
+
+
 
 def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s):
   SAMPLE_INTERVAL = 1.0
@@ -74,47 +81,61 @@ def download_input_from_crail(socket, ticket, inputPrefix, startFrame):
   protoFileName = 'decode_args{:d}.proto'.format(startFrame)
   binFileName = 'start_frame{:d}.bin'.format(startFrame)
   print('Downloading files {:s} and {:s} for batch {:d} \
-        from Redis: {:s}'.format(protoFileName, binFileName, startFrame, inputPrefix))
-  ProtoName = inputPrefix + '/' + protoFileName
-  BinName = inputPrefix + '/' + binFileName
+        from Crail: {:s}'.format(protoFileName, binFileName, startFrame, inputPrefix))
+  ProtoName = str(inputPrefix + '/' + protoFileName)
+  BinName = str(inputPrefix + '/' + binFileName)
   protoPath = LOCAL_INPUT_DIR + '/' + protoFileName
   binPath = LOCAL_INPUT_DIR + '/' + binFileName
 
-  crail.get(socket, ProtoName, protoPath, ticket) 
+  print BinName, binPath, type(BinName), type(binPath)
   crail.get(socket, BinName, binPath, ticket) 
+  print ProtoName, protoPath
+  #time.sleep(0.1) # FIXME: why need this?!!
+  crail.get(socket, ProtoName, protoPath, ticket) 
   
   return protoPath, binPath
 
 def upload_timelog(socket, ticket, timelogger, reqid):
   logfile = LOGS_PATH + '/' + reqid
-  f = open.("localLogs", "wb").write(str({'lambda': reqid,
+  f = open("/tmp/localLogs", "wb").write(str({'lambda': reqid,
              'started': timelogger.start,
-             'timelog': timelogger.points}).encode('utf-8')
-  crail.put(socket, "localLogs", logfile, ticket) 
-  print "wrote timelog"
+             'timelog': timelogger.points}).encode('utf-8'))
+  crail.put(socket, "/tmp/localLogs", logfile, ticket) 
+  print "wrote timelog ", logfile
   return
 
 def upload_net_bytes(socket, ticket, rxbytes_per_s, txbytes_per_s, timelogger, reqid):
   netstats = LOGS_PATH + '/netstats-' + reqid 
-  f = open.("localByteStats", "wb").write(str({'lambda': reqid,
+  f = open("/tmp/localByteStats", "wb").write(str({'lambda': reqid,
              'started': timelogger.start,
              'rx': rxbytes_per_s,
-             'tx': txbytes_per_s}).encode('utf-8')
-  crail.put(socket, "localByteStats", netstats, ticket)
-  print "wrote netstats"
+             'tx': txbytes_per_s}).encode('utf-8'))
+  crail.put(socket, "/tmp/localByteStats", netstats, ticket)
+  print "wrote netstats ", netstats
   return
   
+def upload_sizelogs(socket, ticket, timelogger, reqid):
+  logfile = LOGS_PATH + '/sizelogs-' + reqid
+  f = open("/tmp/localSizelogs", "wb").write(str({'lambda': reqid,
+             'started': timelogger.start,
+             'sizelog': timelogger.sizes}).encode('utf-8'))
+  crail.put(socket, "/tmp/localSizelogs", logfile, ticket) 
+  print "wrote sizelog ", logfile
+  return
 
 def upload_output_to_crail(socket, ticket, filePrefix):
-  print('Uploading files to Redis: {:s}/{:s}'.format(bucketName, filePrefix))
+  print('Uploading files to Crail: {:s}'.format(filePrefix))
 
   outputFiles = list_output_files()
+  print "output file: ", outputFiles
   assert(len(outputFiles) == 1) # only one output file!
   fileName = outputFiles[0]
-  localFilePath = os.path.join(TEMP_OUTPUT_DIR, fileName)
-  uploadFileName = os.path.join(filePrefix, fileName)
+  localFilePath = str(os.path.join(TEMP_OUTPUT_DIR, fileName))
+  uploadFileName = str(os.path.join(filePrefix, fileName)) 
   fileSize = os.path.getsize(localFilePath)
   crail.put(socket, localFilePath, uploadFileName, ticket)
+  #call(["ls", "-l", "/tmp/output"])
+  #time.sleep(20) #FIXME
   print('Done: [total={:d}KB]'.format(fileSize >> 10))
   fileCount = int(fileName.split('-')[-1].split('.')[0])
   return (fileCount, fileSize)
@@ -133,8 +154,8 @@ def ensure_clean_state(socket, ticket):
   if os.path.exists(DECODER_PATH):
     os.remove(DECODER_PATH)
   # store decoder binary in redis too
-  #urlretrieve("https://s3-us-west-2.amazonaws.com/mxnet-params/FusedDecodeHist-static", DECODER_PATH)
-  crail.get(socket, "FusedDecodeHist-static", DECODER_PATH, ticket)
+  urlretrieve("https://s3-us-west-2.amazonaws.com/mxnet-params/FusedDecodeHist-static", DECODER_PATH)
+  #crail.get(socket, "FusedDecodeHist-static", DECODER_PATH, ticket)
   os.chmod(DECODER_PATH, 0o755)
   
 
@@ -153,9 +174,10 @@ def convert_to_output(protoPath, binPath):
 
 
 def handler(event, context):
-  crail.launch_dispatcher()
+  crail.launch_dispatcher_from_lambda()
   timelist = OrderedDict()
   timelogger = TimeLog(enabled=True)
+  sizelogging = True
 
   iface = ifcfg.default_interface()
   rxbytes = [int(iface['rxbytes'])]
@@ -165,10 +187,11 @@ def handler(event, context):
   get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s)  
   
   #TODO: add new timelog entry for connection setup
-  time.sleep(1)
+  #time.sleep(1)
   ticket = randint(1,10000)
   socket = crail.connect()  
- 
+  timelogger.add_point("connect to dispatcher")
+
   start = now()
   ensure_clean_state(socket, ticket)
   end = now()
@@ -177,7 +200,7 @@ def handler(event, context):
   timelist["prepare-decoder"] = (end - start)
 
   inputBucket = 'vass-video-samples2'
-  inputPrefix = 'protobin/example3_134'
+  inputPrefix = '/protobin/example3_134' # FIXME
   startFrame = 0
   outputBatchSize = 50
 
@@ -206,6 +229,7 @@ def handler(event, context):
 
   outputPrefix = outputPrefix + '/{}_{}'.format(inputPrefix.split('/')[-1], 
                                                 outputBatchSize)
+  #crail.create_dir(socket, str(outputPrefix), ticket)
 
   start = now()
   protoPath, binPath = download_input_from_crail(socket, ticket, inputPrefix, 
@@ -214,7 +238,13 @@ def handler(event, context):
   timelogger.add_point("download_inputs")
   print('Time to download input files: {:.4f} s'.format(end - start))
   timelist["download-input"] = (end - start)
+  if sizelogging:
+    timelogger.add_size("infile size", os.path.getsize(DECODER_PATH))
+    timelogger.add_size("infile size", os.path.getsize(protoPath))
+    timelogger.add_size("infile size", os.path.getsize(binPath))
 
+
+  #call(["ls", "-l", "/tmp/input"])
   inputBatch = 0
   try:
     try:
@@ -242,11 +272,13 @@ def handler(event, context):
     timelogger.add_point("upload output")
     print('Time to upload output files: {:.4f} '.format(end - start))
     timelist["upload-output"] = (end - start)
+    if sizelogging:
+      timelogger.add_size("outfile size", totalSize)
 
   finally:
     start = now()
-    if not DEFAULT_KEEP_OUTPUT:
-      shutil.rmtree(TEMP_OUTPUT_DIR)
+    #if not DEFAULT_KEEP_OUTPUT:
+      #shutil.rmtree(TEMP_OUTPUT_DIR)
     end = now()
     timelogger.add_point("clean output")
     print('Time to clean output files: {:.4f} '.format(end - start))
@@ -254,8 +286,11 @@ def handler(event, context):
   
   timelist["output-batch"] = outputBatchSize
 
-  upload_timelog(socket, timelogger, context.aws_request_id) 
-  upload_net_bytes(socket, rxbytes_per_s, txbytes_per_s, timelogger, context.aws_request_id)
+  #crail.create_dir(socket, LOGS_PATH, ticket)
+  upload_timelog(socket, ticket, timelogger, context.aws_request_id) 
+  upload_net_bytes(socket, ticket, rxbytes_per_s, txbytes_per_s, timelogger, context.aws_request_id)
+  if sizelogging:
+    upload_sizelogs(socket, ticket, timelogger, context.aws_request_id)
 
   print 'Timelist:' + json.dumps(timelist)
   out = {
@@ -270,10 +305,10 @@ def handler(event, context):
 
 if __name__ == '__main__':
   inputBucket = 'vass-video-samples2'
-  inputPrefix = 'protobin-fused-local/example3_138_50'
+  inputPrefix = '/protobin-fused-local/example3_138_50' 
   startFrame = 0
   outputBatchSize = 50
-  outputPrefix = 'fused-decode-hist-local'
+  outputPrefix = '/fused-decode-hist-local'
   totalFrame = 6221
   video = 138
 

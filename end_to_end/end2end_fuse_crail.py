@@ -34,7 +34,9 @@ logging.getLogger('boto3').setLevel(logging.WARNING)
 logging.getLogger('botocore').setLevel(logging.WARNING)
 
 LAMBDA_NAME = "fused-decode-hist-crail"
-CRAIL_HOME_PATH="/home/ec2-user/crail/crail-deployment/crail-1.0/"
+CRAIL_HOME_PATH="/home/ubuntu/crail/crail-deployment/crail-1.0/"
+
+LOGS_PATH = '/video-lambda-logs'
 
 DEFAULT_KEEP_OUTPUT = False
 MAX_PARALLEL_UPLOADS = 20
@@ -75,14 +77,15 @@ def get_args():
             help='Intermediate files upload bucket')
   parser.add_argument('--upload-prefix', '-up', type=str, required=False,
             dest='uploadPrefix',
-            default='fused-protobin',
+            default='/',
+            #default='/fused-protobin',
             help='Intermediate files upload prefix')
   parser.add_argument('--download-bucket', '-db', type=str, required=True,
             dest='downloadBucket',
             help='Output files bucket')
   parser.add_argument('--download-prefix', '-dp', type=str, required=False,
             dest='downloadPrefix',
-            default='fused-output',
+            default='/fused-output',
             help='Output files prefix')
   parser.add_argument('--timeout', '-t', type=int, required=False,
             dest='timeout',
@@ -148,26 +151,21 @@ def upload_output_to_crail(socket, ticket, bucketName, filePrefix, fileExt, args
     widgets=[progressbar.Bar('=', 'Uploaded  [', ']'), ' ',
              progressbar.Percentage()])
   bar.start()
-
-  def upload_file(socket, ticket, localFilePath, uploadFileName, fileSize):
-
-    try:
-      crail.put(socket, localFilePath, uploadFilePath, ticket)
-    finally:
-      global uploadFileCount
-      with countLock:
-        uploadFileCount += 1
-      bar.update(uploadFileCount)
-      if DEFAULT_KEEP_OUTPUT == False:
-          os.remove(localFilePath)
-
+ 
+  print "Not creating crail dir: ", filePrefix
+  #crail.create_dir(socket, filePrefix, ticket)
   for fileName in list_output_files(DEFAULT_OUTPUT_DIR, fileExt):
     localFilePath = os.path.join(DEFAULT_OUTPUT_DIR, fileName)
-    uploadFileName = os.path.join(filePrefix, fileName)
+    uploadFileName = os.path.join("/", filePrefix, fileName)
     fileSize = os.path.getsize(localFilePath)
 
     # FIXME: why was parallel upload an issue?
-    crail.put(socket, localFilePath, uploadFilePath, ticket)
+    #time.sleep(1) #FIXME
+    print "localFileName: ", fileName
+    print "filePrefix: ", filePrefix
+    print "localFile: ", localFilePath, "uploadFile: " , uploadFileName, type(localFilePath), type(uploadFileName)
+    crail.put(socket, localFilePath, uploadFileName, ticket)
+    time.sleep(1)
     uploadFileCount += 1
  
     totalSize += fileSize
@@ -181,7 +179,7 @@ def upload_output_to_crail(socket, ticket, bucketName, filePrefix, fileExt, args
 
 # Invoke lambdas and return the count
 lambdaCount = 0
-def invoke_lambdas(numFrames, args):
+def invoke_lambdas(numFrames, args, socket, ticket):
   batch = args.batch
   lambdaTotalCount = len(xrange(0, numFrames, batch))
   bar = progressbar.ProgressBar(maxval=lambdaTotalCount,
@@ -208,6 +206,7 @@ def invoke_lambdas(numFrames, args):
       payload['outputBucket'] = args.downloadBucket
       payload['outputPrefix'] = args.downloadPrefix
 
+      
       response = client.invoke(FunctionName=args.lambdaName,
                                InvocationType='Event',
                                Payload=str.encode(json.dumps(payload)))
@@ -222,6 +221,10 @@ def invoke_lambdas(numFrames, args):
       with countLock:
         lambdaCount += successCount
       bar.update(lambdaCount)
+
+  outputPrefix_lambda = args.downloadPrefix + '/{}_{}'.format(args.uploadPrefix.split('/')[-1], 
+                                               args.batch)
+  crail.create_dir(socket, str(outputPrefix_lambda), ticket)
 
   for startFrame in xrange(0, numFrames, batch):
     result = pool.apply_async(invoke_lambda, args=(startFrame, args))
@@ -259,6 +262,7 @@ def wait_until_all_finished(socket, ticket, startFrame, numFrames, videoPrefix, 
     ## FIXME: how to enumerate keys in Crail??
     #fileCount = len(rclient.keys('{}/{}_{}_{}/*'.format(outputPrefix, videoPrefix, batch, batch)))
     time.sleep(1) # FIXME: need something like getFile here
+    fileCount += 1
     bar.update(fileCount)
     if fileCount >= totalCount:
       break
@@ -290,9 +294,10 @@ def start_fuse_pipeline(socket, ticket, videoPath, args):
   videoPrefix = videoPath.split(".")[-2].split("/")[-1]
   print('Video name is: {:s}'.format(videoPrefix))
 
-  uploadPrefix = os.path.join(args.uploadPrefix, '{}_{}'.format(
-                              videoPrefix, batch))
-  args.uploadPrefix = uploadPrefix
+  uploadPrefix = args.uploadPrefix
+#  uploadPrefix = os.path.join(args.uploadPrefix, '{}_{}'.format(
+#                              videoPrefix, batch))
+#  args.uploadPrefix = uploadPrefix
 
 
 
@@ -374,7 +379,7 @@ def start_fuse_pipeline(socket, ticket, videoPath, args):
   # provide Bucket Name, File Prefix, numFrames, batch
   ################################################
   start = now()
-  lambdaCount = invoke_lambdas(numFrames, args)
+  lambdaCount = invoke_lambdas(numFrames, args, socket, ticket)
   stop = now()
   delta = stop - start
   print('Triggered #{} Lambdas, time {:.4f} s'.format(lambdaCount, delta))
@@ -390,7 +395,7 @@ def start_fuse_pipeline(socket, ticket, videoPath, args):
 
 def main(args):
   print('Argument list: {}'.format(args))
-  crail.launch_dispatcher(CRAIL_HOME_PATH)
+  p = crail.launch_dispatcher(CRAIL_HOME_PATH)
   ticket = randint(1,10000)
 
   videoNum = args.video # video num
@@ -415,6 +420,9 @@ def main(args):
   ###################################################
   # 2. The main fuse pipeline
   ###################################################
+  #crail.create_dir(socket, args.uploadPrefix, ticket)
+  crail.create_dir(socket, outputPrefix, ticket)
+  crail.create_dir(socket, LOGS_PATH, ticket)
   start = now()
   start_fuse_pipeline(socket, ticket, videoPath, args)
   stop = now()
@@ -433,6 +441,7 @@ def main(args):
   with open(outFile, 'w') as ofs:
     ofs.write(outString)
   print('Save log to {}'.format(outFile))
+  crail.close(socket, ticket, p)
 
 if __name__ == '__main__':
   main(get_args())
