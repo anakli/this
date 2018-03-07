@@ -7,7 +7,8 @@ import matplotlib.pyplot as plt
 
 
 # on scanne-new instance : python plot_sizelogs_cdf_paper.py video1-360p-50batch-crail-1node-jan27 gg-cmake-lambda100-sizelogs pywren_filesize_100GB_250workers.txt
-
+#python plot_sizelogs_cdf_paper.py video1-360p-50batch-crail-1node-jan27 gg-cmake-lambda100-sizelogs sizes_100GB_500workers
+#python plot_sizelogs_cdf_paper.py video3-res4-100batch1-10batch2-sizelogs  gg-cmake-lambda100-sizelogs pywren_filesize_100GB_250workers.txt
 plt.rcParams.update({'font.size': 24})
 
 
@@ -85,7 +86,7 @@ patches[0].set_xy(patches[0].get_xy()[:-1])
 
 pywren_filesizes = open(sys.argv[3], 'r').readlines()
 pywren_filesizes = [int(x.strip()) for x in pywren_filesizes] 
-n, bins, patches = ax.hist(pywren_filesizes, n_bins, normed=1, histtype='step', cumulative=True, label='pywren-sort100GB', linewidth=3, linestyle=':')
+n, bins, patches = ax.hist(pywren_filesizes, n_bins, normed=1, histtype='step', cumulative=True, label='sort100GB', linewidth=3, linestyle=':')
 patches[0].set_xy(patches[0].get_xy()[:-1])
 datadir = sys.argv[1]
 datadir = os.path.join(datadir, 'sizelogs')
