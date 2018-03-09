@@ -17,6 +17,7 @@ import math
 import time
 import ifcfg
 import threading
+import psutil
 
 DECODER_PATH = '/tmp/DecoderAutomataCmd-static'
 TEMP_OUTPUT_DIR = '/tmp/output'
@@ -55,13 +56,15 @@ class TimeLog:
     self.prev = now
     
 
-def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s):
+def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util):
   SAMPLE_INTERVAL = 1.0
   threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
   rxbytes.append(int(ifcfg.default_interface()['rxbytes']))
   txbytes.append(int(ifcfg.default_interface()['txbytes']))
   rxbytes_per_s.append((rxbytes[-1] - rxbytes[-2])/SAMPLE_INTERVAL)
   txbytes_per_s.append((txbytes[-1] - txbytes[-2])/SAMPLE_INTERVAL)
+  util = psutil.cpu_percent(interval=1)
+  cpu_util.append(util)
 
 def upload_timelog(timelogger, reqid):
   s3 = boto3.client('s3')
@@ -293,7 +296,8 @@ def handler(event, context):
   txbytes = [int(iface['txbytes'])]
   rxbytes_per_s = []
   txbytes_per_s = []
-  get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s)  
+  cpu_util = []
+  get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util)  
 
   start = now()
   ensure_clean_state()
