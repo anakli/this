@@ -79,7 +79,7 @@ def upload_timelog(timelogger, reqid):
   print "wrote timelog"
   return
 
-def upload_net_bytes(rxbytes_per_s, txbytes_per_s, timelogger, reqid):
+def upload_net_bytes(rxbytes_per_s, txbytes_per_s, cpu_util, timelogger, reqid):
   s3 = boto3.client('s3')
   s3.put_object(
     ACL='public-read',
@@ -88,7 +88,8 @@ def upload_net_bytes(rxbytes_per_s, txbytes_per_s, timelogger, reqid):
     Body=str({'lambda': reqid,
              'started': timelogger.start,
              'rx': rxbytes_per_s,
-             'tx': txbytes_per_s}).encode('utf-8'),
+             'tx': txbytes_per_s,
+             'cpu': cpu_util}).encode('utf-8'),
     StorageClass='REDUCED_REDUNDANCY')
   print "wrote netstats"
   return
@@ -396,7 +397,7 @@ def handler(event, context):
   # timelist += '}'
 
   upload_timelog(timelogger, context.aws_request_id) 
-  upload_net_bytes(rxbytes_per_s, txbytes_per_s, timelogger, context.aws_request_id)
+  upload_net_bytes(rxbytes_per_s, txbytes_per_s, cpu_util, timelogger, context.aws_request_id)
 
   print 'Timelist:' + json.dumps(timelist)
   out = {
