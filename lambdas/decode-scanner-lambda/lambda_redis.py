@@ -19,6 +19,7 @@ import ifcfg
 import threading
 import redis
 from rediscluster import StrictRedisCluster
+import psutil
 
 DECODER_PATH = '/tmp/DecoderAutomataCmd-static'
 TEMP_OUTPUT_DIR = '/tmp/output'
@@ -65,13 +66,15 @@ class TimeLog:
       return
     self.sizes += [(title, size)]
 
-def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s):
+def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util):
   SAMPLE_INTERVAL = 1.0
   threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
   rxbytes.append(int(ifcfg.default_interface()['rxbytes']))
   txbytes.append(int(ifcfg.default_interface()['txbytes']))
   rxbytes_per_s.append((rxbytes[-1] - rxbytes[-2])/SAMPLE_INTERVAL)
   txbytes_per_s.append((txbytes[-1] - txbytes[-2])/SAMPLE_INTERVAL)
+  util = psutil.cpu_percentage(interval=1.0)
+  cpu_util.append(util)
 
 def upload_sizelogs(rclient, timelogger, reqid):
   logfile = LOGS_PATH + '/sizelogs-' + reqid
@@ -90,13 +93,14 @@ def upload_timelog(rclient, timelogger, reqid):
   print "wrote timelog"
   return
 
-def upload_net_bytes(rclient, rxbytes_per_s, txbytes_per_s, timelogger, reqid):
+def upload_net_bytes(rclient, rxbytes_per_s, txbytes_per_s, cpu_util, timelogger, reqid):
   #rclient = redis.Redis(host=REDIS_HOSTADDR_PRIV, port=6379, db=0)  
   netstats = LOGS_PATH + '/netstats-' + reqid 
   rclient.set(netstats, str({'lambda': reqid,
              'started': timelogger.start,
              'rx': rxbytes_per_s,
-             'tx': txbytes_per_s}).encode('utf-8'))
+             'tx': txbytes_per_s,
+             'cpu': cpu_util}}).encode('utf-8'))
   print "wrote netstats"
   return
 
@@ -306,12 +310,12 @@ def invoke_mxnet_lambdas(bucketName, filePrefix):
 def handler(event, context):
   timelist = OrderedDict()
   timelogger = TimeLog(enabled=True)
-  iface = ifcfg.default_interface()
-  rxbytes = [int(iface['rxbytes'])]
-  txbytes = [int(iface['txbytes'])]
-  rxbytes_per_s = []
-  txbytes_per_s = []
-  get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s)  
+  #iface = ifcfg.default_interface()
+  #rxbytes = [int(iface['rxbytes'])]
+  #txbytes = [int(iface['txbytes'])]
+  #rxbytes_per_s = []
+  #txbytes_per_s = []
+  #get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s)  
   sizelogging = True
 
   rclient = StrictRedisCluster(startup_nodes=[{"host": REDIS_HOSTADDR, "port": "6379"}], 
@@ -325,6 +329,13 @@ def handler(event, context):
   # timelist += '"prepare-decoder" : %f,' % (end - start)
   timelist["prepare-decoder"] = (end - start)
 
+  iface = ifcfg.default_interface()
+  rxbytes = [int(iface['rxbytes'])]
+  txbytes = [int(iface['txbytes'])]
+  rxbytes_per_s = []
+  txbytes_per_s = []
+  cpu_util = []
+  get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util)  
   inputBucket = INPUT_BUCKET #'vass-video-samples2'
   inputPrefix = 'protobin/example3_134'
   startFrame = 0
@@ -419,7 +430,7 @@ def handler(event, context):
   # timelist += '}'
 
   upload_timelog(rclient, timelogger, context.aws_request_id) 
-  upload_net_bytes(rclient, rxbytes_per_s, txbytes_per_s, timelogger, context.aws_request_id)
+  upload_net_bytes(rclient, rxbytes_per_s, txbytes_per_s, cpu_util, timelogger, context.aws_request_id)
   if sizelogging:
     upload_sizelogs(rclient, timelogger, context.aws_request_id)
 
