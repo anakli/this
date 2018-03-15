@@ -31,7 +31,8 @@ def setup_env(crail_home_path):
   os.environ["JAVA_HOME"] = "/usr/lib/jvm/jre-1.8.0-openjdk.x86_64"
   os.environ["CRAIL_HOME"] = crail_home_path
   os.environ["CLASSPATH"] = crail_home_path + "jars/crail-client-1.0.jar:" + crail_home_path + \
-                             "jars/reflex-client-1.0-jar-with-dependencies.jar:" + crail_home_path + \
+                             "jars/reflex-client-1.0.jar:" + crail_home_path + "jars/commons-cli-1.3.1.jar" + \
+		             crail_home_path + "jars/log4j-1.2.17.jar" + crail_home_path + \
                              "jars/log4j.properties:" + crail_home_path + "jars/crail-dispatcher-1.0.jar"
   print "CLASSPATH = " , os.environ["CLASSPATH"]
   return
