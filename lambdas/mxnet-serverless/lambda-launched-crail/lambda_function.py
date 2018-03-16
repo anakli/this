@@ -34,7 +34,7 @@ import ifcfg
 import threading
 import crail
 from random import randint
-#import psutil
+import psutil
 
 Batch = namedtuple('Batch', ['data'])
 
@@ -69,16 +69,16 @@ class TimeLog:
     self.prev = now
     
 
-def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s): #, cpu_util):
+def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util):
   SAMPLE_INTERVAL = 1.0
-  threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
-  #threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
+  #threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
+  threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
   rxbytes.append(int(ifcfg.default_interface()['rxbytes']))
   txbytes.append(int(ifcfg.default_interface()['txbytes']))
   rxbytes_per_s.append((rxbytes[-1] - rxbytes[-2])/SAMPLE_INTERVAL)
   txbytes_per_s.append((txbytes[-1] - txbytes[-2])/SAMPLE_INTERVAL)
-  #util = psutil.cpu_percent(interval=1.0)
-  #cpu_util.append(util)
+  util = psutil.cpu_percent(interval=1.0)
+  cpu_util.append(util)
 
 def upload_timelog(socket, ticket, timelogger, reqid):
   logfile = LOGS_PATH + '/mxnet' + reqid
@@ -262,7 +262,7 @@ def lambda_s3_batch_handler(event, context):
   txbytes_per_s = []
   cpu_util = []
   #get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s)  
-  #get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util)  
+  get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util)  
 
   
   inputBucket = OUTPUT_BUCKET #html_parser.unescape(record['s3']['bucket']['name'])
