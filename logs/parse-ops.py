@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import matplotlib.ticker as ticker
 
+plt.rcParams.update({'font.size': 24})
+
 datadir = sys.argv[1]
 datadir1 = datadir + "_stage1"
 datadir2 = datadir + "_stage2"
@@ -31,7 +33,6 @@ for netstat_dir in [netstat_dir1, netstat_dir2]:
 	    if "ops" in logfile:
 		continue
 	
-	    print logfile
 	    with open(path, "r") as log:
 	        data = eval(log.read())
 	        oppoint = []
@@ -92,6 +93,21 @@ for key, value in write_times.iteritems():
 print "Avg time to first read: ", sum(time_to_first_read)/len(time_to_first_read), " seconds"
 print "Avg object lifetime:    ", sum(object_lifetime)/len(object_lifetime), "seconds"
 print "Avg rd access freq:     ", sum(rd_access_freq)/len(rd_access_freq)
+
+fig, ax = plt.subplots(figsize=(15, 8))
+n_bins = len(time_to_first_read)
+n, bins, patches = ax.hist(time_to_first_read, n_bins, normed=1, histtype='step',
+                           cumulative=True, label='video-analytics', linewidth=3)
+patches[0].set_xy(patches[0].get_xy()[:-1])
+
+ax.legend(loc='upper left')
+ax.set_xlabel('Time to first read (seconds)')
+#ax.set_xlim(1,max(videox)+1000)
+#ax.set_xlim(10,10e8)
+ax.set_ylim(0,1)
+ax.set_ylabel('CDF')
+plt.show()
+exit(0)
 
 plt.plot(range(0,len(time_to_first_read)), time_to_first_read, '.')
 plt.plot(range(0,len(object_lifetime)), object_lifetime, '.')
