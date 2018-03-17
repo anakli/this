@@ -68,12 +68,12 @@ class TimeLog:
 
 def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util):
   SAMPLE_INTERVAL = 1.0
-  threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
+  threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
   rxbytes.append(int(ifcfg.default_interface()['rxbytes']))
   txbytes.append(int(ifcfg.default_interface()['txbytes']))
   rxbytes_per_s.append((rxbytes[-1] - rxbytes[-2])/SAMPLE_INTERVAL)
   txbytes_per_s.append((txbytes[-1] - txbytes[-2])/SAMPLE_INTERVAL)
-  util = psutil.cpu_percentage(interval=1.0)
+  util = psutil.cpu_percent(interval=1.0)
   cpu_util.append(util)
 
 def upload_sizelogs(rclient, timelogger, reqid):
@@ -100,7 +100,7 @@ def upload_net_bytes(rclient, rxbytes_per_s, txbytes_per_s, cpu_util, timelogger
              'started': timelogger.start,
              'rx': rxbytes_per_s,
              'tx': txbytes_per_s,
-             'cpu': cpu_util}}).encode('utf-8'))
+             'cpu': cpu_util}).encode('utf-8'))
   print "wrote netstats"
   return
 

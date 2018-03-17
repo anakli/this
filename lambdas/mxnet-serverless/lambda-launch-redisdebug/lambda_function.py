@@ -34,6 +34,7 @@ import ifcfg
 import threading
 import redis
 from rediscluster import StrictRedisCluster
+import psutil
 
 Batch = namedtuple('Batch', ['data'])
 
@@ -85,13 +86,36 @@ class TimeLog:
 #        rxbytes_per_s.append((rxbytes[-1] - rxbytes[-2])/SAMPLE_INTERVAL)
 #        txbytes_per_s.append((txbytes[-1] - txbytes[-2])/SAMPLE_INTERVAL)
 
-def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s):
+def get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util):
   SAMPLE_INTERVAL = 1.0
-  threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
+  threading.Timer(SAMPLE_INTERVAL, get_net_bytes, [rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util]).start() # schedule the function to execute every SAMPLE_INTERVAL seconds
   rxbytes.append(int(ifcfg.default_interface()['rxbytes']))
   txbytes.append(int(ifcfg.default_interface()['txbytes']))
   rxbytes_per_s.append((rxbytes[-1] - rxbytes[-2])/SAMPLE_INTERVAL)
   txbytes_per_s.append((txbytes[-1] - txbytes[-2])/SAMPLE_INTERVAL)
+  util = psutil.cpu_percent(interval=1.0)
+  cpu_util.append(util)
+#  # cpu util
+#  # FIXME: compute deltas between seconds and append percentage usage to cpu_util array
+#  cpu_infos = {} #collect here the information
+#  with open('/proc/stat','r') as f_stat:
+#    lines = [line.split(' ') for content in f_stat.readlines() for line in content.split('\n') if line.startswith('cpu')]
+#
+#    #compute for every cpu
+#    for cpu_line in lines:
+#      if '' in cpu_line: 
+#        cpu_line.remove('')#remove empty elements
+#        cpu_line = [cpu_line[0]]+[float(i) for i in cpu_line[1:]]#type casting
+#        print cpu_line
+#        cpu_id,user,nice,system,idle,iowait,irq,softrig,steal,guest,guest_nice = cpu_line
+#
+#        idle=idle+iowait
+#        nonIdle=user+nice+system+irq+softrig+steal
+#
+#        total=idle+nonIdle
+#        print "total ", total, " idle:", idle
+#        #update dictionionary
+#        cpu_infos.update({cpu_id:{'total':total,'idle':idle}})
 
 def upload_sizelogs(rclient, timelogger, reqid):
   logfile = LOGS_PATH + '/sizelogs-' + reqid
@@ -283,7 +307,8 @@ def lambda_s3_batch_handler(event, context):
   txbytes = [int(iface['txbytes'])]
   rxbytes_per_s = []
   txbytes_per_s = []
-  get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s)  
+  cpu_util = []
+  get_net_bytes(rxbytes, txbytes, rxbytes_per_s, txbytes_per_s, cpu_util)  
   #t = threading.Thread(target=get_net_bytes, args=[rxbytes, txbytes, rxbytes_per_s, txbytes_per_s])
   #t.start()
   #for record in event['Records']:
