@@ -149,14 +149,15 @@ def upload_output_to_pocket(p, jobid, bucketName, filePrefix, fileExt):
   return (uploadFileCount, totalSize)
 
 
-def invoke_decoder_lambda(bucketName, filePrefix, startFrame, batchSize, lambdaID):
+def invoke_decoder_lambda(bucketName, filePrefix, startFrame, batchSize, lambdaID, jobid):
   client = boto3.client('lambda')
   payload = '{{ \"inputBucket\": \"{:s}\", \
     \"inputPrefix\": \"{:s}\", \
     \"startFrame\": {:d}, \
     \"outputBatchSize\": {:d}, \
-    \"lambdaID\": {:d}\
-    }}'.format(bucketName, filePrefix, startFrame, batchSize, lambdaID)
+    \"lambdaID\": {:d}, \
+    \"jobid\": \"{:s}\" \
+    }}'.format(bucketName, filePrefix, startFrame, batchSize, lambdaID, jobid)
 
   response = client.invoke(FunctionName='decoder-scanner-pocket',
                            InvocationType='Event',
@@ -369,7 +370,7 @@ def start_mxnet_pipeline(p, jobid, test_video_path='videos/example.mp4',
     for startFrame in xrange(0, num_rows, decode_batch):
       # print("Invoke lambda for start frame {:d}".format(startFrame))
       result = invoke_decoder_lambda(UPLOAD_BUCKET, uploadPrefix, 
-                                     startFrame, batch, lambdaCount)
+                                     startFrame, batch, lambdaCount, jobid)
       if not result:
         print('Fail to invoke for frame {:d}, retry.'.format(startFrame))
         res = invoke_decoder_lambda(UPLOAD_BUCKET, uploadPrefix, 
@@ -416,7 +417,10 @@ def ensure_clean_state(p, jobid, test_video_path, batch):
 
 if __name__ == '__main__':
   p = pocket.connect(NAMENODE_IP, NAMENODE_PORT)
-  jobid = register_job("video-analytics", capacityGB=18, peakMbps=23000, latency_sensitive=1):
+  #jobid = pocket.register_job("video-analytics", capacityGB=18, peakMbps=23000, latency_sensitive=1)
+  print("Register job...")
+  jobid = pocket.register_job("video-analytics", capacityGB=18, peakMbps=8000, latency_sensitive=1)
+  print("jobid is ", jobid)
   num = 1 # which video
   fm_num = 1 # which resolution
   out_dir = './' # which output directory
@@ -477,6 +481,7 @@ if __name__ == '__main__':
     decode_batch, batch)
   with open(outFile, 'w') as ofs:
     ofs.write(outString)
-  
+
+  pocket.deregister_job(jobid) 
   #pocket.close(p)
 
