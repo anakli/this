@@ -24,7 +24,7 @@ i = 0
 xmax = 0
 xmin = 0
 ytotal = None
-DURATION = 250 #15
+DURATION = 600 #15
 for line in rxstats:
 	data = np.loadtxt(StringIO(unicode(line)), delimiter='\t') 
 	start_time = int(data[1])
@@ -57,8 +57,9 @@ fig = plt.figure()
 ax = fig.add_subplot(111)
 scale_y = 1e9
 BYTES_TO_BITS=8
-ticks_y = ticker.FuncFormatter(lambda x, pos: '{0:g}'.format(x*BYTES_TO_BITS/scale_y))
-ax.yaxis.set_major_formatter(ticks_y)
+ycum = ycum * 8
+#ticks_y = ticker.FuncFormatter(lambda x, pos: '{0:g}'.format(x*BYTES_TO_BITS/scale_y))
+#ax.yaxis.set_major_formatter(ticks_y)
 ax.plot(x, np.transpose(ycum))
 
 ax.set_xlabel("Time (s)")
@@ -104,8 +105,9 @@ fig = plt.figure()
 ax = fig.add_subplot(111)
 scale_y = 1e9
 BYTES_TO_BITS=8
-ticks_y = ticker.FuncFormatter(lambda x, pos: '{0:g}'.format(x*BYTES_TO_BITS/scale_y))
-ax.yaxis.set_major_formatter(ticks_y)
+ycum = ycum * 8
+#ticks_y = ticker.FuncFormatter(lambda x, pos: '{0:g}'.format(x*BYTES_TO_BITS/scale_y))
+#ax.yaxis.set_major_formatter(ticks_y)
 ax.plot(x, np.transpose(ycum))
 
 ax.set_xlabel("Time (s)")

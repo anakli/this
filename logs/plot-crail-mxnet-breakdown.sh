@@ -1,7 +1,8 @@
 #!/bin/bash -ex
 
-python gen-crail-lognames.py 63
-python gen-crail-mxnet-lognames.py 63 312
+python gen-crail-lognames.py 102 #229 #63
+python gen-crail-mxnet-lognames.py 102 305 #229 1141 #63 312 
+#63 312
 ./fetch-crail-mxnet-runlogs.py $1
 stage1=$1
 stage1+="_stage1"
@@ -10,7 +11,7 @@ gnuplot timingbase.gnu
 cp timing_data graphs/${stage1}.txt
 cp graph.svg graphs/${stage1}.svg
 python parse-netstats-withcpu.py $stage1
-python plot-netstats-withcpu.py $stage1
+#python plot-netstats-withcpu.py $stage1
 
 stage2=$1
 stage2+="_stage2"
@@ -19,4 +20,6 @@ gnuplot timingbase.gnu
 cp timing_data graphs/${stage2}.txt
 cp graph.svg graphs/${stage2}.svg
 python parse-netstats-withcpu.py $stage2
-python plot-netstats-withcpu.py $stage2
+#python plot-netstats-withcpu.py $stage2
+
+python compute-mxnet-runtime.py $1

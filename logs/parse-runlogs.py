@@ -36,7 +36,11 @@ for d in data_points:
     d[0] = d[0] - T0
     d.append(sum(d))
 
+end = 0
 #print("\t".join(["#"] + headers))
 for i, d in enumerate(data_points):
     print("\t".join([str(i)] + [str(x) for x in d]))
+    if d[-1] > end :
+        end = d[-1]
 
+print("Lambda runtime: ", end, " seconds\n")
