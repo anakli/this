@@ -29,6 +29,7 @@ WORK_PACKET_SIZE = 50
 INPUT_BUCKET = 'video-lambda-input'
 OUTPUT_BUCKET = 'video-lambda-input-results'
 
+#NAMENODE_IP = "10.1.88.82"
 NAMENODE_IP = "10.1.0.10"
 NAMENODE_PORT = 9070
 
@@ -169,7 +170,7 @@ def upload_output_to_pocket(p, jobid, filePrefix):
   pool = ThreadPool(MAX_PARALLEL_UPLOADS)
   sema = Semaphore(MAX_PARALLEL_UPLOADS)
 
-  def upload_file(localFilePath, uploadFileName, fileSize):
+  def upload_file(localFilePath, uploadFileName, fileSize, jobid):
     sema.acquire()
     try:
       print 'Start: %s [%dKB]' % (localFilePath, fileSize >> 10)
@@ -184,7 +185,7 @@ def upload_output_to_pocket(p, jobid, filePrefix):
     fileSize = os.path.getsize(localFilePath)
 
     result = pool.apply_async(upload_file, 
-      args=(localFilePath, uploadFileName, fileSize))
+      args=(localFilePath, uploadFileName, fileSize, jobid))
     results.append(result)
 
     count += 1
@@ -278,7 +279,7 @@ def handler(event, context):
   
   jobid = None
   if 'jobid' in event:
-    jobid = event['jobid']
+    jobid = str(event['jobid'])
   else:
     print("ERROR: jobid not known!!!!!!!!!!!!!!!!!")
 
@@ -307,7 +308,7 @@ def handler(event, context):
   outputBucket = OUTPUT_BUCKET #"vass-video-samples2-results"
   outputPrefix = "decode-output"
   print("now try to put...")
-  pocket.put(p, "conf/crail-site.conf", "test-conf", "") 
+  pocket.put(p, "pocket.py", "test-pocket", "") 
   print("now try to create dir")
   pocket.create_dir(p, outputPrefix, jobid)
   

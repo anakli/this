@@ -36,6 +36,7 @@ BATCH_SIZE = 50 # how many frames to be evaluated together
 DEFAULT_KEEP_OUTPUT = False
 MAX_PARALLEL_UPLOADS = 20
 
+#NAMENODE_IP = "10.1.88.82"
 NAMENODE_IP = "10.1.0.10"
 NAMENODE_PORT = 9070
 
@@ -103,7 +104,7 @@ def upload_output_to_pocket(p, jobid, bucketName, filePrefix, fileExt):
              progressbar.Percentage()])
   bar.start()
 
-  def upload_file(localFilePath, uploadFileName, fileSize):
+  def upload_file(localFilePath, uploadFileName, fileSize, jobid):
 
     sema.acquire()
     try:
@@ -123,7 +124,7 @@ def upload_output_to_pocket(p, jobid, bucketName, filePrefix, fileExt):
     fileSize = os.path.getsize(localFilePath)
 
     result = pool.apply_async(upload_file, 
-      args=(localFilePath, uploadFileName, fileSize))
+      args=(localFilePath, uploadFileName, fileSize, jobid))
     results.append(result)
 
     totalSize += fileSize
@@ -417,9 +418,12 @@ def ensure_clean_state(p, jobid, test_video_path, batch):
 
 if __name__ == '__main__':
   p = pocket.connect(NAMENODE_IP, NAMENODE_PORT)
-  #jobid = pocket.register_job("video-analytics", capacityGB=18, peakMbps=23000, latency_sensitive=1)
   print("Register job...")
-  jobid = pocket.register_job("video-analytics", capacityGB=18, peakMbps=8000, latency_sensitive=1)
+  jobid = pocket.register_job("video-analytics", capacityGB=18, peakMbps=27000, latency_sensitive=1)
+  #jobid = pocket.register_job("video-analytics", capacityGB=18, peakMbps=8000, latency_sensitive=1)
+  #jobid = "video-analytics1234"
+  #pocket.create_dir(p, "video-analytics1234", "")
+  #jobid = pocket.register_job("video-analytics", capacityGB=18, peakMbps=8000, latency_sensitive=1)
   print("jobid is ", jobid)
   num = 1 # which video
   fm_num = 1 # which resolution
@@ -482,6 +486,6 @@ if __name__ == '__main__':
   with open(outFile, 'w') as ofs:
     ofs.write(outString)
 
-  pocket.deregister_job(jobid) 
+  #pocket.deregister_job(jobid) 
   #pocket.close(p)
 
