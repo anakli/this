@@ -117,7 +117,7 @@ def ensure_clean_state():
     os.remove(LOCAL_IMG_PATH)
 
 def download_input_from_crail(socket, ticket, jobid, fileName, localfile=LOCAL_IMG_PATH):
-  obj = crail.get(socket, fileName, localfile, ticket, jobid)
+  obj = crail.get(socket, fileName, localfile, ticket, jobid, DELETE_AFTER_READ=True)
   
 
 def upload_output_to_crail(socket, ticket, jobid, fileName, out):

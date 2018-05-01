@@ -155,9 +155,9 @@ def download_input_from_pocket(p, jobid, inputPrefix, startFrame):
   protoPath = LOCAL_INPUT_DIR + '/' + protoFileName
   binPath = LOCAL_INPUT_DIR + '/' + binFileName
   print("get " + ProtoName + " and write to " + protoPath) 
-  pocket.get(p, ProtoName, protoPath, jobid) 
+  pocket.get(p, ProtoName, protoPath, jobid, DELETE_AFTER_READ=True) 
   print("get " + BinName + " and write to " + binPath) 
-  pocket.get(p, BinName, binPath, jobid) 
+  pocket.get(p, BinName, binPath, jobid, DELETE_AFTER_READ=True) 
   print("done")
 
   return protoPath, binPath
