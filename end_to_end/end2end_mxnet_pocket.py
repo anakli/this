@@ -57,7 +57,7 @@ PROTO_EXT = 'proto'
 BIN_EXT = 'bin'
 OUT_EXT = 'out'
 
-TIMEOUT_SECONDS = 300.0 # maximum wait time
+TIMEOUT_SECONDS = 180 #300.0 # maximum wait time
 
 timelist = OrderedDict()
 
@@ -193,6 +193,7 @@ def wait_until_all_finished(p, jobid, startFrame, numRows, batch, videoPrefix):
   time.sleep(1.0) # sleep for 10 seconds to wait for decoder finished!
   startTime = now()
   timeOut = startTime + TIMEOUT_SECONDS
+  print("Check file count in {}/{}_{}_{}".format(DOWNLOAD_PREFIX, videoPrefix, decode_batch, batch))
   while fileCount < totalCount:
     # for outputKey in fileLists:
       # method 1: load object
@@ -225,16 +226,19 @@ def wait_until_all_finished(p, jobid, startFrame, numRows, batch, videoPrefix):
 
     # method 3: list the number of objects
     #time.sleep(0.5) ## FIXME: need some kind of list keys command for crail!
-    fileCount = fileCount + 1
+    #fileCount = fileCount + 1
+    fileCount = pocket.count_files(p, '{}/{}_{}_{}'.format(DOWNLOAD_PREFIX, videoPrefix, decode_batch, batch), jobid)
+    if fileCount < 0:
+      fileCount = 0
     #fileCount = len(rclient.keys('{}/{}_{}_{}/*'.format(DOWNLOAD_PREFIX, videoPrefix, decode_batch, batch)))
-    # print('fileCount is: {:d}'.format(fileCount))
+    #print('fileCount is: {:d}, total count is {:d}'.format(fileCount, totalCount))
     bar.update(fileCount)
     if fileCount >= totalCount:
       break
 
     currTime = now()
     if currTime >= timeOut:
-      print('Timed out in {:.4f} sec, cannot finish.'.format(currTime - startTime))
+      print('Timed out in {:.4f} sec, only {:d} lambdas finished'.format((currTime - startTime), fileCount))
       break
     # if currTime >= timeOut:
     #   break
@@ -419,7 +423,7 @@ def ensure_clean_state(p, jobid, test_video_path, batch):
 if __name__ == '__main__':
   p = pocket.connect(NAMENODE_IP, NAMENODE_PORT)
   print("Register job...")
-  jobid = pocket.register_job("video-analytics", capacityGB=18, peakMbps=27000, latency_sensitive=1)
+  jobid = pocket.register_job("video-analytics", capacityGB=18, peakMbps=24000, latency_sensitive=1)
   #jobid = pocket.register_job("video-analytics", capacityGB=18, peakMbps=8000, latency_sensitive=1)
   #jobid = "video-analytics1234"
   #pocket.create_dir(p, "video-analytics1234", "")
@@ -486,6 +490,7 @@ if __name__ == '__main__':
   with open(outFile, 'w') as ofs:
     ofs.write(outString)
 
-  #pocket.deregister_job(jobid) 
+  print("Deregister job...")
+  pocket.deregister_job(jobid) 
   #pocket.close(p)
 
