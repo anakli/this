@@ -13,9 +13,10 @@ width = 0.8
 #STAGE1
 #s3_prep, redis_prep, crail_prep
 #prep    = [8.2, 5.8, 6]
-io_read = [0.4, 1.1, 1.1]
+io_read = [1.75, 1.0, 1.1]
 compute = [5.9, 6.2, 6]
-io_write = [6.1, 3.2, 1.14]
+#io_write = [6.1, 1.14, 1.09]
+io_write = [5.2, 1.14, 1.09]
 
 breakdown = [io_read, compute, io_write]
 breakdown_bottom = [[0]*len(io_read)]
@@ -24,7 +25,7 @@ for i in breakdown:
     tmp = np.array(i)+np.array(tmp)
     breakdown_bottom.append(tmp)
 
-c = ['#17becf', '#2ca02c', '#ff7f0e']
+c = ['#81dbf9', '#2ca02c', '#ff7f0e']
 h = ['//', '.', '\\']
 p = []
 for i in xrange(len(breakdown)):
@@ -36,9 +37,10 @@ for i in xrange(len(breakdown)):
 #STAGE2
 #s3_prep, redis_prep, crail_prep
 #prep    = [3.8, 1, 2.5]
-io_read = [1.9, 0.22, 1.3]
-compute = [4.8, 4.6, 4.4]
-io_write = [0.15, 0.002, 0.02]
+#io_read = [1.9, 0.19, 1.1]
+io_read = [1.9, 0.19, 0.49]
+compute = [4.7, 4.6, 4.45]
+io_write = [0.15, 0.001, 0.013]
 
 breakdown = [io_read, compute, io_write]
 breakdown_bottom = [[0]*len(io_read)]
@@ -48,7 +50,7 @@ for i in breakdown:
     breakdown_bottom.append(tmp)
 
 #c = ['b', 'g', 'r']
-c = ['#17becf', '#2ca02c', '#ff7f0e']
+c = ['#81dbf9', '#2ca02c', '#ff7f0e']
 h = ['//', '.', '\\']
 p = []
 for i in xrange(len(breakdown)):
@@ -70,5 +72,6 @@ ax1.set_title("Stage 2: MXNET classification")
 ax1.set_ylim(0,13)
 
 #plt.tight_layout()
+plt.savefig("videoanalytics-breakdown.pdf")
 plt.show()
 
