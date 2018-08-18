@@ -1,0 +1,1804 @@
+1521434126.486743 GET protobin/example3_137_100/decode_args6200.proto
+1521434126.491852 GET protobin/example3_137_100/start_frame6200.bin
+1521434128.222992 PUT decode-output/example3_137_100_20/frame6220-1.jpg
+1521434128.474720 PUT decode-output/example3_137_100_20/frame6200-20.jpg
+1521434128.667370 PUT video-lambda-logs/lambda62
+
+1521434126.283120 GET protobin/example3_137_100/decode_args3700.proto
+1521434126.337086 GET protobin/example3_137_100/start_frame3700.bin
+1521434132.864395 PUT decode-output/example3_137_100_20/frame3700-20.jpg
+1521434133.129900 PUT decode-output/example3_137_100_20/frame3760-20.jpg
+1521434133.331701 PUT decode-output/example3_137_100_20/frame3780-20.jpg
+1521434133.524042 PUT decode-output/example3_137_100_20/frame3720-20.jpg
+1521434133.729408 PUT decode-output/example3_137_100_20/frame3740-20.jpg
+1521434135.087983 PUT video-lambda-logs/lambda37
+
+1521434125.261144 GET protobin/example3_137_100/decode_args500.proto
+1521434125.276796 GET protobin/example3_137_100/start_frame500.bin
+1521434130.919773 PUT decode-output/example3_137_100_20/frame520-20.jpg
+1521434131.148108 PUT decode-output/example3_137_100_20/frame580-20.jpg
+1521434131.370731 PUT decode-output/example3_137_100_20/frame540-20.jpg
+1521434131.605365 PUT decode-output/example3_137_100_20/frame500-20.jpg
+1521434131.834584 PUT decode-output/example3_137_100_20/frame560-20.jpg
+1521434132.093242 PUT video-lambda-logs/lambda5
+
+1521434125.843173 GET protobin/example3_137_100/decode_args300.proto
+1521434125.890937 GET protobin/example3_137_100/start_frame300.bin
+1521434134.222541 PUT decode-output/example3_137_100_20/frame340-20.jpg
+1521434134.393508 PUT decode-output/example3_137_100_20/frame320-20.jpg
+1521434134.631748 PUT decode-output/example3_137_100_20/frame360-20.jpg
+1521434134.807149 PUT decode-output/example3_137_100_20/frame300-20.jpg
+1521434135.045770 PUT decode-output/example3_137_100_20/frame380-20.jpg
+1521434135.455608 PUT video-lambda-logs/lambda3
+
+1521434126.329305 GET protobin/example3_137_100/decode_args1700.proto
+1521434126.373376 GET protobin/example3_137_100/start_frame1700.bin
+1521434134.939394 PUT decode-output/example3_137_100_20/frame1780-20.jpg
+1521434135.234025 PUT decode-output/example3_137_100_20/frame1760-20.jpg
+1521434135.554087 PUT decode-output/example3_137_100_20/frame1740-20.jpg
+1521434135.825546 PUT decode-output/example3_137_100_20/frame1720-20.jpg
+1521434136.091619 PUT decode-output/example3_137_100_20/frame1700-20.jpg
+1521434136.348466 PUT video-lambda-logs/lambda17
+
+1521434126.113855 GET protobin/example3_137_100/decode_args700.proto
+1521434126.145945 GET protobin/example3_137_100/start_frame700.bin
+1521434132.799602 PUT decode-output/example3_137_100_20/frame700-20.jpg
+1521434133.081658 PUT decode-output/example3_137_100_20/frame760-20.jpg
+1521434133.346264 PUT decode-output/example3_137_100_20/frame740-20.jpg
+1521434133.636699 PUT decode-output/example3_137_100_20/frame720-20.jpg
+1521434133.915211 PUT decode-output/example3_137_100_20/frame780-20.jpg
+1521434134.365267 PUT video-lambda-logs/lambda7
+
+1521434126.322340 GET protobin/example3_137_100/decode_args1600.proto
+1521434126.347251 GET protobin/example3_137_100/start_frame1600.bin
+1521434134.366120 PUT decode-output/example3_137_100_20/frame1660-20.jpg
+1521434134.691084 PUT decode-output/example3_137_100_20/frame1680-20.jpg
+1521434135.030811 PUT decode-output/example3_137_100_20/frame1600-20.jpg
+1521434135.371769 PUT decode-output/example3_137_100_20/frame1640-20.jpg
+1521434135.702118 PUT decode-output/example3_137_100_20/frame1620-20.jpg
+1521434135.959185 PUT video-lambda-logs/lambda16
+
+1521434126.342097 GET protobin/example3_137_100/decode_args2200.proto
+1521434126.353650 GET protobin/example3_137_100/start_frame2200.bin
+1521434131.379707 PUT decode-output/example3_137_100_20/frame2260-20.jpg
+1521434131.513726 PUT decode-output/example3_137_100_20/frame2200-20.jpg
+1521434131.650927 PUT decode-output/example3_137_100_20/frame2240-20.jpg
+1521434131.789512 PUT decode-output/example3_137_100_20/frame2280-20.jpg
+1521434131.998304 PUT decode-output/example3_137_100_20/frame2220-20.jpg
+1521434132.339919 PUT video-lambda-logs/lambda22
+
+1521434126.429124 GET protobin/example3_137_100/decode_args2900.proto
+1521434126.442968 GET protobin/example3_137_100/start_frame2900.bin
+1521434131.587319 PUT decode-output/example3_137_100_20/frame2940-20.jpg
+1521434131.693990 PUT decode-output/example3_137_100_20/frame2980-20.jpg
+1521434131.923013 PUT decode-output/example3_137_100_20/frame2960-20.jpg
+1521434132.152691 PUT decode-output/example3_137_100_20/frame2920-20.jpg
+1521434132.263478 PUT decode-output/example3_137_100_20/frame2900-20.jpg
+1521434132.506173 PUT video-lambda-logs/lambda29
+
+1521434126.318063 GET protobin/example3_137_100/decode_args3600.proto
+1521434126.351389 GET protobin/example3_137_100/start_frame3600.bin
+1521434132.337476 PUT decode-output/example3_137_100_20/frame3660-20.jpg
+1521434132.665037 PUT decode-output/example3_137_100_20/frame3620-20.jpg
+1521434132.990606 PUT decode-output/example3_137_100_20/frame3640-20.jpg
+1521434133.318903 PUT decode-output/example3_137_100_20/frame3680-20.jpg
+1521434133.505717 PUT decode-output/example3_137_100_20/frame3600-20.jpg
+1521434134.187309 PUT video-lambda-logs/lambda36
+
+1521434126.091100 GET protobin/example3_137_100/decode_args400.proto
+1521434126.124688 GET protobin/example3_137_100/start_frame400.bin
+1521434133.200157 PUT decode-output/example3_137_100_20/frame420-20.jpg
+1521434133.405661 PUT decode-output/example3_137_100_20/frame480-20.jpg
+1521434133.644947 PUT decode-output/example3_137_100_20/frame460-20.jpg
+1521434133.869878 PUT decode-output/example3_137_100_20/frame400-20.jpg
+1521434134.054114 PUT decode-output/example3_137_100_20/frame440-20.jpg
+1521434134.551621 PUT video-lambda-logs/lambda4
+
+1521434126.299209 GET protobin/example3_137_100/decode_args2700.proto
+1521434126.316322 GET protobin/example3_137_100/start_frame2700.bin
+1521434131.707872 PUT decode-output/example3_137_100_20/frame2700-20.jpg
+1521434131.869017 PUT decode-output/example3_137_100_20/frame2720-20.jpg
+1521434131.944308 PUT decode-output/example3_137_100_20/frame2760-20.jpg
+1521434132.134474 PUT decode-output/example3_137_100_20/frame2740-20.jpg
+1521434132.184489 PUT decode-output/example3_137_100_20/frame2780-20.jpg
+1521434132.505457 PUT video-lambda-logs/lambda27
+
+1521434126.739926 GET protobin/example3_137_100/decode_args5500.proto
+1521434126.780173 GET protobin/example3_137_100/start_frame5500.bin
+1521434135.292414 PUT decode-output/example3_137_100_20/frame5540-20.jpg
+1521434135.555509 PUT decode-output/example3_137_100_20/frame5560-20.jpg
+1521434135.927902 PUT decode-output/example3_137_100_20/frame5580-20.jpg
+1521434136.169864 PUT decode-output/example3_137_100_20/frame5500-20.jpg
+1521434136.414917 PUT decode-output/example3_137_100_20/frame5520-20.jpg
+1521434136.704993 PUT video-lambda-logs/lambda55
+
+1521434126.158310 GET protobin/example3_137_100/decode_args1800.proto
+1521434126.189854 GET protobin/example3_137_100/start_frame1800.bin
+1521434133.498351 PUT decode-output/example3_137_100_20/frame1860-20.jpg
+1521434133.736438 PUT decode-output/example3_137_100_20/frame1800-20.jpg
+1521434133.938651 PUT decode-output/example3_137_100_20/frame1880-20.jpg
+1521434134.222841 PUT decode-output/example3_137_100_20/frame1840-20.jpg
+1521434134.459217 PUT decode-output/example3_137_100_20/frame1820-20.jpg
+1521434134.967348 PUT video-lambda-logs/lambda18
+
+1521434126.105370 GET protobin/example3_137_100/decode_args1500.proto
+1521434126.146424 GET protobin/example3_137_100/start_frame1500.bin
+1521434133.318472 PUT decode-output/example3_137_100_20/frame1520-20.jpg
+1521434133.648090 PUT decode-output/example3_137_100_20/frame1580-20.jpg
+1521434133.981768 PUT decode-output/example3_137_100_20/frame1560-20.jpg
+1521434134.221277 PUT decode-output/example3_137_100_20/frame1500-20.jpg
+1521434134.506063 PUT decode-output/example3_137_100_20/frame1540-20.jpg
+1521434134.938409 PUT video-lambda-logs/lambda15
+
+1521434124.907031 GET protobin/example3_137_100/decode_args1300.proto
+1521434124.937605 GET protobin/example3_137_100/start_frame1300.bin
+1521434131.369034 PUT decode-output/example3_137_100_20/frame1360-20.jpg
+1521434131.535680 PUT decode-output/example3_137_100_20/frame1340-20.jpg
+1521434131.695584 PUT decode-output/example3_137_100_20/frame1380-20.jpg
+1521434131.916549 PUT decode-output/example3_137_100_20/frame1320-20.jpg
+1521434132.103988 PUT decode-output/example3_137_100_20/frame1300-20.jpg
+1521434132.347509 PUT video-lambda-logs/lambda13
+
+1521434124.991723 GET protobin/example3_137_100/decode_args600.proto
+1521434125.041704 GET protobin/example3_137_100/start_frame600.bin
+1521434132.098620 PUT decode-output/example3_137_100_20/frame680-20.jpg
+1521434132.291672 PUT decode-output/example3_137_100_20/frame620-20.jpg
+1521434132.460616 PUT decode-output/example3_137_100_20/frame600-20.jpg
+1521434132.657453 PUT decode-output/example3_137_100_20/frame640-20.jpg
+1521434132.847678 PUT decode-output/example3_137_100_20/frame660-20.jpg
+1521434133.111947 PUT video-lambda-logs/lambda6
+
+1521434126.115374 GET protobin/example3_137_100/decode_args200.proto
+1521434126.155607 GET protobin/example3_137_100/start_frame200.bin
+1521434133.356024 PUT decode-output/example3_137_100_20/frame260-20.jpg
+1521434133.531963 PUT decode-output/example3_137_100_20/frame240-20.jpg
+1521434133.712691 PUT decode-output/example3_137_100_20/frame280-20.jpg
+1521434133.874735 PUT decode-output/example3_137_100_20/frame200-20.jpg
+1521434134.050276 PUT decode-output/example3_137_100_20/frame220-20.jpg
+1521434134.399242 PUT video-lambda-logs/lambda2
+
+1521434123.287160 GET protobin/example3_137_100/decode_args900.proto
+1521434123.340085 GET protobin/example3_137_100/start_frame900.bin
+1521434130.473909 PUT decode-output/example3_137_100_20/frame900-20.jpg
+1521434130.612198 PUT decode-output/example3_137_100_20/frame980-20.jpg
+1521434130.798878 PUT decode-output/example3_137_100_20/frame940-20.jpg
+1521434130.993056 PUT decode-output/example3_137_100_20/frame960-20.jpg
+1521434131.164490 PUT decode-output/example3_137_100_20/frame920-20.jpg
+1521434131.347932 PUT video-lambda-logs/lambda9
+
+1521434126.007704 GET protobin/example3_137_100/decode_args2600.proto
+1521434126.041265 GET protobin/example3_137_100/start_frame2600.bin
+1521434133.043918 PUT decode-output/example3_137_100_20/frame2600-20.jpg
+1521434133.262643 PUT decode-output/example3_137_100_20/frame2620-20.jpg
+1521434133.474288 PUT decode-output/example3_137_100_20/frame2640-20.jpg
+1521434133.694903 PUT decode-output/example3_137_100_20/frame2680-20.jpg
+1521434133.893621 PUT decode-output/example3_137_100_20/frame2660-20.jpg
+1521434134.446318 PUT video-lambda-logs/lambda26
+
+1521434126.311957 GET protobin/example3_137_100/decode_args1200.proto
+1521434126.352882 GET protobin/example3_137_100/start_frame1200.bin
+1521434131.840925 PUT decode-output/example3_137_100_20/frame1200-20.jpg
+1521434131.985141 PUT decode-output/example3_137_100_20/frame1240-20.jpg
+1521434132.152371 PUT decode-output/example3_137_100_20/frame1220-20.jpg
+1521434132.296599 PUT decode-output/example3_137_100_20/frame1280-20.jpg
+1521434132.471965 PUT decode-output/example3_137_100_20/frame1260-20.jpg
+1521434132.638012 PUT video-lambda-logs/lambda12
+
+1521434125.459368 GET protobin/example3_137_100/decode_args2100.proto
+1521434125.478908 GET protobin/example3_137_100/start_frame2100.bin
+1521434130.544346 PUT decode-output/example3_137_100_20/frame2100-20.jpg
+1521434130.650640 PUT decode-output/example3_137_100_20/frame2140-20.jpg
+1521434130.768580 PUT decode-output/example3_137_100_20/frame2180-20.jpg
+1521434130.874410 PUT decode-output/example3_137_100_20/frame2120-20.jpg
+1521434130.985349 PUT decode-output/example3_137_100_20/frame2160-20.jpg
+1521434131.200771 PUT video-lambda-logs/lambda21
+
+1521434126.180950 GET protobin/example3_137_100/decode_args5900.proto
+1521434126.189787 GET protobin/example3_137_100/start_frame5900.bin
+1521434131.432524 PUT decode-output/example3_137_100_20/frame5900-20.jpg
+1521434131.556492 PUT decode-output/example3_137_100_20/frame5960-20.jpg
+1521434131.668921 PUT decode-output/example3_137_100_20/frame5980-20.jpg
+1521434131.784453 PUT decode-output/example3_137_100_20/frame5920-20.jpg
+1521434131.903809 PUT decode-output/example3_137_100_20/frame5940-20.jpg
+1521434132.198968 PUT video-lambda-logs/lambda59
+
+1521434126.224621 GET protobin/example3_137_100/decode_args4000.proto
+1521434126.247579 GET protobin/example3_137_100/start_frame4000.bin
+1521434131.572995 PUT decode-output/example3_137_100_20/frame4000-20.jpg
+1521434131.715511 PUT decode-output/example3_137_100_20/frame4020-20.jpg
+1521434131.857191 PUT decode-output/example3_137_100_20/frame4060-20.jpg
+1521434132.012204 PUT decode-output/example3_137_100_20/frame4080-20.jpg
+1521434132.149661 PUT decode-output/example3_137_100_20/frame4040-20.jpg
+1521434132.690047 PUT video-lambda-logs/lambda40
+
+1521434138.710934 GET protobin/example3_137_100/decode_args5100.proto
+1521434138.726295 GET protobin/example3_137_100/start_frame5100.bin
+1521434144.511817 PUT decode-output/example3_137_100_20/frame5120-20.jpg
+1521434144.701827 PUT decode-output/example3_137_100_20/frame5140-20.jpg
+1521434144.791986 PUT decode-output/example3_137_100_20/frame5100-20.jpg
+1521434144.990622 PUT decode-output/example3_137_100_20/frame5180-20.jpg
+1521434145.191950 PUT decode-output/example3_137_100_20/frame5160-20.jpg
+1521434145.349793 PUT video-lambda-logs/lambda51
+
+1521434126.187267 GET protobin/example3_137_100/decode_args2800.proto
+1521434126.193589 GET protobin/example3_137_100/start_frame2800.bin
+1521434129.866910 PUT decode-output/example3_137_100_20/frame2820-20.jpg
+1521434129.922636 PUT decode-output/example3_137_100_20/frame2860-20.jpg
+1521434130.017295 PUT decode-output/example3_137_100_20/frame2880-20.jpg
+1521434130.074573 PUT decode-output/example3_137_100_20/frame2800-20.jpg
+1521434130.135435 PUT decode-output/example3_137_100_20/frame2840-20.jpg
+1521434130.455863 PUT video-lambda-logs/lambda28
+
+1521434126.335342 GET protobin/example3_137_100/decode_args4300.proto
+1521434126.365472 GET protobin/example3_137_100/start_frame4300.bin
+1521434131.694282 PUT decode-output/example3_137_100_20/frame4360-20.jpg
+1521434131.793407 PUT decode-output/example3_137_100_20/frame4340-20.jpg
+1521434131.886478 PUT decode-output/example3_137_100_20/frame4320-20.jpg
+1521434131.977470 PUT decode-output/example3_137_100_20/frame4300-20.jpg
+1521434132.075593 PUT decode-output/example3_137_100_20/frame4380-20.jpg
+1521434132.315590 PUT video-lambda-logs/lambda43
+
+1521434125.797548 GET protobin/example3_137_100/decode_args1400.proto
+1521434125.849118 GET protobin/example3_137_100/start_frame1400.bin
+1521434133.529251 PUT decode-output/example3_137_100_20/frame1440-20.jpg
+1521434133.769687 PUT decode-output/example3_137_100_20/frame1460-20.jpg
+1521434134.056138 PUT decode-output/example3_137_100_20/frame1420-20.jpg
+1521434134.243153 PUT decode-output/example3_137_100_20/frame1400-20.jpg
+1521434134.435243 PUT decode-output/example3_137_100_20/frame1480-20.jpg
+1521434134.866681 PUT video-lambda-logs/lambda14
+
+1521434126.403960 GET protobin/example3_137_100/decode_args6100.proto
+1521434126.409006 GET protobin/example3_137_100/start_frame6100.bin
+1521434130.958069 PUT decode-output/example3_137_100_20/frame6140-20.jpg
+1521434131.144324 PUT decode-output/example3_137_100_20/frame6160-20.jpg
+1521434131.269230 PUT decode-output/example3_137_100_20/frame6120-20.jpg
+1521434131.418661 PUT decode-output/example3_137_100_20/frame6100-20.jpg
+1521434131.532448 PUT decode-output/example3_137_100_20/frame6180-20.jpg
+1521434131.808120 PUT video-lambda-logs/lambda61
+
+1521434126.409663 GET protobin/example3_137_100/decode_args4500.proto
+1521434126.427397 GET protobin/example3_137_100/start_frame4500.bin
+1521434131.570371 PUT decode-output/example3_137_100_20/frame4560-20.jpg
+1521434131.707461 PUT decode-output/example3_137_100_20/frame4580-20.jpg
+1521434131.854123 PUT decode-output/example3_137_100_20/frame4500-20.jpg
+1521434132.001515 PUT decode-output/example3_137_100_20/frame4520-20.jpg
+1521434132.149762 PUT decode-output/example3_137_100_20/frame4540-20.jpg
+1521434132.451285 PUT video-lambda-logs/lambda45
+
+1521434126.548047 GET protobin/example3_137_100/decode_args3200.proto
+1521434126.582170 GET protobin/example3_137_100/start_frame3200.bin
+1521434132.810762 PUT decode-output/example3_137_100_20/frame3220-20.jpg
+1521434133.177915 PUT decode-output/example3_137_100_20/frame3280-20.jpg
+1521434133.336665 PUT decode-output/example3_137_100_20/frame3260-20.jpg
+1521434133.487016 PUT decode-output/example3_137_100_20/frame3240-20.jpg
+1521434133.687434 PUT decode-output/example3_137_100_20/frame3200-20.jpg
+1521434134.134474 PUT video-lambda-logs/lambda32
+
+1521434124.037453 GET protobin/example3_137_100/decode_args100.proto
+1521434124.080457 GET protobin/example3_137_100/start_frame100.bin
+1521434132.038260 PUT decode-output/example3_137_100_20/frame140-20.jpg
+1521434132.287243 PUT decode-output/example3_137_100_20/frame100-20.jpg
+1521434132.428736 PUT decode-output/example3_137_100_20/frame120-20.jpg
+1521434132.672191 PUT decode-output/example3_137_100_20/frame180-20.jpg
+1521434132.797924 PUT decode-output/example3_137_100_20/frame160-20.jpg
+1521434133.163229 PUT video-lambda-logs/lambda1
+
+1521434126.209738 GET protobin/example3_137_100/decode_args3300.proto
+1521434126.231612 GET protobin/example3_137_100/start_frame3300.bin
+1521434132.584123 PUT decode-output/example3_137_100_20/frame3380-20.jpg
+1521434132.797130 PUT decode-output/example3_137_100_20/frame3320-20.jpg
+1521434133.028728 PUT decode-output/example3_137_100_20/frame3300-20.jpg
+1521434133.270154 PUT decode-output/example3_137_100_20/frame3340-20.jpg
+1521434133.499241 PUT decode-output/example3_137_100_20/frame3360-20.jpg
+1521434133.727103 PUT video-lambda-logs/lambda33
+
+1521434126.519751 GET protobin/example3_137_100/decode_args3900.proto
+1521434126.536498 GET protobin/example3_137_100/start_frame3900.bin
+1521434130.726961 PUT decode-output/example3_137_100_20/frame3920-20.jpg
+1521434130.867865 PUT decode-output/example3_137_100_20/frame3940-20.jpg
+1521434131.005281 PUT decode-output/example3_137_100_20/frame3960-20.jpg
+1521434131.150059 PUT decode-output/example3_137_100_20/frame3900-20.jpg
+1521434131.279628 PUT decode-output/example3_137_100_20/frame3980-20.jpg
+1521434131.438264 PUT video-lambda-logs/lambda39
+
+1521434124.942525 GET protobin/example3_137_100/decode_args1900.proto
+1521434124.953646 GET protobin/example3_137_100/start_frame1900.bin
+1521434130.939602 PUT decode-output/example3_137_100_20/frame1900-20.jpg
+1521434131.149194 PUT decode-output/example3_137_100_20/frame1920-20.jpg
+1521434131.315334 PUT decode-output/example3_137_100_20/frame1980-20.jpg
+1521434131.490153 PUT decode-output/example3_137_100_20/frame1940-20.jpg
+1521434131.750797 PUT decode-output/example3_137_100_20/frame1960-20.jpg
+1521434132.005354 PUT video-lambda-logs/lambda19
+
+1521434126.351003 GET protobin/example3_137_100/decode_args5200.proto
+1521434126.380989 GET protobin/example3_137_100/start_frame5200.bin
+1521434132.002074 PUT decode-output/example3_137_100_20/frame5280-20.jpg
+1521434132.201246 PUT decode-output/example3_137_100_20/frame5260-20.jpg
+1521434132.409189 PUT decode-output/example3_137_100_20/frame5220-20.jpg
+1521434132.602416 PUT decode-output/example3_137_100_20/frame5240-20.jpg
+1521434132.801225 PUT decode-output/example3_137_100_20/frame5200-20.jpg
+1521434132.986656 PUT video-lambda-logs/lambda52
+
+1521434126.332241 GET protobin/example3_137_100/decode_args5700.proto
+1521434126.356185 GET protobin/example3_137_100/start_frame5700.bin
+1521434131.518415 PUT decode-output/example3_137_100_20/frame5760-20.jpg
+1521434131.613379 PUT decode-output/example3_137_100_20/frame5720-20.jpg
+1521434131.693357 PUT decode-output/example3_137_100_20/frame5740-20.jpg
+1521434131.836039 PUT decode-output/example3_137_100_20/frame5780-20.jpg
+1521434132.072517 PUT decode-output/example3_137_100_20/frame5700-20.jpg
+1521434132.311372 PUT video-lambda-logs/lambda57
+
+1521434126.738254 GET protobin/example3_137_100/decode_args5400.proto
+1521434126.820316 GET protobin/example3_137_100/start_frame5400.bin
+1521434135.233126 PUT decode-output/example3_137_100_20/frame5400-20.jpg
+1521434135.614830 PUT decode-output/example3_137_100_20/frame5460-20.jpg
+1521434135.997892 PUT decode-output/example3_137_100_20/frame5420-20.jpg
+1521434136.385851 PUT decode-output/example3_137_100_20/frame5480-20.jpg
+1521434136.769775 PUT decode-output/example3_137_100_20/frame5440-20.jpg
+1521434137.039439 PUT video-lambda-logs/lambda54
+
+1521434125.462595 GET protobin/example3_137_100/decode_args800.proto
+1521434125.498535 GET protobin/example3_137_100/start_frame800.bin
+1521434132.132071 PUT decode-output/example3_137_100_20/frame880-20.jpg
+1521434132.382993 PUT decode-output/example3_137_100_20/frame820-20.jpg
+1521434132.623642 PUT decode-output/example3_137_100_20/frame860-20.jpg
+1521434132.903752 PUT decode-output/example3_137_100_20/frame840-20.jpg
+1521434133.128411 PUT decode-output/example3_137_100_20/frame800-20.jpg
+1521434133.348678 PUT video-lambda-logs/lambda8
+
+1521434126.781877 GET protobin/example3_137_100/decode_args5300.proto
+1521434126.812397 GET protobin/example3_137_100/start_frame5300.bin
+1521434133.542894 PUT decode-output/example3_137_100_20/frame5380-20.jpg
+1521434133.748252 PUT decode-output/example3_137_100_20/frame5320-20.jpg
+1521434133.964438 PUT decode-output/example3_137_100_20/frame5300-20.jpg
+1521434134.154154 PUT decode-output/example3_137_100_20/frame5340-20.jpg
+1521434134.475779 PUT decode-output/example3_137_100_20/frame5360-20.jpg
+1521434135.657177 PUT video-lambda-logs/lambda53
+
+1521434126.401734 GET protobin/example3_137_100/decode_args4400.proto
+1521434126.436216 GET protobin/example3_137_100/start_frame4400.bin
+1521434131.844088 PUT decode-output/example3_137_100_20/frame4400-20.jpg
+1521434132.067396 PUT decode-output/example3_137_100_20/frame4460-20.jpg
+1521434132.295790 PUT decode-output/example3_137_100_20/frame4420-20.jpg
+1521434132.520683 PUT decode-output/example3_137_100_20/frame4480-20.jpg
+1521434132.745683 PUT decode-output/example3_137_100_20/frame4440-20.jpg
+1521434133.024665 PUT video-lambda-logs/lambda44
+
+1521434125.492581 GET protobin/example3_137_100/decode_args1100.proto
+1521434125.528869 GET protobin/example3_137_100/start_frame1100.bin
+1521434133.042592 PUT decode-output/example3_137_100_20/frame1120-20.jpg
+1521434133.203885 PUT decode-output/example3_137_100_20/frame1100-20.jpg
+1521434133.374199 PUT decode-output/example3_137_100_20/frame1160-20.jpg
+1521434133.597973 PUT decode-output/example3_137_100_20/frame1140-20.jpg
+1521434133.823176 PUT decode-output/example3_137_100_20/frame1180-20.jpg
+1521434134.161065 PUT video-lambda-logs/lambda11
+
+1521434126.275210 GET protobin/example3_137_100/decode_args6000.proto
+1521434126.284233 GET protobin/example3_137_100/start_frame6000.bin
+1521434131.065572 PUT decode-output/example3_137_100_20/frame6080-20.jpg
+1521434131.189725 PUT decode-output/example3_137_100_20/frame6040-20.jpg
+1521434131.351059 PUT decode-output/example3_137_100_20/frame6000-20.jpg
+1521434131.479620 PUT decode-output/example3_137_100_20/frame6060-20.jpg
+1521434131.609957 PUT decode-output/example3_137_100_20/frame6020-20.jpg
+1521434131.853431 PUT video-lambda-logs/lambda60
+
+1521434126.540844 GET protobin/example3_137_100/decode_args5600.proto
+1521434126.562259 GET protobin/example3_137_100/start_frame5600.bin
+1521434133.705694 PUT decode-output/example3_137_100_20/frame5600-20.jpg
+1521434133.971268 PUT decode-output/example3_137_100_20/frame5660-20.jpg
+1521434134.265849 PUT decode-output/example3_137_100_20/frame5640-20.jpg
+1521434134.436296 PUT decode-output/example3_137_100_20/frame5620-20.jpg
+1521434134.673356 PUT decode-output/example3_137_100_20/frame5680-20.jpg
+1521434135.192451 PUT video-lambda-logs/lambda56
+
+1521434126.464091 GET protobin/example3_137_100/decode_args4800.proto
+1521434126.497111 GET protobin/example3_137_100/start_frame4800.bin
+1521434132.657605 PUT decode-output/example3_137_100_20/frame4860-20.jpg
+1521434132.822656 PUT decode-output/example3_137_100_20/frame4820-20.jpg
+1521434132.957603 PUT decode-output/example3_137_100_20/frame4840-20.jpg
+1521434133.072876 PUT decode-output/example3_137_100_20/frame4800-20.jpg
+1521434133.183159 PUT decode-output/example3_137_100_20/frame4880-20.jpg
+1521434133.365339 PUT video-lambda-logs/lambda48
+
+1521434125.145921 GET protobin/example3_137_100/decode_args0.proto
+1521434125.183705 GET protobin/example3_137_100/start_frame0.bin
+1521434132.957627 PUT decode-output/example3_137_100_20/frame20-20.jpg
+1521434133.299130 PUT decode-output/example3_137_100_20/frame40-20.jpg
+1521434133.587102 PUT decode-output/example3_137_100_20/frame0-20.jpg
+1521434133.888102 PUT decode-output/example3_137_100_20/frame80-20.jpg
+1521434134.178023 PUT decode-output/example3_137_100_20/frame60-20.jpg
+1521434134.600499 PUT video-lambda-logs/lambda0
+
+1521434126.465127 GET protobin/example3_137_100/decode_args5800.proto
+1521434126.470322 GET protobin/example3_137_100/start_frame5800.bin
+1521434130.955946 PUT decode-output/example3_137_100_20/frame5860-20.jpg
+1521434131.066302 PUT decode-output/example3_137_100_20/frame5880-20.jpg
+1521434131.175747 PUT decode-output/example3_137_100_20/frame5820-20.jpg
+1521434131.289530 PUT decode-output/example3_137_100_20/frame5840-20.jpg
+1521434131.405799 PUT decode-output/example3_137_100_20/frame5800-20.jpg
+1521434131.622359 PUT video-lambda-logs/lambda58
+
+1521434124.874978 GET protobin/example3_137_100/decode_args2300.proto
+1521434124.896215 GET protobin/example3_137_100/start_frame2300.bin
+1521434131.590549 PUT decode-output/example3_137_100_20/frame2380-20.jpg
+1521434131.783679 PUT decode-output/example3_137_100_20/frame2300-20.jpg
+1521434132.040760 PUT decode-output/example3_137_100_20/frame2340-20.jpg
+1521434132.225810 PUT decode-output/example3_137_100_20/frame2320-20.jpg
+1521434132.374698 PUT decode-output/example3_137_100_20/frame2360-20.jpg
+1521434132.777135 PUT video-lambda-logs/lambda23
+
+1521434125.735232 GET protobin/example3_137_100/decode_args3400.proto
+1521434125.770513 GET protobin/example3_137_100/start_frame3400.bin
+1521434132.588621 PUT decode-output/example3_137_100_20/frame3480-20.jpg
+1521434132.699427 PUT decode-output/example3_137_100_20/frame3460-20.jpg
+1521434132.821290 PUT decode-output/example3_137_100_20/frame3400-20.jpg
+1521434132.934775 PUT decode-output/example3_137_100_20/frame3440-20.jpg
+1521434133.095597 PUT decode-output/example3_137_100_20/frame3420-20.jpg
+1521434133.360526 PUT video-lambda-logs/lambda34
+
+1521434124.319835 GET protobin/example3_137_100/decode_args1000.proto
+1521434124.336398 GET protobin/example3_137_100/start_frame1000.bin
+1521434130.131804 PUT decode-output/example3_137_100_20/frame1080-20.jpg
+1521434130.333392 PUT decode-output/example3_137_100_20/frame1000-20.jpg
+1521434130.485457 PUT decode-output/example3_137_100_20/frame1060-20.jpg
+1521434130.674498 PUT decode-output/example3_137_100_20/frame1040-20.jpg
+1521434130.811154 PUT decode-output/example3_137_100_20/frame1020-20.jpg
+1521434130.992493 PUT video-lambda-logs/lambda10
+
+1521434126.475534 GET protobin/example3_137_100/decode_args3100.proto
+1521434126.485210 GET protobin/example3_137_100/start_frame3100.bin
+1521434130.934600 PUT decode-output/example3_137_100_20/frame3140-20.jpg
+1521434131.087894 PUT decode-output/example3_137_100_20/frame3180-20.jpg
+1521434131.247604 PUT decode-output/example3_137_100_20/frame3160-20.jpg
+1521434131.418617 PUT decode-output/example3_137_100_20/frame3100-20.jpg
+1521434131.594951 PUT decode-output/example3_137_100_20/frame3120-20.jpg
+1521434131.774848 PUT video-lambda-logs/lambda31
+
+1521434126.139397 GET protobin/example3_137_100/decode_args2500.proto
+1521434126.175800 GET protobin/example3_137_100/start_frame2500.bin
+1521434132.948210 PUT decode-output/example3_137_100_20/frame2580-20.jpg
+1521434133.226868 PUT decode-output/example3_137_100_20/frame2500-20.jpg
+1521434133.455103 PUT decode-output/example3_137_100_20/frame2520-20.jpg
+1521434133.701433 PUT decode-output/example3_137_100_20/frame2560-20.jpg
+1521434133.921288 PUT decode-output/example3_137_100_20/frame2540-20.jpg
+1521434134.330618 PUT video-lambda-logs/lambda25
+
+1521434125.864222 GET protobin/example3_137_100/decode_args4100.proto
+1521434125.882844 GET protobin/example3_137_100/start_frame4100.bin
+1521434130.908598 PUT decode-output/example3_137_100_20/frame4100-20.jpg
+1521434131.054122 PUT decode-output/example3_137_100_20/frame4120-20.jpg
+1521434131.185811 PUT decode-output/example3_137_100_20/frame4140-20.jpg
+1521434131.327536 PUT decode-output/example3_137_100_20/frame4180-20.jpg
+1521434131.454830 PUT decode-output/example3_137_100_20/frame4160-20.jpg
+1521434131.799005 PUT video-lambda-logs/lambda41
+
+1521434126.534142 GET protobin/example3_137_100/decode_args3800.proto
+1521434126.575635 GET protobin/example3_137_100/start_frame3800.bin
+1521434133.169644 PUT decode-output/example3_137_100_20/frame3860-20.jpg
+1521434133.331046 PUT decode-output/example3_137_100_20/frame3800-20.jpg
+1521434133.516497 PUT decode-output/example3_137_100_20/frame3840-20.jpg
+1521434133.785732 PUT decode-output/example3_137_100_20/frame3820-20.jpg
+1521434133.894436 PUT decode-output/example3_137_100_20/frame3880-20.jpg
+1521434134.669975 PUT video-lambda-logs/lambda38
+
+1521434125.236977 GET protobin/example3_137_100/decode_args3000.proto
+1521434125.258535 GET protobin/example3_137_100/start_frame3000.bin
+1521434130.889135 PUT decode-output/example3_137_100_20/frame3040-20.jpg
+1521434131.094457 PUT decode-output/example3_137_100_20/frame3000-20.jpg
+1521434131.231010 PUT decode-output/example3_137_100_20/frame3080-20.jpg
+1521434131.428773 PUT decode-output/example3_137_100_20/frame3020-20.jpg
+1521434131.569620 PUT decode-output/example3_137_100_20/frame3060-20.jpg
+1521434131.782591 PUT video-lambda-logs/lambda30
+
+1521434126.590778 GET protobin/example3_137_100/decode_args4600.proto
+1521434126.614169 GET protobin/example3_137_100/start_frame4600.bin
+1521434132.376205 PUT decode-output/example3_137_100_20/frame4640-20.jpg
+1521434132.558839 PUT decode-output/example3_137_100_20/frame4660-20.jpg
+1521434132.749155 PUT decode-output/example3_137_100_20/frame4680-20.jpg
+1521434132.943380 PUT decode-output/example3_137_100_20/frame4620-20.jpg
+1521434133.133096 PUT decode-output/example3_137_100_20/frame4600-20.jpg
+1521434133.617369 PUT video-lambda-logs/lambda46
+
+1521434126.404284 GET protobin/example3_137_100/decode_args5000.proto
+1521434126.411102 GET protobin/example3_137_100/start_frame5000.bin
+1521434130.676796 PUT decode-output/example3_137_100_20/frame5060-20.jpg
+1521434130.775066 PUT decode-output/example3_137_100_20/frame5080-20.jpg
+1521434130.863074 PUT decode-output/example3_137_100_20/frame5020-20.jpg
+1521434130.973297 PUT decode-output/example3_137_100_20/frame5000-20.jpg
+1521434131.067420 PUT decode-output/example3_137_100_20/frame5040-20.jpg
+1521434131.226126 PUT video-lambda-logs/lambda50
+
+1521434126.452694 GET protobin/example3_137_100/decode_args4900.proto
+1521434126.475995 GET protobin/example3_137_100/start_frame4900.bin
+1521434131.389022 PUT decode-output/example3_137_100_20/frame4960-20.jpg
+1521434131.508873 PUT decode-output/example3_137_100_20/frame4940-20.jpg
+1521434131.667838 PUT decode-output/example3_137_100_20/frame4900-20.jpg
+1521434131.831750 PUT decode-output/example3_137_100_20/frame4920-20.jpg
+1521434131.939443 PUT decode-output/example3_137_100_20/frame4980-20.jpg
+1521434132.120293 PUT video-lambda-logs/lambda49
+
+1521434126.156536 GET protobin/example3_137_100/decode_args2400.proto
+1521434126.191755 GET protobin/example3_137_100/start_frame2400.bin
+1521434131.716324 PUT decode-output/example3_137_100_20/frame2460-20.jpg
+1521434131.916152 PUT decode-output/example3_137_100_20/frame2400-20.jpg
+1521434132.121018 PUT decode-output/example3_137_100_20/frame2440-20.jpg
+1521434132.324535 PUT decode-output/example3_137_100_20/frame2480-20.jpg
+1521434132.572332 PUT decode-output/example3_137_100_20/frame2420-20.jpg
+1521434133.098459 PUT video-lambda-logs/lambda24
+
+1521434126.452862 GET protobin/example3_137_100/decode_args3500.proto
+1521434126.491398 GET protobin/example3_137_100/start_frame3500.bin
+1521434132.195719 PUT decode-output/example3_137_100_20/frame3500-20.jpg
+1521434132.478295 PUT decode-output/example3_137_100_20/frame3580-20.jpg
+1521434132.643548 PUT decode-output/example3_137_100_20/frame3520-20.jpg
+1521434132.811105 PUT decode-output/example3_137_100_20/frame3540-20.jpg
+1521434132.962208 PUT decode-output/example3_137_100_20/frame3560-20.jpg
+1521434133.479684 PUT video-lambda-logs/lambda35
+
+1521434124.962253 GET protobin/example3_137_100/decode_args2000.proto
+1521434124.981457 GET protobin/example3_137_100/start_frame2000.bin
+1521434130.790168 PUT decode-output/example3_137_100_20/frame2080-20.jpg
+1521434130.894685 PUT decode-output/example3_137_100_20/frame2060-20.jpg
+1521434131.067806 PUT decode-output/example3_137_100_20/frame2020-20.jpg
+1521434131.217845 PUT decode-output/example3_137_100_20/frame2000-20.jpg
+1521434131.323209 PUT decode-output/example3_137_100_20/frame2040-20.jpg
+1521434131.541230 PUT video-lambda-logs/lambda20
+
+1521434126.455598 GET protobin/example3_137_100/decode_args4200.proto
+1521434126.465190 GET protobin/example3_137_100/start_frame4200.bin
+1521434131.800040 PUT decode-output/example3_137_100_20/frame4200-20.jpg
+1521434131.960030 PUT decode-output/example3_137_100_20/frame4220-20.jpg
+1521434132.115960 PUT decode-output/example3_137_100_20/frame4240-20.jpg
+1521434132.236180 PUT decode-output/example3_137_100_20/frame4260-20.jpg
+1521434132.363364 PUT decode-output/example3_137_100_20/frame4280-20.jpg
+1521434132.780740 PUT video-lambda-logs/lambda42
+
+1521434126.460358 GET protobin/example3_137_100/decode_args4700.proto
+1521434126.475225 GET protobin/example3_137_100/start_frame4700.bin
+1521434131.522014 PUT decode-output/example3_137_100_20/frame4740-20.jpg
+1521434131.717201 PUT decode-output/example3_137_100_20/frame4780-20.jpg
+1521434131.859997 PUT decode-output/example3_137_100_20/frame4700-20.jpg
+1521434132.009198 PUT decode-output/example3_137_100_20/frame4720-20.jpg
+1521434132.207855 PUT decode-output/example3_137_100_20/frame4760-20.jpg
+1521434132.700408 PUT video-lambda-logs/lambda47
+
+1521434153.904510 GET decode-output/example3_137_100_20/frame3720-20.jpg
+1521434158.617238 PUT mxnet-results/example3_137_100_20/frame3720-20.out
+1521434158.628004 PUT video-lambda-logs-mxnet/mxnetparentLambda37-childLambda3
+
+1521434145.015443 GET decode-output/example3_137_100_20/frame3740-20.jpg
+1521434148.607704 PUT mxnet-results/example3_137_100_20/frame3740-20.out
+1521434148.633125 PUT video-lambda-logs-mxnet/mxnetparentLambda37-childLambda4
+
+1521434151.988154 GET decode-output/example3_137_100_20/frame5600-20.jpg
+1521434156.806123 PUT mxnet-results/example3_137_100_20/frame5600-20.out
+1521434156.816930 PUT video-lambda-logs-mxnet/mxnetparentLambda56-childLambda0
+
+1521434137.601267 GET decode-output/example3_137_100_20/frame5800-20.jpg
+1521434140.803206 PUT mxnet-results/example3_137_100_20/frame5800-20.out
+1521434140.805017 PUT video-lambda-logs-mxnet/mxnetparentLambda58-childLambda1
+
+1521434133.043610 GET decode-output/example3_137_100_20/frame2840-20.jpg
+1521434137.620078 PUT mxnet-results/example3_137_100_20/frame2840-20.out
+1521434137.646370 PUT video-lambda-logs-mxnet/mxnetparentLambda28-childLambda4
+
+1521434144.551446 GET decode-output/example3_137_100_20/frame720-20.jpg
+1521434149.203741 PUT mxnet-results/example3_137_100_20/frame720-20.out
+1521434149.218947 PUT video-lambda-logs-mxnet/mxnetparentLambda7-childLambda2
+
+1521434150.162730 GET decode-output/example3_137_100_20/frame2480-20.jpg
+1521434154.835154 PUT mxnet-results/example3_137_100_20/frame2480-20.out
+1521434154.837415 PUT video-lambda-logs-mxnet/mxnetparentLambda24-childLambda4
+
+1521434133.521997 GET decode-output/example3_137_100_20/frame1040-20.jpg
+1521434138.402884 PUT mxnet-results/example3_137_100_20/frame1040-20.out
+1521434138.409557 PUT video-lambda-logs-mxnet/mxnetparentLambda10-childLambda3
+
+1521434144.179069 GET decode-output/example3_137_100_20/frame1100-20.jpg
+1521434147.585040 PUT mxnet-results/example3_137_100_20/frame1100-20.out
+1521434147.591464 PUT video-lambda-logs-mxnet/mxnetparentLambda11-childLambda2
+
+1521434135.767917 GET decode-output/example3_137_100_20/frame520-20.jpg
+1521434140.450350 PUT mxnet-results/example3_137_100_20/frame520-20.out
+1521434140.463145 PUT video-lambda-logs-mxnet/mxnetparentLambda5-childLambda0
+
+1521434133.355893 GET decode-output/example3_137_100_20/frame1080-20.jpg
+1521434136.775670 PUT mxnet-results/example3_137_100_20/frame1080-20.out
+1521434136.802600 PUT video-lambda-logs-mxnet/mxnetparentLambda10-childLambda0
+
+1521434149.019693 GET decode-output/example3_137_100_20/frame2520-20.jpg
+1521434154.208991 PUT mxnet-results/example3_137_100_20/frame2520-20.out
+1521434154.279360 PUT video-lambda-logs-mxnet/mxnetparentLambda25-childLambda2
+
+1521434144.274465 GET decode-output/example3_137_100_20/frame2680-20.jpg
+1521434147.623066 PUT mxnet-results/example3_137_100_20/frame2680-20.out
+1521434147.626834 PUT video-lambda-logs-mxnet/mxnetparentLambda26-childLambda0
+
+1521434136.065145 GET decode-output/example3_137_100_20/frame1380-20.jpg
+1521434139.444370 PUT mxnet-results/example3_137_100_20/frame1380-20.out
+1521434139.454768 PUT video-lambda-logs-mxnet/mxnetparentLambda13-childLambda2
+
+1521434134.422879 GET decode-output/example3_137_100_20/frame2000-20.jpg
+1521434139.254312 PUT mxnet-results/example3_137_100_20/frame2000-20.out
+1521434139.284441 PUT video-lambda-logs-mxnet/mxnetparentLambda20-childLambda3
+
+1521434136.291558 GET decode-output/example3_137_100_20/frame1940-20.jpg
+1521434139.631894 PUT mxnet-results/example3_137_100_20/frame1940-20.out
+1521434139.633356 PUT video-lambda-logs-mxnet/mxnetparentLambda19-childLambda1
+
+1521434153.754830 GET decode-output/example3_137_100_20/frame1400-20.jpg
+1521434157.221431 PUT mxnet-results/example3_137_100_20/frame1400-20.out
+1521434157.250159 PUT video-lambda-logs-mxnet/mxnetparentLambda14-childLambda3
+
+1521434141.180615 GET decode-output/example3_137_100_20/frame2500-20.jpg
+1521434144.705879 PUT mxnet-results/example3_137_100_20/frame2500-20.out
+1521434144.720862 PUT video-lambda-logs-mxnet/mxnetparentLambda25-childLambda1
+
+1521434138.266756 GET decode-output/example3_137_100_20/frame5080-20.jpg
+1521434143.106156 PUT mxnet-results/example3_137_100_20/frame5080-20.out
+1521434143.121618 PUT video-lambda-logs-mxnet/mxnetparentLambda50-childLambda1
+
+1521434137.682840 GET decode-output/example3_137_100_20/frame4340-20.jpg
+1521434142.272097 PUT mxnet-results/example3_137_100_20/frame4340-20.out
+1521434142.279391 PUT video-lambda-logs-mxnet/mxnetparentLambda43-childLambda2
+
+1521434152.619389 GET decode-output/example3_137_100_20/frame1440-20.jpg
+1521434157.408525 PUT mxnet-results/example3_137_100_20/frame1440-20.out
+1521434157.416779 PUT video-lambda-logs-mxnet/mxnetparentLambda14-childLambda1
+
+1521434152.432816 GET decode-output/example3_137_100_20/frame2620-20.jpg
+1521434157.156917 PUT mxnet-results/example3_137_100_20/frame2620-20.out
+1521434157.169384 PUT video-lambda-logs-mxnet/mxnetparentLambda26-childLambda4
+
+1521434142.016077 GET decode-output/example3_137_100_20/frame1780-20.jpg
+1521434145.557008 PUT mxnet-results/example3_137_100_20/frame1780-20.out
+1521434145.567459 PUT video-lambda-logs-mxnet/mxnetparentLambda17-childLambda0
+
+1521434147.739341 GET decode-output/example3_137_100_20/frame5100-20.jpg
+1521434151.089946 PUT mxnet-results/example3_137_100_20/frame5100-20.out
+1521434151.104995 PUT video-lambda-logs-mxnet/mxnetparentLambda51-childLambda2
+
+1521434138.351656 GET decode-output/example3_137_100_20/frame1320-20.jpg
+1521434141.825610 PUT mxnet-results/example3_137_100_20/frame1320-20.out
+1521434141.828266 PUT video-lambda-logs-mxnet/mxnetparentLambda13-childLambda3
+
+1521434135.377793 GET decode-output/example3_137_100_20/frame5720-20.jpg
+1521434138.514091 PUT mxnet-results/example3_137_100_20/frame5720-20.out
+1521434138.515564 PUT video-lambda-logs-mxnet/mxnetparentLambda57-childLambda1
+
+1521434145.547051 GET decode-output/example3_137_100_20/frame1160-20.jpg
+1521434150.246995 PUT mxnet-results/example3_137_100_20/frame1160-20.out
+1521434150.252804 PUT video-lambda-logs-mxnet/mxnetparentLambda11-childLambda1
+
+1521434151.467786 GET decode-output/example3_137_100_20/frame3860-20.jpg
+1521434156.201711 PUT mxnet-results/example3_137_100_20/frame3860-20.out
+1521434156.208192 PUT video-lambda-logs-mxnet/mxnetparentLambda38-childLambda1
+
+1521434136.732791 GET decode-output/example3_137_100_20/frame1220-20.jpg
+1521434140.118582 PUT mxnet-results/example3_137_100_20/frame1220-20.out
+1521434140.122828 PUT video-lambda-logs-mxnet/mxnetparentLambda12-childLambda2
+
+1521434153.359672 GET decode-output/example3_137_100_20/frame1840-20.jpg
+1521434158.406131 PUT mxnet-results/example3_137_100_20/frame1840-20.out
+1521434158.421392 PUT video-lambda-logs-mxnet/mxnetparentLambda18-childLambda4
+
+1521434142.476573 GET decode-output/example3_137_100_20/frame5520-20.jpg
+1521434147.263300 PUT mxnet-results/example3_137_100_20/frame5520-20.out
+1521434147.271679 PUT video-lambda-logs-mxnet/mxnetparentLambda55-childLambda2
+
+1521434138.373895 GET decode-output/example3_137_100_20/frame5760-20.jpg
+1521434143.084007 PUT mxnet-results/example3_137_100_20/frame5760-20.out
+1521434143.094584 PUT video-lambda-logs-mxnet/mxnetparentLambda57-childLambda0
+
+1521434142.748416 GET decode-output/example3_137_100_20/frame5480-20.jpg
+1521434146.323003 PUT mxnet-results/example3_137_100_20/frame5480-20.out
+1521434146.337900 PUT video-lambda-logs-mxnet/mxnetparentLambda54-childLambda1
+
+1521434143.894959 GET decode-output/example3_137_100_20/frame840-20.jpg
+1521434147.428642 PUT mxnet-results/example3_137_100_20/frame840-20.out
+1521434147.440965 PUT video-lambda-logs-mxnet/mxnetparentLambda8-childLambda3
+
+1521434152.735149 GET decode-output/example3_137_100_20/frame80-20.jpg
+1521434157.656272 PUT mxnet-results/example3_137_100_20/frame80-20.out
+1521434157.658191 PUT video-lambda-logs-mxnet/mxnetparentLambda0-childLambda3
+
+1521434136.008284 GET decode-output/example3_137_100_20/frame3140-20.jpg
+1521434140.570252 PUT mxnet-results/example3_137_100_20/frame3140-20.out
+1521434140.571946 PUT video-lambda-logs-mxnet/mxnetparentLambda31-childLambda0
+
+1521434134.259593 GET decode-output/example3_137_100_20/frame2060-20.jpg
+1521434138.999341 PUT mxnet-results/example3_137_100_20/frame2060-20.out
+1521434139.048171 PUT video-lambda-logs-mxnet/mxnetparentLambda20-childLambda1
+
+1521434135.266403 GET decode-output/example3_137_100_20/frame6060-20.jpg
+1521434139.872637 PUT mxnet-results/example3_137_100_20/frame6060-20.out
+1521434139.880331 PUT video-lambda-logs-mxnet/mxnetparentLambda60-childLambda4
+
+1521434137.656855 GET decode-output/example3_137_100_20/frame2780-20.jpg
+1521434142.085982 PUT mxnet-results/example3_137_100_20/frame2780-20.out
+1521434142.094598 PUT video-lambda-logs-mxnet/mxnetparentLambda27-childLambda4
+
+1521434144.847623 GET decode-output/example3_137_100_20/frame420-20.jpg
+1521434149.577155 PUT mxnet-results/example3_137_100_20/frame420-20.out
+1521434149.579162 PUT video-lambda-logs-mxnet/mxnetparentLambda4-childLambda0
+
+1521434136.657724 GET decode-output/example3_137_100_20/frame2940-20.jpg
+1521434141.190828 PUT mxnet-results/example3_137_100_20/frame2940-20.out
+1521434141.192924 PUT video-lambda-logs-mxnet/mxnetparentLambda29-childLambda0
+
+1521434144.369679 GET decode-output/example3_137_100_20/frame680-20.jpg
+1521434149.110881 PUT mxnet-results/example3_137_100_20/frame680-20.out
+1521434149.116593 PUT video-lambda-logs-mxnet/mxnetparentLambda6-childLambda0
+
+1521434144.872280 GET decode-output/example3_137_100_20/frame5560-20.jpg
+1521434150.502131 PUT mxnet-results/example3_137_100_20/frame5560-20.out
+1521434150.585596 PUT video-lambda-logs-mxnet/mxnetparentLambda55-childLambda4
+
+1521434152.453946 GET decode-output/example3_137_100_20/frame3660-20.jpg
+1521434157.168206 PUT mxnet-results/example3_137_100_20/frame3660-20.out
+1521434157.201808 PUT video-lambda-logs-mxnet/mxnetparentLambda36-childLambda0
+
+1521434137.355801 GET decode-output/example3_137_100_20/frame4700-20.jpg
+1521434140.677515 PUT mxnet-results/example3_137_100_20/frame4700-20.out
+1521434140.680934 PUT video-lambda-logs-mxnet/mxnetparentLambda47-childLambda4
+
+1521434137.195530 GET decode-output/example3_137_100_20/frame2240-20.jpg
+1521434140.531286 PUT mxnet-results/example3_137_100_20/frame2240-20.out
+1521434140.538984 PUT video-lambda-logs-mxnet/mxnetparentLambda22-childLambda3
+
+1521434144.411225 GET decode-output/example3_137_100_20/frame700-20.jpg
+1521434147.748569 PUT mxnet-results/example3_137_100_20/frame700-20.out
+1521434147.770111 PUT video-lambda-logs-mxnet/mxnetparentLambda7-childLambda0
+
+1521434135.587823 GET decode-output/example3_137_100_20/frame2260-20.jpg
+1521434138.871436 PUT mxnet-results/example3_137_100_20/frame2260-20.out
+1521434138.878804 PUT video-lambda-logs-mxnet/mxnetparentLambda22-childLambda0
+
+1521434141.457661 GET decode-output/example3_137_100_20/frame3580-20.jpg
+1521434146.513319 PUT mxnet-results/example3_137_100_20/frame3580-20.out
+1521434146.548001 PUT video-lambda-logs-mxnet/mxnetparentLambda35-childLambda1
+
+1521434138.267586 GET decode-output/example3_137_100_20/frame4180-20.jpg
+1521434141.607272 PUT mxnet-results/example3_137_100_20/frame4180-20.out
+1521434141.611788 PUT video-lambda-logs-mxnet/mxnetparentLambda41-childLambda3
+
+1521434137.875486 GET decode-output/example3_137_100_20/frame2280-20.jpg
+1521434141.254671 PUT mxnet-results/example3_137_100_20/frame2280-20.out
+1521434141.263542 PUT video-lambda-logs-mxnet/mxnetparentLambda22-childLambda4
+
+1521434145.531542 GET decode-output/example3_137_100_20/frame5320-20.jpg
+1521434150.239822 PUT mxnet-results/example3_137_100_20/frame5320-20.out
+1521434150.246956 PUT video-lambda-logs-mxnet/mxnetparentLambda53-childLambda2
+
+1521434144.306113 GET decode-output/example3_137_100_20/frame3500-20.jpg
+1521434149.038651 PUT mxnet-results/example3_137_100_20/frame3500-20.out
+1521434149.046367 PUT video-lambda-logs-mxnet/mxnetparentLambda35-childLambda0
+
+1521434138.740248 GET decode-output/example3_137_100_20/frame2460-20.jpg
+1521434142.406134 PUT mxnet-results/example3_137_100_20/frame2460-20.out
+1521434142.427270 PUT video-lambda-logs-mxnet/mxnetparentLambda24-childLambda0
+
+1521434143.833318 GET decode-output/example3_137_100_20/frame4280-20.jpg
+1521434148.696971 PUT mxnet-results/example3_137_100_20/frame4280-20.out
+1521434148.712367 PUT video-lambda-logs-mxnet/mxnetparentLambda42-childLambda4
+
+1521434137.315346 GET decode-output/example3_137_100_20/frame2980-20.jpg
+1521434140.717533 PUT mxnet-results/example3_137_100_20/frame2980-20.out
+1521434140.722255 PUT video-lambda-logs-mxnet/mxnetparentLambda29-childLambda2
+
+1521434137.559243 GET decode-output/example3_137_100_20/frame4500-20.jpg
+1521434140.886277 PUT mxnet-results/example3_137_100_20/frame4500-20.out
+1521434140.888546 PUT video-lambda-logs-mxnet/mxnetparentLambda45-childLambda2
+
+1521434138.111856 GET decode-output/example3_137_100_20/frame4200-20.jpg
+1521434142.804169 PUT mxnet-results/example3_137_100_20/frame4200-20.out
+1521434142.812337 PUT video-lambda-logs-mxnet/mxnetparentLambda42-childLambda0
+
+1521434143.886060 GET decode-output/example3_137_100_20/frame2580-20.jpg
+1521434148.704557 PUT mxnet-results/example3_137_100_20/frame2580-20.out
+1521434148.711577 PUT video-lambda-logs-mxnet/mxnetparentLambda25-childLambda0
+
+1521434137.178670 GET decode-output/example3_137_100_20/frame2960-20.jpg
+1521434142.050162 PUT mxnet-results/example3_137_100_20/frame2960-20.out
+1521434142.062358 PUT video-lambda-logs-mxnet/mxnetparentLambda29-childLambda3
+
+1521434152.445556 GET decode-output/example3_137_100_20/frame60-20.jpg
+1521434157.314360 PUT mxnet-results/example3_137_100_20/frame60-20.out
+1521434157.324257 PUT video-lambda-logs-mxnet/mxnetparentLambda0-childLambda1
+
+1521434137.489759 GET decode-output/example3_137_100_20/frame1360-20.jpg
+1521434140.859329 PUT mxnet-results/example3_137_100_20/frame1360-20.out
+1521434140.860885 PUT video-lambda-logs-mxnet/mxnetparentLambda13-childLambda1
+
+1521434137.788404 GET decode-output/example3_137_100_20/frame4020-20.jpg
+1521434142.396917 PUT mxnet-results/example3_137_100_20/frame4020-20.out
+1521434142.403195 PUT video-lambda-logs-mxnet/mxnetparentLambda40-childLambda2
+
+1521434143.534959 GET decode-output/example3_137_100_20/frame2440-20.jpg
+1521434148.291607 PUT mxnet-results/example3_137_100_20/frame2440-20.out
+1521434148.301588 PUT video-lambda-logs-mxnet/mxnetparentLambda24-childLambda1
+
+1521434140.665275 GET decode-output/example3_137_100_20/frame220-20.jpg
+1521434144.430557 PUT mxnet-results/example3_137_100_20/frame220-20.out
+1521434144.480986 PUT video-lambda-logs-mxnet/mxnetparentLambda2-childLambda1
+
+1521434135.834233 GET decode-output/example3_137_100_20/frame3160-20.jpg
+1521434139.264452 PUT mxnet-results/example3_137_100_20/frame3160-20.out
+1521434139.270556 PUT video-lambda-logs-mxnet/mxnetparentLambda31-childLambda3
+
+1521434133.182402 GET decode-output/example3_137_100_20/frame2800-20.jpg
+1521434137.889699 PUT mxnet-results/example3_137_100_20/frame2800-20.out
+1521434137.927306 PUT video-lambda-logs-mxnet/mxnetparentLambda28-childLambda3
+
+1521434147.813529 GET decode-output/example3_137_100_20/frame5140-20.jpg
+1521434151.320365 PUT mxnet-results/example3_137_100_20/frame5140-20.out
+1521434151.340048 PUT video-lambda-logs-mxnet/mxnetparentLambda51-childLambda1
+
+1521434143.079569 GET decode-output/example3_137_100_20/frame2320-20.jpg
+1521434146.439734 PUT mxnet-results/example3_137_100_20/frame2320-20.out
+1521434146.447613 PUT video-lambda-logs-mxnet/mxnetparentLambda23-childLambda3
+
+1521434137.051803 GET decode-output/example3_137_100_20/frame5780-20.jpg
+1521434141.588974 PUT mxnet-results/example3_137_100_20/frame5780-20.out
+1521434141.590685 PUT video-lambda-logs-mxnet/mxnetparentLambda57-childLambda3
+
+1521434144.148713 GET decode-output/example3_137_100_20/frame5660-20.jpg
+1521434147.669426 PUT mxnet-results/example3_137_100_20/frame5660-20.out
+1521434147.679357 PUT video-lambda-logs-mxnet/mxnetparentLambda56-childLambda1
+
+1521434143.315356 GET decode-output/example3_137_100_20/frame5400-20.jpg
+1521434146.953908 PUT mxnet-results/example3_137_100_20/frame5400-20.out
+1521434146.955728 PUT video-lambda-logs-mxnet/mxnetparentLambda54-childLambda0
+
+1521434137.092268 GET decode-output/example3_137_100_20/frame2020-20.jpg
+1521434140.356454 PUT mxnet-results/example3_137_100_20/frame2020-20.out
+1521434140.364957 PUT video-lambda-logs-mxnet/mxnetparentLambda20-childLambda2
+
+1521434140.753073 GET decode-output/example3_137_100_20/frame5500-20.jpg
+1521434145.645668 PUT mxnet-results/example3_137_100_20/frame5500-20.out
+1521434145.650732 PUT video-lambda-logs-mxnet/mxnetparentLambda55-childLambda0
+
+1521434143.708713 GET decode-output/example3_137_100_20/frame5220-20.jpg
+1521434148.492487 PUT mxnet-results/example3_137_100_20/frame5220-20.out
+1521434148.507804 PUT video-lambda-logs-mxnet/mxnetparentLambda52-childLambda2
+
+1521434137.453570 GET decode-output/example3_137_100_20/frame4520-20.jpg
+1521434140.819435 PUT mxnet-results/example3_137_100_20/frame4520-20.out
+1521434140.828419 PUT video-lambda-logs-mxnet/mxnetparentLambda45-childLambda3
+
+1521434144.853657 GET decode-output/example3_137_100_20/frame260-20.jpg
+1521434148.257480 PUT mxnet-results/example3_137_100_20/frame260-20.out
+1521434148.258984 PUT video-lambda-logs-mxnet/mxnetparentLambda2-childLambda0
+
+1521434145.508746 GET decode-output/example3_137_100_20/frame3620-20.jpg
+1521434152.114881 PUT mxnet-results/example3_137_100_20/frame3620-20.out
+1521434152.180930 PUT video-lambda-logs-mxnet/mxnetparentLambda36-childLambda2
+
+1521434134.191698 GET decode-output/example3_137_100_20/frame2080-20.jpg
+1521434137.827662 PUT mxnet-results/example3_137_100_20/frame2080-20.out
+1521434137.855833 PUT video-lambda-logs-mxnet/mxnetparentLambda20-childLambda0
+
+1521434136.875965 GET decode-output/example3_137_100_20/frame2900-20.jpg
+1521434141.355622 PUT mxnet-results/example3_137_100_20/frame2900-20.out
+1521434141.372853 PUT video-lambda-logs-mxnet/mxnetparentLambda29-childLambda4
+
+1521434141.659174 GET decode-output/example3_137_100_20/frame1660-20.jpg
+1521434146.770275 PUT mxnet-results/example3_137_100_20/frame1660-20.out
+1521434146.780048 PUT video-lambda-logs-mxnet/mxnetparentLambda16-childLambda0
+
+1521434153.935081 GET decode-output/example3_137_100_20/frame1800-20.jpg
+1521434157.671049 PUT mxnet-results/example3_137_100_20/frame1800-20.out
+1521434157.674492 PUT video-lambda-logs-mxnet/mxnetparentLambda18-childLambda3
+
+1521434136.145776 GET decode-output/example3_137_100_20/frame5740-20.jpg
+1521434140.579377 PUT mxnet-results/example3_137_100_20/frame5740-20.out
+1521434140.587689 PUT video-lambda-logs-mxnet/mxnetparentLambda57-childLambda2
+
+1521434134.180048 GET decode-output/example3_137_100_20/frame3940-20.jpg
+1521434139.131118 PUT mxnet-results/example3_137_100_20/frame3940-20.out
+1521434139.175431 PUT video-lambda-logs-mxnet/mxnetparentLambda39-childLambda1
+
+1521434143.388372 GET decode-output/example3_137_100_20/frame340-20.jpg
+1521434148.135982 PUT mxnet-results/example3_137_100_20/frame340-20.out
+1521434148.144821 PUT video-lambda-logs-mxnet/mxnetparentLambda3-childLambda0
+
+1521434152.378946 GET decode-output/example3_137_100_20/frame200-20.jpg
+1521434157.058768 PUT mxnet-results/example3_137_100_20/frame200-20.out
+1521434157.072674 PUT video-lambda-logs-mxnet/mxnetparentLambda2-childLambda3
+
+1521434143.973844 GET decode-output/example3_137_100_20/frame3200-20.jpg
+1521434148.650708 PUT mxnet-results/example3_137_100_20/frame3200-20.out
+1521434148.652617 PUT video-lambda-logs-mxnet/mxnetparentLambda32-childLambda4
+
+1521434140.391250 GET decode-output/example3_137_100_20/frame1980-20.jpg
+1521434144.342634 PUT mxnet-results/example3_137_100_20/frame1980-20.out
+1521434144.389304 PUT video-lambda-logs-mxnet/mxnetparentLambda19-childLambda3
+
+1521434136.922100 GET decode-output/example3_137_100_20/frame5940-20.jpg
+1521434140.160610 PUT mxnet-results/example3_137_100_20/frame5940-20.out
+1521434140.166748 PUT video-lambda-logs-mxnet/mxnetparentLambda59-childLambda4
+
+1521434138.169102 GET decode-output/example3_137_100_20/frame500-20.jpg
+1521434142.955467 PUT mxnet-results/example3_137_100_20/frame500-20.out
+1521434142.961502 PUT video-lambda-logs-mxnet/mxnetparentLambda5-childLambda3
+
+1521434143.505544 GET decode-output/example3_137_100_20/frame2360-20.jpg
+1521434148.237853 PUT mxnet-results/example3_137_100_20/frame2360-20.out
+1521434148.243961 PUT video-lambda-logs-mxnet/mxnetparentLambda23-childLambda4
+
+1521434133.879706 GET decode-output/example3_137_100_20/frame1000-20.jpg
+1521434138.575865 PUT mxnet-results/example3_137_100_20/frame1000-20.out
+1521434138.603362 PUT video-lambda-logs-mxnet/mxnetparentLambda10-childLambda2
+
+1521434142.485946 GET decode-output/example3_137_100_20/frame5540-20.jpg
+1521434146.066983 PUT mxnet-results/example3_137_100_20/frame5540-20.out
+1521434146.068457 PUT video-lambda-logs-mxnet/mxnetparentLambda55-childLambda1
+
+1521434138.149323 GET decode-output/example3_137_100_20/frame4220-20.jpg
+1521434142.752188 PUT mxnet-results/example3_137_100_20/frame4220-20.out
+1521434142.762944 PUT video-lambda-logs-mxnet/mxnetparentLambda42-childLambda1
+
+1521434142.853891 GET decode-output/example3_137_100_20/frame5260-20.jpg
+1521434147.596358 PUT mxnet-results/example3_137_100_20/frame5260-20.out
+1521434147.598103 PUT video-lambda-logs-mxnet/mxnetparentLambda52-childLambda1
+
+1521434138.517092 GET decode-output/example3_137_100_20/frame2760-20.jpg
+1521434142.928277 PUT mxnet-results/example3_137_100_20/frame2760-20.out
+1521434142.930155 PUT video-lambda-logs-mxnet/mxnetparentLambda27-childLambda2
+
+1521434138.089365 GET decode-output/example3_137_100_20/frame1340-20.jpg
+1521434142.757995 PUT mxnet-results/example3_137_100_20/frame1340-20.out
+1521434142.759644 PUT video-lambda-logs-mxnet/mxnetparentLambda13-childLambda0
+
+1521434143.043230 GET decode-output/example3_137_100_20/frame4440-20.jpg
+1521434146.473702 PUT mxnet-results/example3_137_100_20/frame4440-20.out
+1521434146.485750 PUT video-lambda-logs-mxnet/mxnetparentLambda44-childLambda4
+
+1521434141.477916 GET decode-output/example3_137_100_20/frame180-20.jpg
+1521434146.256011 PUT mxnet-results/example3_137_100_20/frame180-20.out
+1521434146.307263 PUT video-lambda-logs-mxnet/mxnetparentLambda1-childLambda4
+
+1521434136.714411 GET decode-output/example3_137_100_20/frame3020-20.jpg
+1521434140.106523 PUT mxnet-results/example3_137_100_20/frame3020-20.out
+1521434140.117463 PUT video-lambda-logs-mxnet/mxnetparentLambda30-childLambda3
+
+1521434139.136804 GET decode-output/example3_137_100_20/frame5840-20.jpg
+1521434142.377679 PUT mxnet-results/example3_137_100_20/frame5840-20.out
+1521434142.382649 PUT video-lambda-logs-mxnet/mxnetparentLambda58-childLambda2
+
+1521434135.773438 GET decode-output/example3_137_100_20/frame3080-20.jpg
+1521434140.433063 PUT mxnet-results/example3_137_100_20/frame3080-20.out
+1521434140.440032 PUT video-lambda-logs-mxnet/mxnetparentLambda30-childLambda2
+
+1521434143.385731 GET decode-output/example3_137_100_20/frame1680-20.jpg
+1521434148.492099 PUT mxnet-results/example3_137_100_20/frame1680-20.out
+1521434148.571334 PUT video-lambda-logs-mxnet/mxnetparentLambda16-childLambda4
+
+1521434137.909780 GET decode-output/example3_137_100_20/frame4560-20.jpg
+1521434142.547859 PUT mxnet-results/example3_137_100_20/frame4560-20.out
+1521434142.550821 PUT video-lambda-logs-mxnet/mxnetparentLambda45-childLambda0
+
+1521434144.201684 GET decode-output/example3_137_100_20/frame3360-20.jpg
+1521434148.989833 PUT mxnet-results/example3_137_100_20/frame3360-20.out
+1521434149.008440 PUT video-lambda-logs-mxnet/mxnetparentLambda33-childLambda4
+
+1521434141.129718 GET decode-output/example3_137_100_20/frame360-20.jpg
+1521434146.011873 PUT mxnet-results/example3_137_100_20/frame360-20.out
+1521434146.021709 PUT video-lambda-logs-mxnet/mxnetparentLambda3-childLambda2
+
+1521434136.612236 GET decode-output/example3_137_100_20/frame6120-20.jpg
+1521434139.859762 PUT mxnet-results/example3_137_100_20/frame6120-20.out
+1521434139.861783 PUT video-lambda-logs-mxnet/mxnetparentLambda61-childLambda4
+
+1521434136.897509 GET decode-output/example3_137_100_20/frame4780-20.jpg
+1521434141.440053 PUT mxnet-results/example3_137_100_20/frame4780-20.out
+1521434141.442428 PUT video-lambda-logs-mxnet/mxnetparentLambda47-childLambda3
+
+1521434146.087517 GET decode-output/example3_137_100_20/frame3380-20.jpg
+1521434150.896307 PUT mxnet-results/example3_137_100_20/frame3380-20.out
+1521434150.907098 PUT video-lambda-logs-mxnet/mxnetparentLambda33-childLambda1
+
+1521434144.630222 GET decode-output/example3_137_100_20/frame760-20.jpg
+1521434148.175566 PUT mxnet-results/example3_137_100_20/frame760-20.out
+1521434148.187534 PUT video-lambda-logs-mxnet/mxnetparentLambda7-childLambda1
+
+1521434138.115485 GET decode-output/example3_137_100_20/frame3760-20.jpg
+1521434141.679618 PUT mxnet-results/example3_137_100_20/frame3760-20.out
+1521434141.690912 PUT video-lambda-logs-mxnet/mxnetparentLambda37-childLambda2
+
+1521434133.729536 GET decode-output/example3_137_100_20/frame1060-20.jpg
+1521434138.636397 PUT mxnet-results/example3_137_100_20/frame1060-20.out
+1521434138.680913 PUT video-lambda-logs-mxnet/mxnetparentLambda10-childLambda1
+
+1521434141.783655 GET decode-output/example3_137_100_20/frame1640-20.jpg
+1521434145.257664 PUT mxnet-results/example3_137_100_20/frame1640-20.out
+1521434145.265622 PUT video-lambda-logs-mxnet/mxnetparentLambda16-childLambda1
+
+1521434145.006806 GET decode-output/example3_137_100_20/frame5640-20.jpg
+1521434149.895226 PUT mxnet-results/example3_137_100_20/frame5640-20.out
+1521434149.904605 PUT video-lambda-logs-mxnet/mxnetparentLambda56-childLambda2
+
+1521434143.703641 GET decode-output/example3_137_100_20/frame120-20.jpg
+1521434147.309713 PUT mxnet-results/example3_137_100_20/frame120-20.out
+1521434147.314865 PUT video-lambda-logs-mxnet/mxnetparentLambda1-childLambda3
+
+1521434137.175957 GET decode-output/example3_137_100_20/frame1900-20.jpg
+1521434140.548260 PUT mxnet-results/example3_137_100_20/frame1900-20.out
+1521434140.554159 PUT video-lambda-logs-mxnet/mxnetparentLambda19-childLambda0
+
+1521434143.218781 GET decode-output/example3_137_100_20/frame460-20.jpg
+1521434146.747737 PUT mxnet-results/example3_137_100_20/frame460-20.out
+1521434146.749758 PUT video-lambda-logs-mxnet/mxnetparentLambda4-childLambda3
+
+1521434140.379514 GET decode-output/example3_137_100_20/frame400-20.jpg
+1521434144.139468 PUT mxnet-results/example3_137_100_20/frame400-20.out
+1521434144.221677 PUT video-lambda-logs-mxnet/mxnetparentLambda4-childLambda4
+
+1521434151.577908 GET decode-output/example3_137_100_20/frame4640-20.jpg
+1521434156.238079 PUT mxnet-results/example3_137_100_20/frame4640-20.out
+1521434156.240178 PUT video-lambda-logs-mxnet/mxnetparentLambda46-childLambda0
+
+1521434142.739960 GET decode-output/example3_137_100_20/frame5200-20.jpg
+1521434146.195690 PUT mxnet-results/example3_137_100_20/frame5200-20.out
+1521434146.197496 PUT video-lambda-logs-mxnet/mxnetparentLambda52-childLambda3
+
+1521434143.201608 GET decode-output/example3_137_100_20/frame3700-20.jpg
+1521434146.464314 PUT mxnet-results/example3_137_100_20/frame3700-20.out
+1521434146.465791 PUT video-lambda-logs-mxnet/mxnetparentLambda37-childLambda0
+
+1521434141.513492 GET decode-output/example3_137_100_20/frame1140-20.jpg
+1521434146.170686 PUT mxnet-results/example3_137_100_20/frame1140-20.out
+1521434146.192329 PUT video-lambda-logs-mxnet/mxnetparentLambda11-childLambda3
+
+1521434137.151653 GET decode-output/example3_137_100_20/frame6180-20.jpg
+1521434141.807713 PUT mxnet-results/example3_137_100_20/frame6180-20.out
+1521434141.816506 PUT video-lambda-logs-mxnet/mxnetparentLambda61-childLambda2
+
+1521434146.143137 GET decode-output/example3_137_100_20/frame2640-20.jpg
+1521434149.747707 PUT mxnet-results/example3_137_100_20/frame2640-20.out
+1521434149.760664 PUT video-lambda-logs-mxnet/mxnetparentLambda26-childLambda3
+
+1521434148.287645 GET decode-output/example3_137_100_20/frame5160-20.jpg
+1521434151.962185 PUT mxnet-results/example3_137_100_20/frame5160-20.out
+1521434151.988709 PUT video-lambda-logs-mxnet/mxnetparentLambda51-childLambda4
+
+1521434144.482387 GET decode-output/example3_137_100_20/frame2600-20.jpg
+1521434149.208259 PUT mxnet-results/example3_137_100_20/frame2600-20.out
+1521434149.215519 PUT video-lambda-logs-mxnet/mxnetparentLambda26-childLambda1
+
+1521434137.080596 GET decode-output/example3_137_100_20/frame2740-20.jpg
+1521434141.689814 PUT mxnet-results/example3_137_100_20/frame2740-20.out
+1521434141.699175 PUT video-lambda-logs-mxnet/mxnetparentLambda27-childLambda3
+
+1521434143.300597 GET decode-output/example3_137_100_20/frame4460-20.jpg
+1521434148.726408 PUT mxnet-results/example3_137_100_20/frame4460-20.out
+1521434148.766169 PUT video-lambda-logs-mxnet/mxnetparentLambda44-childLambda1
+
+1521434144.260566 GET decode-output/example3_137_100_20/frame880-20.jpg
+1521434149.011547 PUT mxnet-results/example3_137_100_20/frame880-20.out
+1521434149.016362 PUT video-lambda-logs-mxnet/mxnetparentLambda8-childLambda0
+
+1521434137.343216 GET decode-output/example3_137_100_20/frame4040-20.jpg
+1521434140.658275 PUT mxnet-results/example3_137_100_20/frame4040-20.out
+1521434140.659737 PUT video-lambda-logs-mxnet/mxnetparentLambda40-childLambda1
+
+1521434143.200726 GET decode-output/example3_137_100_20/frame5460-20.jpg
+1521434146.707617 PUT mxnet-results/example3_137_100_20/frame5460-20.out
+1521434146.715805 PUT video-lambda-logs-mxnet/mxnetparentLambda54-childLambda4
+
+1521434134.323740 GET decode-output/example3_137_100_20/frame960-20.jpg
+1521434139.102693 PUT mxnet-results/example3_137_100_20/frame960-20.out
+1521434139.104584 PUT video-lambda-logs-mxnet/mxnetparentLambda9-childLambda3
+
+1521434135.639070 GET decode-output/example3_137_100_20/frame540-20.jpg
+1521434140.293980 PUT mxnet-results/example3_137_100_20/frame540-20.out
+1521434140.316666 PUT video-lambda-logs-mxnet/mxnetparentLambda5-childLambda4
+
+1521434134.448558 GET decode-output/example3_137_100_20/frame2880-20.jpg
+1521434139.051394 PUT mxnet-results/example3_137_100_20/frame2880-20.out
+1521434139.061374 PUT video-lambda-logs-mxnet/mxnetparentLambda28-childLambda2
+
+1521434144.901677 GET decode-output/example3_137_100_20/frame740-20.jpg
+1521434149.724988 PUT mxnet-results/example3_137_100_20/frame740-20.out
+1521434149.735331 PUT video-lambda-logs-mxnet/mxnetparentLambda7-childLambda4
+
+1521434134.074740 GET decode-output/example3_137_100_20/frame3900-20.jpg
+1521434138.790592 PUT mxnet-results/example3_137_100_20/frame3900-20.out
+1521434138.834356 PUT video-lambda-logs-mxnet/mxnetparentLambda39-childLambda2
+
+1521434143.784428 GET decode-output/example3_137_100_20/frame3600-20.jpg
+1521434148.626802 PUT mxnet-results/example3_137_100_20/frame3600-20.out
+1521434148.628633 PUT video-lambda-logs-mxnet/mxnetparentLambda36-childLambda1
+
+1521434136.501213 GET decode-output/example3_137_100_20/frame4940-20.jpg
+1521434141.033606 PUT mxnet-results/example3_137_100_20/frame4940-20.out
+1521434141.045316 PUT video-lambda-logs-mxnet/mxnetparentLambda49-childLambda1
+
+1521434137.569047 GET decode-output/example3_137_100_20/frame1280-20.jpg
+1521434142.071041 PUT mxnet-results/example3_137_100_20/frame1280-20.out
+1521434142.075530 PUT video-lambda-logs-mxnet/mxnetparentLambda12-childLambda3
+
+1521434143.452844 GET decode-output/example3_137_100_20/frame4620-20.jpg
+1521434146.890119 PUT mxnet-results/example3_137_100_20/frame4620-20.out
+1521434146.901627 PUT video-lambda-logs-mxnet/mxnetparentLambda46-childLambda3
+
+1521434144.293184 GET decode-output/example3_137_100_20/frame5580-20.jpg
+1521434149.197409 PUT mxnet-results/example3_137_100_20/frame5580-20.out
+1521434149.201067 PUT video-lambda-logs-mxnet/mxnetparentLambda55-childLambda3
+
+1521434144.485917 GET decode-output/example3_137_100_20/frame1120-20.jpg
+1521434147.956517 PUT mxnet-results/example3_137_100_20/frame1120-20.out
+1521434147.973506 PUT video-lambda-logs-mxnet/mxnetparentLambda11-childLambda0
+
+1521434136.710958 GET decode-output/example3_137_100_20/frame4540-20.jpg
+1521434141.373907 PUT mxnet-results/example3_137_100_20/frame4540-20.out
+1521434141.383954 PUT video-lambda-logs-mxnet/mxnetparentLambda45-childLambda4
+
+1521434144.398453 GET decode-output/example3_137_100_20/frame3220-20.jpg
+1521434149.191241 PUT mxnet-results/example3_137_100_20/frame3220-20.out
+1521434149.192988 PUT video-lambda-logs-mxnet/mxnetparentLambda32-childLambda0
+
+1521434137.239379 GET decode-output/example3_137_100_20/frame4320-20.jpg
+1521434141.757493 PUT mxnet-results/example3_137_100_20/frame4320-20.out
+1521434141.759206 PUT video-lambda-logs-mxnet/mxnetparentLambda43-childLambda3
+
+1521434135.376935 GET decode-output/example3_137_100_20/frame5920-20.jpg
+1521434138.613602 PUT mxnet-results/example3_137_100_20/frame5920-20.out
+1521434138.615090 PUT video-lambda-logs-mxnet/mxnetparentLambda59-childLambda0
+
+1521434144.142607 GET decode-output/example3_137_100_20/frame240-20.jpg
+1521434148.780271 PUT mxnet-results/example3_137_100_20/frame240-20.out
+1521434148.784552 PUT video-lambda-logs-mxnet/mxnetparentLambda2-childLambda2
+
+1521434137.913829 GET decode-output/example3_137_100_20/frame5880-20.jpg
+1521434141.169242 PUT mxnet-results/example3_137_100_20/frame5880-20.out
+1521434141.170849 PUT video-lambda-logs-mxnet/mxnetparentLambda58-childLambda4
+
+1521434141.200528 GET decode-output/example3_137_100_20/frame1580-20.jpg
+1521434146.297894 PUT mxnet-results/example3_137_100_20/frame1580-20.out
+1521434146.359108 PUT video-lambda-logs-mxnet/mxnetparentLambda15-childLambda1
+
+1521434144.231359 GET decode-output/example3_137_100_20/frame3240-20.jpg
+1521434148.844630 PUT mxnet-results/example3_137_100_20/frame3240-20.out
+1521434148.847319 PUT video-lambda-logs-mxnet/mxnetparentLambda32-childLambda3
+
+1521434145.701601 GET decode-output/example3_137_100_20/frame280-20.jpg
+1521434150.315168 PUT mxnet-results/example3_137_100_20/frame280-20.out
+1521434150.328522 PUT video-lambda-logs-mxnet/mxnetparentLambda2-childLambda4
+
+1521434144.884706 GET decode-output/example3_137_100_20/frame3640-20.jpg
+1521434149.666045 PUT mxnet-results/example3_137_100_20/frame3640-20.out
+1521434149.672685 PUT video-lambda-logs-mxnet/mxnetparentLambda36-childLambda3
+
+1521434136.893514 GET decode-output/example3_137_100_20/frame4580-20.jpg
+1521434140.231586 PUT mxnet-results/example3_137_100_20/frame4580-20.out
+1521434140.234480 PUT video-lambda-logs-mxnet/mxnetparentLambda45-childLambda1
+
+1521434143.396734 GET decode-output/example3_137_100_20/frame4880-20.jpg
+1521434146.607875 PUT mxnet-results/example3_137_100_20/frame4880-20.out
+1521434146.614107 PUT video-lambda-logs-mxnet/mxnetparentLambda48-childLambda4
+
+1521434133.950653 GET decode-output/example3_137_100_20/frame5020-20.jpg
+1521434138.592282 PUT mxnet-results/example3_137_100_20/frame5020-20.out
+1521434138.602008 PUT video-lambda-logs-mxnet/mxnetparentLambda50-childLambda2
+
+1521434135.406233 GET decode-output/example3_137_100_20/frame5860-20.jpg
+1521434138.699753 PUT mxnet-results/example3_137_100_20/frame5860-20.out
+1521434138.706627 PUT video-lambda-logs-mxnet/mxnetparentLambda58-childLambda0
+
+1521434137.405336 GET decode-output/example3_137_100_20/frame5900-20.jpg
+1521434141.950659 PUT mxnet-results/example3_137_100_20/frame5900-20.out
+1521434141.957991 PUT video-lambda-logs-mxnet/mxnetparentLambda59-childLambda1
+
+1521434149.942907 GET decode-output/example3_137_100_20/frame4860-20.jpg
+1521434153.234405 PUT mxnet-results/example3_137_100_20/frame4860-20.out
+1521434153.235969 PUT video-lambda-logs-mxnet/mxnetparentLambda48-childLambda0
+
+1521434152.816145 GET decode-output/example3_137_100_20/frame3780-20.jpg
+1521434157.565259 PUT mxnet-results/example3_137_100_20/frame3780-20.out
+1521434157.572391 PUT video-lambda-logs-mxnet/mxnetparentLambda37-childLambda1
+
+1521434136.703662 GET decode-output/example3_137_100_20/frame1200-20.jpg
+1521434141.303450 PUT mxnet-results/example3_137_100_20/frame1200-20.out
+1521434141.305508 PUT video-lambda-logs-mxnet/mxnetparentLambda12-childLambda0
+
+1521434143.158819 GET decode-output/example3_137_100_20/frame4400-20.jpg
+1521434146.511411 PUT mxnet-results/example3_137_100_20/frame4400-20.out
+1521434146.512918 PUT video-lambda-logs-mxnet/mxnetparentLambda44-childLambda0
+
+1521434144.641283 GET decode-output/example3_137_100_20/frame40-20.jpg
+1521434148.146199 PUT mxnet-results/example3_137_100_20/frame40-20.out
+1521434148.149538 PUT video-lambda-logs-mxnet/mxnetparentLambda0-childLambda2
+
+1521434136.197323 GET decode-output/example3_137_100_20/frame3120-20.jpg
+1521434139.544931 PUT mxnet-results/example3_137_100_20/frame3120-20.out
+1521434139.552370 PUT video-lambda-logs-mxnet/mxnetparentLambda31-childLambda1
+
+1521434137.151397 GET decode-output/example3_137_100_20/frame4960-20.jpg
+1521434141.727016 PUT mxnet-results/example3_137_100_20/frame4960-20.out
+1521434141.734666 PUT video-lambda-logs-mxnet/mxnetparentLambda49-childLambda0
+
+1521434143.470288 GET decode-output/example3_137_100_20/frame5240-20.jpg
+1521434148.042616 PUT mxnet-results/example3_137_100_20/frame5240-20.out
+1521434148.054855 PUT video-lambda-logs-mxnet/mxnetparentLambda52-childLambda4
+
+1521434143.856111 GET decode-output/example3_137_100_20/frame3480-20.jpg
+1521434148.460121 PUT mxnet-results/example3_137_100_20/frame3480-20.out
+1521434148.464128 PUT video-lambda-logs-mxnet/mxnetparentLambda34-childLambda1
+
+1521434151.573673 GET decode-output/example3_137_100_20/frame800-20.jpg
+1521434156.984968 PUT mxnet-results/example3_137_100_20/frame800-20.out
+1521434157.010035 PUT video-lambda-logs-mxnet/mxnetparentLambda8-childLambda4
+
+1521434144.972789 GET decode-output/example3_137_100_20/frame320-20.jpg
+1521434149.707021 PUT mxnet-results/example3_137_100_20/frame320-20.out
+1521434149.715202 PUT video-lambda-logs-mxnet/mxnetparentLambda3-childLambda1
+
+1521434143.228188 GET decode-output/example3_137_100_20/frame820-20.jpg
+1521434146.742661 PUT mxnet-results/example3_137_100_20/frame820-20.out
+1521434146.744106 PUT video-lambda-logs-mxnet/mxnetparentLambda8-childLambda1
+
+1521434135.711894 GET decode-output/example3_137_100_20/frame6000-20.jpg
+1521434138.947539 PUT mxnet-results/example3_137_100_20/frame6000-20.out
+1521434138.951512 PUT video-lambda-logs-mxnet/mxnetparentLambda60-childLambda3
+
+1521434138.156497 GET decode-output/example3_137_100_20/frame3060-20.jpg
+1521434141.487535 PUT mxnet-results/example3_137_100_20/frame3060-20.out
+1521434141.488991 PUT video-lambda-logs-mxnet/mxnetparentLambda30-childLambda4
+
+1521434133.929447 GET decode-output/example3_137_100_20/frame940-20.jpg
+1521434137.633643 PUT mxnet-results/example3_137_100_20/frame940-20.out
+1521434137.692347 PUT video-lambda-logs-mxnet/mxnetparentLambda9-childLambda2
+
+1521434136.958038 GET decode-output/example3_137_100_20/frame2220-20.jpg
+1521434141.560620 PUT mxnet-results/example3_137_100_20/frame2220-20.out
+1521434141.573442 PUT video-lambda-logs-mxnet/mxnetparentLambda22-childLambda2
+
+1521434142.959897 GET decode-output/example3_137_100_20/frame600-20.jpg
+1521434146.429955 PUT mxnet-results/example3_137_100_20/frame600-20.out
+1521434146.443448 PUT video-lambda-logs-mxnet/mxnetparentLambda6-childLambda3
+
+1521434144.416711 GET decode-output/example3_137_100_20/frame2340-20.jpg
+1521434149.187501 PUT mxnet-results/example3_137_100_20/frame2340-20.out
+1521434149.196795 PUT video-lambda-logs-mxnet/mxnetparentLambda23-childLambda2
+
+1521434152.809963 GET decode-output/example3_137_100_20/frame3420-20.jpg
+1521434157.622986 PUT mxnet-results/example3_137_100_20/frame3420-20.out
+1521434157.625641 PUT video-lambda-logs-mxnet/mxnetparentLambda34-childLambda4
+
+1521434133.743555 GET decode-output/example3_137_100_20/frame5060-20.jpg
+1521434137.206358 PUT mxnet-results/example3_137_100_20/frame5060-20.out
+1521434137.247083 PUT video-lambda-logs-mxnet/mxnetparentLambda50-childLambda0
+
+1521434137.044272 GET decode-output/example3_137_100_20/frame4000-20.jpg
+1521434141.686820 PUT mxnet-results/example3_137_100_20/frame4000-20.out
+1521434141.688596 PUT video-lambda-logs-mxnet/mxnetparentLambda40-childLambda0
+
+1521434143.186933 GET decode-output/example3_137_100_20/frame660-20.jpg
+1521434147.902762 PUT mxnet-results/example3_137_100_20/frame660-20.out
+1521434147.904597 PUT video-lambda-logs-mxnet/mxnetparentLambda6-childLambda2
+
+1521434142.090107 GET decode-output/example3_137_100_20/frame1760-20.jpg
+1521434145.692870 PUT mxnet-results/example3_137_100_20/frame1760-20.out
+1521434145.702417 PUT video-lambda-logs-mxnet/mxnetparentLambda17-childLambda1
+
+1521434137.242979 GET decode-output/example3_137_100_20/frame6160-20.jpg
+1521434141.765214 PUT mxnet-results/example3_137_100_20/frame6160-20.out
+1521434141.767000 PUT video-lambda-logs-mxnet/mxnetparentLambda61-childLambda0
+
+1521434152.616855 GET decode-output/example3_137_100_20/frame2660-20.jpg
+1521434157.357044 PUT mxnet-results/example3_137_100_20/frame2660-20.out
+1521434157.359785 PUT video-lambda-logs-mxnet/mxnetparentLambda26-childLambda2
+
+1521434137.676173 GET decode-output/example3_137_100_20/frame2200-20.jpg
+1521434141.001086 PUT mxnet-results/example3_137_100_20/frame2200-20.out
+1521434141.006500 PUT video-lambda-logs-mxnet/mxnetparentLambda22-childLambda1
+
+1521434133.751319 GET decode-output/example3_137_100_20/frame2180-20.jpg
+1521434138.493100 PUT mxnet-results/example3_137_100_20/frame2180-20.out
+1521434138.512683 PUT video-lambda-logs-mxnet/mxnetparentLambda21-childLambda1
+
+1521434152.456880 GET decode-output/example3_137_100_20/frame3820-20.jpg
+1521434156.149795 PUT mxnet-results/example3_137_100_20/frame3820-20.out
+1521434156.187684 PUT video-lambda-logs-mxnet/mxnetparentLambda38-childLambda0
+
+1521434144.834682 GET decode-output/example3_137_100_20/frame1500-20.jpg
+1521434149.680681 PUT mxnet-results/example3_137_100_20/frame1500-20.out
+1521434149.692627 PUT video-lambda-logs-mxnet/mxnetparentLambda15-childLambda3
+
+1521434152.050305 GET decode-output/example3_137_100_20/frame0-20.jpg
+1521434156.996183 PUT mxnet-results/example3_137_100_20/frame0-20.out
+1521434157.002279 PUT video-lambda-logs-mxnet/mxnetparentLambda0-childLambda4
+
+1521434135.931185 GET decode-output/example3_137_100_20/frame4100-20.jpg
+1521434140.524446 PUT mxnet-results/example3_137_100_20/frame4100-20.out
+1521434140.532244 PUT video-lambda-logs-mxnet/mxnetparentLambda41-childLambda0
+
+1521434141.439060 GET decode-output/example3_137_100_20/frame5620-20.jpg
+1521434146.755423 PUT mxnet-results/example3_137_100_20/frame5620-20.out
+1521434146.771099 PUT video-lambda-logs-mxnet/mxnetparentLambda56-childLambda4
+
+1521434136.677220 GET decode-output/example3_137_100_20/frame1240-20.jpg
+1521434141.197712 PUT mxnet-results/example3_137_100_20/frame1240-20.out
+1521434141.199407 PUT video-lambda-logs-mxnet/mxnetparentLambda12-childLambda1
+
+1521434144.772235 GET decode-output/example3_137_100_20/frame1520-20.jpg
+1521434149.592356 PUT mxnet-results/example3_137_100_20/frame1520-20.out
+1521434149.607770 PUT video-lambda-logs-mxnet/mxnetparentLambda15-childLambda0
+
+1521434141.745907 GET decode-output/example3_137_100_20/frame1620-20.jpg
+1521434146.762164 PUT mxnet-results/example3_137_100_20/frame1620-20.out
+1521434146.811873 PUT video-lambda-logs-mxnet/mxnetparentLambda16-childLambda3
+
+1521434143.816176 GET decode-output/example3_137_100_20/frame4480-20.jpg
+1521434147.291418 PUT mxnet-results/example3_137_100_20/frame4480-20.out
+1521434147.296396 PUT video-lambda-logs-mxnet/mxnetparentLambda44-childLambda3
+
+1521434137.498310 GET decode-output/example3_137_100_20/frame2380-20.jpg
+1521434140.815432 PUT mxnet-results/example3_137_100_20/frame2380-20.out
+1521434140.822068 PUT video-lambda-logs-mxnet/mxnetparentLambda23-childLambda0
+
+1521434135.446690 GET decode-output/example3_137_100_20/frame580-20.jpg
+1521434138.882053 PUT mxnet-results/example3_137_100_20/frame580-20.out
+1521434138.887666 PUT video-lambda-logs-mxnet/mxnetparentLambda5-childLambda1
+
+1521434135.742178 GET decode-output/example3_137_100_20/frame5980-20.jpg
+1521434139.183535 PUT mxnet-results/example3_137_100_20/frame5980-20.out
+1521434139.185116 PUT video-lambda-logs-mxnet/mxnetparentLambda59-childLambda3
+
+1521434136.594428 GET decode-output/example3_137_100_20/frame2300-20.jpg
+1521434141.287032 PUT mxnet-results/example3_137_100_20/frame2300-20.out
+1521434141.288847 PUT video-lambda-logs-mxnet/mxnetparentLambda23-childLambda1
+
+1521434133.829927 GET decode-output/example3_137_100_20/frame5000-20.jpg
+1521434138.565271 PUT mxnet-results/example3_137_100_20/frame5000-20.out
+1521434138.601713 PUT video-lambda-logs-mxnet/mxnetparentLambda50-childLambda3
+
+1521434144.346974 GET decode-output/example3_137_100_20/frame5340-20.jpg
+1521434147.753785 PUT mxnet-results/example3_137_100_20/frame5340-20.out
+1521434147.755986 PUT video-lambda-logs-mxnet/mxnetparentLambda53-childLambda3
+
+1521434142.304304 GET decode-output/example3_137_100_20/frame1700-20.jpg
+1521434147.469091 PUT mxnet-results/example3_137_100_20/frame1700-20.out
+1521434147.485704 PUT video-lambda-logs-mxnet/mxnetparentLambda17-childLambda2
+
+1521434144.460378 GET decode-output/example3_137_100_20/frame480-20.jpg
+1521434149.165105 PUT mxnet-results/example3_137_100_20/frame480-20.out
+1521434149.184423 PUT video-lambda-logs-mxnet/mxnetparentLambda4-childLambda2
+
+1521434142.290519 GET decode-output/example3_137_100_20/frame4060-20.jpg
+1521434146.935686 PUT mxnet-results/example3_137_100_20/frame4060-20.out
+1521434146.947129 PUT video-lambda-logs-mxnet/mxnetparentLambda40-childLambda4
+
+1521434138.470666 GET decode-output/example3_137_100_20/frame5700-20.jpg
+1521434143.519620 PUT mxnet-results/example3_137_100_20/frame5700-20.out
+1521434143.521923 PUT video-lambda-logs-mxnet/mxnetparentLambda57-childLambda4
+
+1521434141.221837 GET decode-output/example3_137_100_20/frame2920-20.jpg
+1521434144.539694 PUT mxnet-results/example3_137_100_20/frame2920-20.out
+1521434144.559677 PUT video-lambda-logs-mxnet/mxnetparentLambda29-childLambda1
+
+1521434144.910341 GET decode-output/example3_137_100_20/frame3880-20.jpg
+1521434149.577991 PUT mxnet-results/example3_137_100_20/frame3880-20.out
+1521434149.580424 PUT video-lambda-logs-mxnet/mxnetparentLambda38-childLambda4
+
+1521434152.715838 GET decode-output/example3_137_100_20/frame1880-20.jpg
+1521434157.493528 PUT mxnet-results/example3_137_100_20/frame1880-20.out
+1521434157.512243 PUT video-lambda-logs-mxnet/mxnetparentLambda18-childLambda2
+
+1521434135.587813 GET decode-output/example3_137_100_20/frame3180-20.jpg
+1521434140.253348 PUT mxnet-results/example3_137_100_20/frame3180-20.out
+1521434140.258444 PUT video-lambda-logs-mxnet/mxnetparentLambda31-childLambda4
+
+1521434135.369789 GET decode-output/example3_137_100_20/frame6020-20.jpg
+1521434139.917415 PUT mxnet-results/example3_137_100_20/frame6020-20.out
+1521434139.923043 PUT video-lambda-logs-mxnet/mxnetparentLambda60-childLambda2
+
+1521434136.958204 GET decode-output/example3_137_100_20/frame4240-20.jpg
+1521434140.318817 PUT mxnet-results/example3_137_100_20/frame4240-20.out
+1521434140.320350 PUT video-lambda-logs-mxnet/mxnetparentLambda42-childLambda2
+
+1521434137.177671 GET decode-output/example3_137_100_20/frame6040-20.jpg
+1521434140.376430 PUT mxnet-results/example3_137_100_20/frame6040-20.out
+1521434140.377800 PUT video-lambda-logs-mxnet/mxnetparentLambda60-childLambda1
+
+1521434136.060285 GET decode-output/example3_137_100_20/frame6100-20.jpg
+1521434140.624329 PUT mxnet-results/example3_137_100_20/frame6100-20.out
+1521434140.626152 PUT video-lambda-logs-mxnet/mxnetparentLambda61-childLambda3
+
+1521434131.336697 GET decode-output/example3_137_100_20/frame6200-20.jpg
+1521434134.670024 PUT mxnet-results/example3_137_100_20/frame6200-20.out
+1521434134.712712 PUT video-lambda-logs-mxnet/mxnetparentLambda62-childLambda1
+
+1521434144.753864 GET decode-output/example3_137_100_20/frame20-20.jpg
+1521434149.641153 PUT mxnet-results/example3_137_100_20/frame20-20.out
+1521434149.648897 PUT video-lambda-logs-mxnet/mxnetparentLambda0-childLambda0
+
+1521434143.112965 GET decode-output/example3_137_100_20/frame140-20.jpg
+1521434146.614951 PUT mxnet-results/example3_137_100_20/frame140-20.out
+1521434146.619345 PUT video-lambda-logs-mxnet/mxnetparentLambda1-childLambda0
+
+1521434132.904763 GET decode-output/example3_137_100_20/frame2860-20.jpg
+1521434137.522019 PUT mxnet-results/example3_137_100_20/frame2860-20.out
+1521434137.543999 PUT video-lambda-logs-mxnet/mxnetparentLambda28-childLambda1
+
+1521434134.084491 GET decode-output/example3_137_100_20/frame3920-20.jpg
+1521434138.814068 PUT mxnet-results/example3_137_100_20/frame3920-20.out
+1521434138.859294 PUT video-lambda-logs-mxnet/mxnetparentLambda39-childLambda0
+
+1521434135.733446 GET decode-output/example3_137_100_20/frame2100-20.jpg
+1521434140.533685 PUT mxnet-results/example3_137_100_20/frame2100-20.out
+1521434140.565444 PUT video-lambda-logs-mxnet/mxnetparentLambda21-childLambda0
+
+1521434152.568200 GET decode-output/example3_137_100_20/frame440-20.jpg
+1521434157.339240 PUT mxnet-results/example3_137_100_20/frame440-20.out
+1521434157.352035 PUT video-lambda-logs-mxnet/mxnetparentLambda4-childLambda1
+
+1521434137.719825 GET decode-output/example3_137_100_20/frame4760-20.jpg
+1521434141.003524 PUT mxnet-results/example3_137_100_20/frame4760-20.out
+1521434141.014575 PUT video-lambda-logs-mxnet/mxnetparentLambda47-childLambda2
+
+1521434144.827134 GET decode-output/example3_137_100_20/frame3540-20.jpg
+1521434148.249402 PUT mxnet-results/example3_137_100_20/frame3540-20.out
+1521434148.256218 PUT video-lambda-logs-mxnet/mxnetparentLambda35-childLambda3
+
+1521434144.972129 GET decode-output/example3_137_100_20/frame2420-20.jpg
+1521434148.460824 PUT mxnet-results/example3_137_100_20/frame2420-20.out
+1521434148.462262 PUT video-lambda-logs-mxnet/mxnetparentLambda24-childLambda3
+
+1521434140.087438 GET decode-output/example3_137_100_20/frame1740-20.jpg
+1521434144.190125 PUT mxnet-results/example3_137_100_20/frame1740-20.out
+1521434144.211721 PUT video-lambda-logs-mxnet/mxnetparentLambda17-childLambda4
+
+1521434135.458857 GET decode-output/example3_137_100_20/frame3980-20.jpg
+1521434139.968273 PUT mxnet-results/example3_137_100_20/frame3980-20.out
+1521434139.970072 PUT video-lambda-logs-mxnet/mxnetparentLambda39-childLambda4
+
+1521434146.417985 GET decode-output/example3_137_100_20/frame5360-20.jpg
+1521434151.310593 PUT mxnet-results/example3_137_100_20/frame5360-20.out
+1521434151.318356 PUT video-lambda-logs-mxnet/mxnetparentLambda53-childLambda4
+
+1521434143.619723 GET decode-output/example3_137_100_20/frame620-20.jpg
+1521434148.406391 PUT mxnet-results/example3_137_100_20/frame620-20.out
+1521434148.409114 PUT video-lambda-logs-mxnet/mxnetparentLambda6-childLambda1
+
+1521434144.730794 GET decode-output/example3_137_100_20/frame3260-20.jpg
+1521434149.303646 PUT mxnet-results/example3_137_100_20/frame3260-20.out
+1521434149.305809 PUT video-lambda-logs-mxnet/mxnetparentLambda32-childLambda2
+
+1521434145.333011 GET decode-output/example3_137_100_20/frame1560-20.jpg
+1521434150.147185 PUT mxnet-results/example3_137_100_20/frame1560-20.out
+1521434150.157945 PUT video-lambda-logs-mxnet/mxnetparentLambda15-childLambda2
+
+1521434132.768250 GET decode-output/example3_137_100_20/frame2820-20.jpg
+1521434136.204720 PUT mxnet-results/example3_137_100_20/frame2820-20.out
+1521434136.212702 PUT video-lambda-logs-mxnet/mxnetparentLambda28-childLambda0
+
+1521434153.434180 GET decode-output/example3_137_100_20/frame1540-20.jpg
+1521434158.147384 PUT mxnet-results/example3_137_100_20/frame1540-20.out
+1521434158.154091 PUT video-lambda-logs-mxnet/mxnetparentLambda15-childLambda4
+
+1521434143.930268 GET decode-output/example3_137_100_20/frame100-20.jpg
+1521434149.073953 PUT mxnet-results/example3_137_100_20/frame100-20.out
+1521434149.110506 PUT video-lambda-logs-mxnet/mxnetparentLambda1-childLambda1
+
+1521434143.569435 GET decode-output/example3_137_100_20/frame4680-20.jpg
+1521434146.864158 PUT mxnet-results/example3_137_100_20/frame4680-20.out
+1521434146.878569 PUT video-lambda-logs-mxnet/mxnetparentLambda46-childLambda2
+
+1521434151.579258 GET decode-output/example3_137_100_20/frame3300-20.jpg
+1521434156.386979 PUT mxnet-results/example3_137_100_20/frame3300-20.out
+1521434156.413653 PUT video-lambda-logs-mxnet/mxnetparentLambda33-childLambda0
+
+1521434136.490247 GET decode-output/example3_137_100_20/frame5820-20.jpg
+1521434139.726830 PUT mxnet-results/example3_137_100_20/frame5820-20.out
+1521434139.734136 PUT video-lambda-logs-mxnet/mxnetparentLambda58-childLambda3
+
+1521434137.171696 GET decode-output/example3_137_100_20/frame4360-20.jpg
+1521434140.419730 PUT mxnet-results/example3_137_100_20/frame4360-20.out
+1521434140.423290 PUT video-lambda-logs-mxnet/mxnetparentLambda43-childLambda1
+
+1521434135.265959 GET decode-output/example3_137_100_20/frame4920-20.jpg
+1521434138.559521 PUT mxnet-results/example3_137_100_20/frame4920-20.out
+1521434138.560930 PUT video-lambda-logs-mxnet/mxnetparentLambda49-childLambda2
+
+1521434151.363950 GET decode-output/example3_137_100_20/frame3520-20.jpg
+1521434156.102997 PUT mxnet-results/example3_137_100_20/frame3520-20.out
+1521434156.117115 PUT video-lambda-logs-mxnet/mxnetparentLambda35-childLambda2
+
+1521434137.346965 GET decode-output/example3_137_100_20/frame6080-20.jpg
+1521434141.958695 PUT mxnet-results/example3_137_100_20/frame6080-20.out
+1521434141.960587 PUT video-lambda-logs-mxnet/mxnetparentLambda60-childLambda0
+
+1521434136.362972 GET decode-output/example3_137_100_20/frame1300-20.jpg
+1521434141.232683 PUT mxnet-results/example3_137_100_20/frame1300-20.out
+1521434141.235081 PUT video-lambda-logs-mxnet/mxnetparentLambda13-childLambda4
+
+1521434145.055189 GET decode-output/example3_137_100_20/frame1180-20.jpg
+1521434149.704611 PUT mxnet-results/example3_137_100_20/frame1180-20.out
+1521434149.706845 PUT video-lambda-logs-mxnet/mxnetparentLambda11-childLambda4
+
+1521434152.329463 GET decode-output/example3_137_100_20/frame1820-20.jpg
+1521434158.373183 PUT mxnet-results/example3_137_100_20/frame1820-20.out
+1521434158.449413 PUT video-lambda-logs-mxnet/mxnetparentLambda18-childLambda0
+
+1521434137.555724 GET decode-output/example3_137_100_20/frame3040-20.jpg
+1521434140.808327 PUT mxnet-results/example3_137_100_20/frame3040-20.out
+1521434140.816827 PUT video-lambda-logs-mxnet/mxnetparentLambda30-childLambda0
+
+1521434138.046110 GET decode-output/example3_137_100_20/frame4160-20.jpg
+1521434141.334980 PUT mxnet-results/example3_137_100_20/frame4160-20.out
+1521434141.346743 PUT video-lambda-logs-mxnet/mxnetparentLambda41-childLambda1
+
+1521434137.084856 GET decode-output/example3_137_100_20/frame4740-20.jpg
+1521434140.585371 PUT mxnet-results/example3_137_100_20/frame4740-20.out
+1521434140.592399 PUT video-lambda-logs-mxnet/mxnetparentLambda47-childLambda1
+
+1521434150.203612 GET decode-output/example3_137_100_20/frame4840-20.jpg
+1521434154.927640 PUT mxnet-results/example3_137_100_20/frame4840-20.out
+1521434154.950121 PUT video-lambda-logs-mxnet/mxnetparentLambda48-childLambda2
+
+1521434135.779510 GET decode-output/example3_137_100_20/frame1920-20.jpg
+1521434140.475159 PUT mxnet-results/example3_137_100_20/frame1920-20.out
+1521434140.476874 PUT video-lambda-logs-mxnet/mxnetparentLambda19-childLambda4
+
+1521434141.830647 GET decode-output/example3_137_100_20/frame1600-20.jpg
+1521434146.781380 PUT mxnet-results/example3_137_100_20/frame1600-20.out
+1521434146.841372 PUT video-lambda-logs-mxnet/mxnetparentLambda16-childLambda2
+
+1521434139.339425 GET decode-output/example3_137_100_20/frame4300-20.jpg
+1521434143.870486 PUT mxnet-results/example3_137_100_20/frame4300-20.out
+1521434143.872331 PUT video-lambda-logs-mxnet/mxnetparentLambda43-childLambda4
+
+1521434134.380586 GET decode-output/example3_137_100_20/frame2160-20.jpg
+1521434139.292213 PUT mxnet-results/example3_137_100_20/frame2160-20.out
+1521434139.322462 PUT video-lambda-logs-mxnet/mxnetparentLambda21-childLambda4
+
+1521434136.395156 GET decode-output/example3_137_100_20/frame560-20.jpg
+1521434141.096397 PUT mxnet-results/example3_137_100_20/frame560-20.out
+1521434141.098239 PUT video-lambda-logs-mxnet/mxnetparentLambda5-childLambda2
+
+1521434138.062691 GET decode-output/example3_137_100_20/frame2720-20.jpg
+1521434141.441442 PUT mxnet-results/example3_137_100_20/frame2720-20.out
+1521434141.445172 PUT video-lambda-logs-mxnet/mxnetparentLambda27-childLambda1
+
+1521434143.442075 GET decode-output/example3_137_100_20/frame3280-20.jpg
+1521434146.737950 PUT mxnet-results/example3_137_100_20/frame3280-20.out
+1521434146.739955 PUT video-lambda-logs-mxnet/mxnetparentLambda32-childLambda1
+
+1521434138.085682 GET decode-output/example3_137_100_20/frame1260-20.jpg
+1521434141.382037 PUT mxnet-results/example3_137_100_20/frame1260-20.out
+1521434141.388169 PUT video-lambda-logs-mxnet/mxnetparentLambda12-childLambda4
+
+1521434137.073996 GET decode-output/example3_137_100_20/frame3000-20.jpg
+1521434140.500672 PUT mxnet-results/example3_137_100_20/frame3000-20.out
+1521434140.502474 PUT video-lambda-logs-mxnet/mxnetparentLambda30-childLambda1
+
+1521434143.881466 GET decode-output/example3_137_100_20/frame640-20.jpg
+1521434147.387682 PUT mxnet-results/example3_137_100_20/frame640-20.out
+1521434147.396934 PUT video-lambda-logs-mxnet/mxnetparentLambda6-childLambda4
+
+1521434135.428596 GET decode-output/example3_137_100_20/frame5960-20.jpg
+1521434139.954792 PUT mxnet-results/example3_137_100_20/frame5960-20.out
+1521434139.970475 PUT video-lambda-logs-mxnet/mxnetparentLambda59-childLambda2
+
+1521434133.785062 GET decode-output/example3_137_100_20/frame2140-20.jpg
+1521434138.546502 PUT mxnet-results/example3_137_100_20/frame2140-20.out
+1521434138.552334 PUT video-lambda-logs-mxnet/mxnetparentLambda21-childLambda2
+
+1521434135.768136 GET decode-output/example3_137_100_20/frame4900-20.jpg
+1521434140.329089 PUT mxnet-results/example3_137_100_20/frame4900-20.out
+1521434140.335691 PUT video-lambda-logs-mxnet/mxnetparentLambda49-childLambda3
+
+1521434145.010410 GET decode-output/example3_137_100_20/frame1480-20.jpg
+1521434148.506574 PUT mxnet-results/example3_137_100_20/frame1480-20.out
+1521434148.513178 PUT video-lambda-logs-mxnet/mxnetparentLambda14-childLambda4
+
+1521434143.270810 GET decode-output/example3_137_100_20/frame3320-20.jpg
+1521434146.790873 PUT mxnet-results/example3_137_100_20/frame3320-20.out
+1521434146.801491 PUT video-lambda-logs-mxnet/mxnetparentLambda33-childLambda2
+
+1521434149.125161 GET decode-output/example3_137_100_20/frame2560-20.jpg
+1521434152.679628 PUT mxnet-results/example3_137_100_20/frame2560-20.out
+1521434152.698065 PUT video-lambda-logs-mxnet/mxnetparentLambda25-childLambda4
+
+1521434134.887331 GET decode-output/example3_137_100_20/frame900-20.jpg
+1521434140.964241 PUT mxnet-results/example3_137_100_20/frame900-20.out
+1521434141.001742 PUT video-lambda-logs-mxnet/mxnetparentLambda9-childLambda0
+
+1521434152.901081 GET decode-output/example3_137_100_20/frame3840-20.jpg
+1521434157.780718 PUT mxnet-results/example3_137_100_20/frame3840-20.out
+1521434157.792367 PUT video-lambda-logs-mxnet/mxnetparentLambda38-childLambda2
+
+1521434136.308800 GET decode-output/example3_137_100_20/frame4140-20.jpg
+1521434140.897524 PUT mxnet-results/example3_137_100_20/frame4140-20.out
+1521434140.904653 PUT video-lambda-logs-mxnet/mxnetparentLambda41-childLambda4
+
+1521434142.705261 GET decode-output/example3_137_100_20/frame4260-20.jpg
+1521434147.287372 PUT mxnet-results/example3_137_100_20/frame4260-20.out
+1521434147.296312 PUT video-lambda-logs-mxnet/mxnetparentLambda42-childLambda3
+
+1521434147.681095 GET decode-output/example3_137_100_20/frame5180-20.jpg
+1521434151.025712 PUT mxnet-results/example3_137_100_20/frame5180-20.out
+1521434151.028068 PUT video-lambda-logs-mxnet/mxnetparentLambda51-childLambda3
+
+1521434133.941959 GET decode-output/example3_137_100_20/frame1020-20.jpg
+1521434137.505105 PUT mxnet-results/example3_137_100_20/frame1020-20.out
+1521434137.542304 PUT video-lambda-logs-mxnet/mxnetparentLambda10-childLambda4
+
+1521434145.366529 GET decode-output/example3_137_100_20/frame3460-20.jpg
+1521434150.011807 PUT mxnet-results/example3_137_100_20/frame3460-20.out
+1521434150.020384 PUT video-lambda-logs-mxnet/mxnetparentLambda34-childLambda2
+
+1521434152.633081 GET decode-output/example3_137_100_20/frame1460-20.jpg
+1521434157.564687 PUT mxnet-results/example3_137_100_20/frame1460-20.out
+1521434157.582223 PUT video-lambda-logs-mxnet/mxnetparentLambda14-childLambda0
+
+1521434143.942198 GET decode-output/example3_137_100_20/frame3400-20.jpg
+1521434148.828161 PUT mxnet-results/example3_137_100_20/frame3400-20.out
+1521434148.923379 PUT video-lambda-logs-mxnet/mxnetparentLambda34-childLambda0
+
+1521434131.106241 GET decode-output/example3_137_100_20/frame6220-1.jpg
+1521434131.488868 PUT mxnet-results/example3_137_100_20/frame6220-1.out
+1521434131.490813 PUT video-lambda-logs-mxnet/mxnetparentLambda62-childLambda0
+
+1521434151.239133 GET decode-output/example3_137_100_20/frame3440-20.jpg
+1521434155.864356 PUT mxnet-results/example3_137_100_20/frame3440-20.out
+1521434155.870468 PUT video-lambda-logs-mxnet/mxnetparentLambda34-childLambda3
+
+1521434152.311128 GET decode-output/example3_137_100_20/frame5680-20.jpg
+1521434157.139783 PUT mxnet-results/example3_137_100_20/frame5680-20.out
+1521434157.151729 PUT video-lambda-logs-mxnet/mxnetparentLambda56-childLambda3
+
+1521434144.252775 GET decode-output/example3_137_100_20/frame780-20.jpg
+1521434147.763434 PUT mxnet-results/example3_137_100_20/frame780-20.out
+1521434147.768978 PUT video-lambda-logs-mxnet/mxnetparentLambda7-childLambda3
+
+1521434138.070167 GET decode-output/example3_137_100_20/frame4080-20.jpg
+1521434142.620987 PUT mxnet-results/example3_137_100_20/frame4080-20.out
+1521434142.624796 PUT video-lambda-logs-mxnet/mxnetparentLambda40-childLambda3
+
+1521434134.225068 GET decode-output/example3_137_100_20/frame980-20.jpg
+1521434139.597883 PUT mxnet-results/example3_137_100_20/frame980-20.out
+1521434139.680662 PUT video-lambda-logs-mxnet/mxnetparentLambda9-childLambda1
+
+1521434138.437198 GET decode-output/example3_137_100_20/frame4720-20.jpg
+1521434143.095249 PUT mxnet-results/example3_137_100_20/frame4720-20.out
+1521434143.097848 PUT video-lambda-logs-mxnet/mxnetparentLambda47-childLambda0
+
+1521434141.056646 GET decode-output/example3_137_100_20/frame380-20.jpg
+1521434146.037393 PUT mxnet-results/example3_137_100_20/frame380-20.out
+1521434146.055609 PUT video-lambda-logs-mxnet/mxnetparentLambda3-childLambda4
+
+1521434145.603367 GET decode-output/example3_137_100_20/frame3680-20.jpg
+1521434150.315043 PUT mxnet-results/example3_137_100_20/frame3680-20.out
+1521434150.344889 PUT video-lambda-logs-mxnet/mxnetparentLambda36-childLambda4
+
+1521434142.212226 GET decode-output/example3_137_100_20/frame4420-20.jpg
+1521434145.476586 PUT mxnet-results/example3_137_100_20/frame4420-20.out
+1521434145.484233 PUT video-lambda-logs-mxnet/mxnetparentLambda44-childLambda2
+
+1521434135.215778 GET decode-output/example3_137_100_20/frame1960-20.jpg
+1521434139.988923 PUT mxnet-results/example3_137_100_20/frame1960-20.out
+1521434139.994716 PUT video-lambda-logs-mxnet/mxnetparentLambda19-childLambda2
+
+1521434136.158268 GET decode-output/example3_137_100_20/frame4380-20.jpg
+1521434140.791676 PUT mxnet-results/example3_137_100_20/frame4380-20.out
+1521434140.797231 PUT video-lambda-logs-mxnet/mxnetparentLambda43-childLambda0
+
+1521434141.373264 GET decode-output/example3_137_100_20/frame5300-20.jpg
+1521434146.226602 PUT mxnet-results/example3_137_100_20/frame5300-20.out
+1521434146.264216 PUT video-lambda-logs-mxnet/mxnetparentLambda53-childLambda1
+
+1521434142.162031 GET decode-output/example3_137_100_20/frame1720-20.jpg
+1521434145.648710 PUT mxnet-results/example3_137_100_20/frame1720-20.out
+1521434145.653768 PUT video-lambda-logs-mxnet/mxnetparentLambda17-childLambda3
+
+1521434141.400260 GET decode-output/example3_137_100_20/frame5380-20.jpg
+1521434146.571579 PUT mxnet-results/example3_137_100_20/frame5380-20.out
+1521434146.574703 PUT video-lambda-logs-mxnet/mxnetparentLambda53-childLambda0
+
+1521434135.620658 GET decode-output/example3_137_100_20/frame4980-20.jpg
+1521434140.150711 PUT mxnet-results/example3_137_100_20/frame4980-20.out
+1521434140.156630 PUT video-lambda-logs-mxnet/mxnetparentLambda49-childLambda4
+
+1521434153.320721 GET decode-output/example3_137_100_20/frame4600-20.jpg
+1521434157.994127 PUT mxnet-results/example3_137_100_20/frame4600-20.out
+1521434158.008191 PUT video-lambda-logs-mxnet/mxnetparentLambda46-childLambda4
+
+1521434144.412302 GET decode-output/example3_137_100_20/frame4800-20.jpg
+1521434147.772484 PUT mxnet-results/example3_137_100_20/frame4800-20.out
+1521434147.774010 PUT video-lambda-logs-mxnet/mxnetparentLambda48-childLambda3
+
+1521434136.211826 GET decode-output/example3_137_100_20/frame3100-20.jpg
+1521434139.464502 PUT mxnet-results/example3_137_100_20/frame3100-20.out
+1521434139.469028 PUT video-lambda-logs-mxnet/mxnetparentLambda31-childLambda2
+
+1521434134.772852 GET decode-output/example3_137_100_20/frame920-20.jpg
+1521434140.030196 PUT mxnet-results/example3_137_100_20/frame920-20.out
+1521434140.094038 PUT video-lambda-logs-mxnet/mxnetparentLambda9-childLambda4
+
+1521434143.902908 GET decode-output/example3_137_100_20/frame4660-20.jpg
+1521434147.357645 PUT mxnet-results/example3_137_100_20/frame4660-20.out
+1521434147.373170 PUT video-lambda-logs-mxnet/mxnetparentLambda46-childLambda1
+
+1521434141.176349 GET decode-output/example3_137_100_20/frame300-20.jpg
+1521434144.585814 PUT mxnet-results/example3_137_100_20/frame300-20.out
+1521434144.590865 PUT video-lambda-logs-mxnet/mxnetparentLambda3-childLambda3
+
+1521434143.741130 GET decode-output/example3_137_100_20/frame2400-20.jpg
+1521434148.782274 PUT mxnet-results/example3_137_100_20/frame2400-20.out
+1521434148.817358 PUT video-lambda-logs-mxnet/mxnetparentLambda24-childLambda2
+
+1521434143.028455 GET decode-output/example3_137_100_20/frame5440-20.jpg
+1521434147.877105 PUT mxnet-results/example3_137_100_20/frame5440-20.out
+1521434147.883173 PUT video-lambda-logs-mxnet/mxnetparentLambda54-childLambda3
+
+1521434152.461948 GET decode-output/example3_137_100_20/frame860-20.jpg
+1521434157.272778 PUT mxnet-results/example3_137_100_20/frame860-20.out
+1521434157.293211 PUT video-lambda-logs-mxnet/mxnetparentLambda8-childLambda2
+
+1521434135.788305 GET decode-output/example3_137_100_20/frame3960-20.jpg
+1521434140.332519 PUT mxnet-results/example3_137_100_20/frame3960-20.out
+1521434140.340259 PUT video-lambda-logs-mxnet/mxnetparentLambda39-childLambda3
+
+1521434152.285088 GET decode-output/example3_137_100_20/frame4820-20.jpg
+1521434156.914609 PUT mxnet-results/example3_137_100_20/frame4820-20.out
+1521434156.938397 PUT video-lambda-logs-mxnet/mxnetparentLambda48-childLambda1
+
+1521434136.845426 GET decode-output/example3_137_100_20/frame6140-20.jpg
+1521434140.114987 PUT mxnet-results/example3_137_100_20/frame6140-20.out
+1521434140.123606 PUT video-lambda-logs-mxnet/mxnetparentLambda61-childLambda1
+
+1521434145.040307 GET decode-output/example3_137_100_20/frame3560-20.jpg
+1521434149.601102 PUT mxnet-results/example3_137_100_20/frame3560-20.out
+1521434149.605873 PUT video-lambda-logs-mxnet/mxnetparentLambda35-childLambda4
+
+1521434144.296943 GET decode-output/example3_137_100_20/frame2540-20.jpg
+1521434147.841660 PUT mxnet-results/example3_137_100_20/frame2540-20.out
+1521434147.851077 PUT video-lambda-logs-mxnet/mxnetparentLambda25-childLambda3
+
+1521434139.455670 GET decode-output/example3_137_100_20/frame5420-20.jpg
+1521434143.040577 PUT mxnet-results/example3_137_100_20/frame5420-20.out
+1521434143.068606 PUT video-lambda-logs-mxnet/mxnetparentLambda54-childLambda2
+
+1521434137.252049 GET decode-output/example3_137_100_20/frame4120-20.jpg
+1521434141.799462 PUT mxnet-results/example3_137_100_20/frame4120-20.out
+1521434141.805836 PUT video-lambda-logs-mxnet/mxnetparentLambda41-childLambda2
+
+1521434144.800373 GET decode-output/example3_137_100_20/frame2040-20.jpg
+1521434148.046075 PUT mxnet-results/example3_137_100_20/frame2040-20.out
+1521434148.052279 PUT video-lambda-logs-mxnet/mxnetparentLambda20-childLambda4
+
+1521434153.620672 GET decode-output/example3_137_100_20/frame5120-20.jpg
+1521434159.210532 PUT mxnet-results/example3_137_100_20/frame5120-20.out
+1521434159.289536 PUT video-lambda-logs-mxnet/mxnetparentLambda51-childLambda0
+
+1521434143.190983 GET decode-output/example3_137_100_20/frame160-20.jpg
+1521434146.569263 PUT mxnet-results/example3_137_100_20/frame160-20.out
+1521434146.576703 PUT video-lambda-logs-mxnet/mxnetparentLambda1-childLambda2
+
+1521434141.090878 GET decode-output/example3_137_100_20/frame1420-20.jpg
+1521434146.358975 PUT mxnet-results/example3_137_100_20/frame1420-20.out
+1521434146.424249 PUT video-lambda-logs-mxnet/mxnetparentLambda14-childLambda2
+
+1521434133.749280 GET decode-output/example3_137_100_20/frame2120-20.jpg
+1521434137.228976 PUT mxnet-results/example3_137_100_20/frame2120-20.out
+1521434137.262119 PUT video-lambda-logs-mxnet/mxnetparentLambda21-childLambda3
+
+1521434141.147545 GET decode-output/example3_137_100_20/frame1860-20.jpg
+1521434145.172410 PUT mxnet-results/example3_137_100_20/frame1860-20.out
+1521434145.248020 PUT video-lambda-logs-mxnet/mxnetparentLambda18-childLambda1
+
+1521434136.769546 GET decode-output/example3_137_100_20/frame2700-20.jpg
+1521434141.418632 PUT mxnet-results/example3_137_100_20/frame2700-20.out
+1521434141.425117 PUT video-lambda-logs-mxnet/mxnetparentLambda27-childLambda0
+
+1521434133.754073 GET decode-output/example3_137_100_20/frame5040-20.jpg
+1521434138.316828 PUT mxnet-results/example3_137_100_20/frame5040-20.out
+1521434138.335044 PUT video-lambda-logs-mxnet/mxnetparentLambda50-childLambda4
+
+1521434145.421124 GET decode-output/example3_137_100_20/frame3800-20.jpg
+1521434150.169061 PUT mxnet-results/example3_137_100_20/frame3800-20.out
+1521434150.183751 PUT video-lambda-logs-mxnet/mxnetparentLambda38-childLambda3
+

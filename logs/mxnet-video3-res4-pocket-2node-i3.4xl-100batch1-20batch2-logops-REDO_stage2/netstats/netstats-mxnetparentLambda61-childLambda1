@@ -1,0 +1,1 @@
+{'tx': [396.0, 728.0], 'ops': ['1521434136.845426 GET decode-output/example3_137_100_20/frame6140-20.jpg', '1521434140.114987 PUT mxnet-results/example3_137_100_20/frame6140-20.out', '1521434140.123606 PUT video-lambda-logs-mxnet/mxnetparentLambda61-childLambda1'], 'started': 1521434133.200009, 'rx': [343.0, 578.0], 'cpu': [0.5, 75.5], 'lambda': 'parentLambda61-childLambda1'}

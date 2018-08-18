@@ -1,0 +1,1 @@
+{'started': 1521434141.882289, 'timelog': [('download model', 1.2605290412902832), ('download_inputs', 1.2739200592041016), ('compute', 4.759037017822266), ('upload results', 0.011833906173706055)], 'lambda': 'parentLambda23-childLambda2'}
