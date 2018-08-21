@@ -67,7 +67,8 @@ print "Avg rd access freq:     ", sum(rd_access_freq)/len(rd_access_freq)
 
 n_bins = len(time_to_first_read)
 n, bins, patches = ax.hist(object_lifetime, n_bins, normed=1, histtype='step',
-                           cumulative=True, label=r'$\lambda$'.decode("utf-8")+'cc', linewidth=3)
+                           cumulative=True, label=r'$\lambda$'.decode("utf-8")+'-cc cmake',
+						   linewidth=4)
 patches[0].set_xy(patches[0].get_xy()[:-1])
 #n, bins, patches = ax.hist(time_to_first_read, n_bins, normed=1, histtype='step',
 #                           cumulative=True, label='gg-cmake__time-to-first-read', linewidth=3, linestyle=':', color="#ff7f0e")
@@ -153,7 +154,7 @@ print "Avg rd access freq:     ", sum(rd_access_freq)/len(rd_access_freq)
 
 n_bins = len(time_to_first_read)
 n, bins, patches = ax.hist(time_to_first_read, n_bins, normed=1, histtype='step',
-                           cumulative=True, label='video-analytics', linewidth=3, linestyle='--')
+                           cumulative=True, label='video-analytics', linewidth=4, linestyle='--')
 patches[0].set_xy(patches[0].get_xy()[:-1])
 
 
@@ -168,7 +169,7 @@ for line in opfile_sort:
 
 n_bins = len(lifetimes)
 n, bins, patches = ax.hist(lifetimes, n_bins, normed=1, histtype='step',
-                           cumulative=True, label='sort 100 GB', linewidth=3, linestyle=':')
+                           cumulative=True, label='sort 100 GB', linewidth=4, linestyle=':')
 patches[0].set_xy(patches[0].get_xy()[:-1])
 
 
