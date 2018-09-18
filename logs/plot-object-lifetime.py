@@ -174,7 +174,7 @@ patches[0].set_xy(patches[0].get_xy()[:-1])
 
 
 ax.legend(loc='lower right')
-ax.set_xlabel('Time (seconds)')
+ax.set_xlabel('Ephemeral Object Lifetime (seconds)')
 #ax.set_xlim(1,max(videox)+1000)
 #ax.set_xlim(10,10e8)
 ax.set_ylim(0,1)
