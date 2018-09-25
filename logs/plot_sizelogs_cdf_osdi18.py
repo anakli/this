@@ -8,6 +8,8 @@ import matplotlib.pyplot as plt
 
 #python plot_sizelogs_cdf_osdi18.py video3-res4-sizelogs  gg-cmake-lambda100-sizelogs pywren_filesize_100GB_250workers.txt
 plt.rcParams.update({'font.size': 30})
+plt.rcParams.update({'pdf.fonttype': 42})
+plt.rcParams.update({'ps.fonttype': 42})
 
 
 

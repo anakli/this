@@ -9,6 +9,8 @@ import pandas as pd
 import matplotlib.ticker as ticker
 
 plt.rcParams.update({'font.size': 28})
+plt.rcParams.update({'pdf.fonttype': 42})
+plt.rcParams.update({'ps.fonttype': 42})
 
 #python plot-object-lifetime.py mxnet-video3-res4-pocket-2node-i3.4xl-100batch1-20batch2-logops-REDO gg-cmake-crail-i3.4xl-2node-logops-100lambdas-localparseall-redo/netstats/ops.txt object-lifetime-100GBsort-250lambda.txt
 
